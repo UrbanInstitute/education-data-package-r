@@ -1,0 +1,8 @@
+*.dll
+.RData
+.Rproj.user
+.Rhistory
+inst/doc
+.httr-oauth
+vignettes/*.R
+.DS_Store

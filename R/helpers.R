@@ -1,6 +1,7 @@
 get_data_old <- function(url) {
   request <- httr::GET(url)
   resp <- jsonlite::fromJSON(rawToChar(request$content))
+  expected_rows <- resp$count
   pages <- ceiling(resp$count / 100)
   count = 1
 
@@ -16,10 +17,19 @@ get_data_old <- function(url) {
     url <- resp[['next']]
   }
 
+  if (nrow(df) != expected_rows) {
+    warning('API call expected ', expected_rows, ' results but received ',
+            nrow(df), '. Consider filing an issue with the development team.',
+            call. = FALSE)
+  }
+
   return(df)
 
 }
 
+# retrieve API data results from a given page
+#
+# returns a data.frame of API results
 get_page_data <- function(page_url) {
   print(page_url)
   request <- httr::GET(page_url)
@@ -28,6 +38,9 @@ get_page_data <- function(page_url) {
   return(df)
 }
 
+# retrieve and bind API data results from all pages of a given API call
+#
+# returns a data.frame of all observations from an API call
 get_data <- function(url) {
   request <- httr::GET(url)
   resp <- jsonlite::fromJSON(rawToChar(request$content))
@@ -45,6 +58,9 @@ get_data <- function(url) {
   return(df)
 }
 
+# retrieve and bind API data results from all pages of a given API call in parallel
+#
+# returns a data.frame of all observations from an API call
 get_data_parallel <- function(url) {
   request <- httr::GET(url)
   resp <- jsonlite::fromJSON(rawToChar(request$content))

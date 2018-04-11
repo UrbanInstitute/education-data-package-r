@@ -29,9 +29,7 @@ get_endpoint_info <- function() {
   endpoints$required_vars <- lapply(endpoints$endpoint_url, get_required_vars)
   endpoints$optional_vars <- lapply(endpoints$endpoint_url, get_optional_vars)
 
-
   return(endpoints)
-
 }
 
 # Retrieve the required variables for a given API endpoint
@@ -57,7 +55,7 @@ get_optional_vars <- function(endpoint_url) {
   opt_args <- args[!(grepl('\\{.*\\}', args))]
 
   if (length(opt_args) == 0) {
-    opt_args <- ''
+    opt_args <- NA
   }
 
   return(opt_args)

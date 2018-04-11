@@ -3,7 +3,8 @@
 #' @param level API data level to query
 #' @param source API data source to query
 #' @param topic API data topic to query
-#' @param ... Additional required and optional parameters to pass to an API call
+#' @param ... Additional required parameters to pass to an API call
+#' @param by Additional optional paramters to pass to an API call
 #'
 #' @return A data.frame of education data
 #'
@@ -13,8 +14,12 @@
 #' }
 #'
 #' @export
-get_education_data <- function(level = NULL, source = NULL, topic = NULL, ...) {
-  url <- construct_url(level, source, topic, ...)
-  df <- get_data_old(url)
+get_education_data <- function(level = NULL,
+                               source = NULL,
+                               topic = NULL,
+                               ...,
+                               by = NULL) {
+  url <- construct_url(level, source, topic, ..., by)
+  df <- get_data(url)
   return(df)
 }

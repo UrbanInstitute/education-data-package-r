@@ -4,7 +4,8 @@
 validate_level <- function(endpoints, level) {
   valid_levels <- unique(endpoints$section)
   if (!(level %in% valid_levels)) {
-    stop('Invalid API level. Valid levels are: ', paste(valid_levels, collapse = ', '))
+    stop('Invalid API level. Valid levels are: ',
+         paste(valid_levels, collapse = ', '))
   }
 }
 
@@ -16,7 +17,8 @@ validate_source <- function(endpoints, level, source) {
   valid_sources <- unique(endpoints$class_name[endpoints$section == level])
 
   if (!(source %in% valid_sources)) {
-    stop('Invalid data source. Valid sources are: ', paste(valid_sources, collapse = ', '))
+    stop('Invalid data source. Valid sources are: ',
+         paste(valid_sources, collapse = ', '))
   }
 }
 
@@ -37,11 +39,13 @@ validate_topic <- function(endpoints, level, source, topic) {
   }
 
   if (!(topic %in% valid_topics) | is.null(topic)) {
-    stop('Invalid topic. Valid topics are: ', paste(valid_topics, collapse = ', '))
+    stop('Invalid topic. Valid topics are: ',
+         paste(valid_topics, collapse = ', '))
   }
 }
 
-validate_required_args <- function(endpoints, level, source, topic, ...) {
+# validate required arguments for an API call
+validate_vars <- function(endpoints, level, source, topic, ..., by = NULL) {
   if (is.null(topic)) {
     url_stub <- paste('/api/v1', level, source, sep = '/')
   } else {
@@ -51,27 +55,61 @@ validate_required_args <- function(endpoints, level, source, topic, ...) {
   valid_endpoints <- endpoints[startsWith(endpoints$endpoint_url, url_stub), ]
   required_vars <- unique(unlist(valid_endpoints$required_vars))
   additional_args <- list(...)
+  by <- unlist(by)
+  optional_vars <- valid_endpoints$optional_vars
 
-  parse_additional_args <- function(required_var, additional_args) {
+  parse_required_args <- function(required_var, additional_args) {
     if (required_var %in% names(additional_args)) {
       url_stub <<- paste(url_stub, additional_args[[required_var]], sep = '/')
+      additional_args[[required_var]] <<- NULL
     } else {
       stop('Argument ', required_var, ' is required.', call. = FALSE)
     }
   }
 
-  lapply(required_vars, parse_additional_args, additional_args)
+  check_optional_vars <- function(by) {
+    all_optional_vars <- unlist(valid_endpoints$optional_vars)
+    lapply(by, function (x) if (!(x %in% all_optional_vars)) stop(x, ' is not a valid endpoint option', call. = F))
+
+  }
+
+  parse_optional_vars <- function(optional_vars, by) {
+    if (length(by) == 0) {
+      return()
+    }
+
+    matches <- unlist(lapply(optional_vars, function(x) all(by %in% x)))
+    valid_endpoints <- valid_endpoints[matches, ]
+    if (nrow(valid_endpoints) == 0) {
+      stop(paste(by, collapse = '/'),
+           ' is an invalid endpoint combination.',
+           call. = F)
+    }
+
+    matched_vars <- unlist(valid_endpoints$optional_vars)
+    lapply(matched_vars, function(x)  url_stub <<- paste(url_stub, x, sep = '/'))
+  }
+
+
+  lapply(required_vars, parse_required_args, additional_args)
+  check_optional_vars(by)
+  parse_optional_vars(optional_vars, by)
   return(url_stub)
 }
 
-construct_url <- function(level = NULL, source = NULL, topic = NULL, ...) {
+# construct full url from given arguments
+construct_url <- function(level = NULL,
+                          source = NULL,
+                          topic = NULL,
+                          ...,
+                          by = NULL,
+                          filters = NULL) {
   endpoints <- get_endpoint_info()
   validate_level(endpoints, level)
   validate_source(endpoints, level, source)
   validate_topic(endpoints, level, source, topic)
 
-  url_stub <- validate_required_args(endpoints, level, source, topic, ...)
-  #return(unique(valid_endpoints$required_vars))
+  url_stub <- validate_vars(endpoints, level, source, topic, ..., by = by)
   url <- paste0('https://ed-data-portal.urban.org', url_stub)
   return(url)
 }

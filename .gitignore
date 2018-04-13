@@ -6,3 +6,4 @@ inst/doc
 .httr-oauth
 vignettes/*.R
 .DS_Store
+test.R

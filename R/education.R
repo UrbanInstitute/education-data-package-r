@@ -18,8 +18,16 @@ get_education_data <- function(level = NULL,
                                source = NULL,
                                topic = NULL,
                                ...,
-                               by = NULL) {
-  url <- construct_url(level, source, topic, ..., by)
+                               by = NULL,
+                               filters = NULL) {
+  url <- construct_url(level = level,
+                       source = source,
+                       topic = topic,
+                       ...,
+                       by = by,
+                       filters = filters)
+
+  message('Fetching ', url, ' ...')
   df <- get_data(url)
   return(df)
 }

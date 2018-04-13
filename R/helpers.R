@@ -7,7 +7,7 @@ get_data <- function(url) {
   expected_rows <- resp$count
 
   if (expected_rows == 0) {
-    stop('Query returned no results.')
+    stop('Query returned no results.', call. = FALSE)
   }
 
   pages <- ceiling(expected_rows / 100)

@@ -45,7 +45,7 @@ validate_topic <- function(endpoints, level, source, topic) {
 }
 
 # validate required arguments for an API call
-validate_vars <- function(endpoints, level, source, topic, ..., by = NULL) {
+validate_vars <- function(endpoints, level, source, topic, ..., by) {
   if (is.null(topic)) {
     url_stub <- paste('/api/v1', level, source, sep = '/')
   } else {
@@ -78,7 +78,7 @@ validate_vars <- function(endpoints, level, source, topic, ..., by = NULL) {
       return()
     }
 
-    matches <- unlist(lapply(optional_vars, function(x) all(by %in% x)))
+    matches <- unlist(lapply(optional_vars, function(x) all(by %in% x) & all(x %in% by)))
     valid_endpoints <- valid_endpoints[matches, ]
     if (nrow(valid_endpoints) == 0) {
       stop(paste(by, collapse = '/'),
@@ -88,6 +88,7 @@ validate_vars <- function(endpoints, level, source, topic, ..., by = NULL) {
 
     matched_vars <- unlist(valid_endpoints$optional_vars)
     lapply(matched_vars, function(x)  url_stub <<- paste(url_stub, x, sep = '/'))
+    url_stub <<- paste0(url_stub, '/')
   }
 
 
@@ -97,19 +98,43 @@ validate_vars <- function(endpoints, level, source, topic, ..., by = NULL) {
   return(url_stub)
 }
 
+parse_filters <- function(url_stub, filters) {
+  if(is.null(filters)) {
+    return(url_stub)
+  } else {
+    url_stub <- paste0(url_stub, '?')
+  }
+
+  filter_stub <- ''
+
+  for (i in seq_along(filters)){
+    name = names(filters[i])
+    for (j in filters[[i]]) {
+      filter_stub <- paste0(filter_stub, name, '=', j, '&')
+    }
+  }
+
+  url_stub <- paste0(url_stub, filter_stub)
+  return(url_stub)
+
+}
+
 # construct full url from given arguments
-construct_url <- function(level = NULL,
-                          source = NULL,
-                          topic = NULL,
+construct_url <- function(level,
+                          source,
+                          topic,
                           ...,
-                          by = NULL,
-                          filters = NULL) {
+                          by,
+                          filters) {
+
   endpoints <- get_endpoint_info()
   validate_level(endpoints, level)
   validate_source(endpoints, level, source)
   validate_topic(endpoints, level, source, topic)
 
   url_stub <- validate_vars(endpoints, level, source, topic, ..., by = by)
+  url_stub <- parse_filters(url_stub, filters)
   url <- paste0('https://ed-data-portal.urban.org', url_stub)
+  url <- sub('\\&$', '', url)
   return(url)
 }

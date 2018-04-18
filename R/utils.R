@@ -1,9 +1,7 @@
-# Retrieve information on available API endpoints.
-#
-# Cleans and parses information on endpoint section, class_name, topic,
-# requried variables, and optional variables.
-#
-# returns a data frame of endpoint information
+#' Retrieve information on available API endpoints.
+#'
+#' @export
+
 get_endpoint_info <- function() {
   url <- 'https://ed-data-portal.urban.org/api/v1/api-endpoints/'
   res <- httr::GET(url)
@@ -18,6 +16,8 @@ get_endpoint_info <- function() {
             'sub_topic',
             'var_list_id')
   endpoints <- endpoints[vars]
+
+  endpoints$years_available <- gsub('â€“', '-', endpoints$years_available)
 
   endpoints$section <- tolower(endpoints$section)
   endpoints$section <- gsub('_', '-', endpoints$section)

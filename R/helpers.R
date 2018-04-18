@@ -10,7 +10,7 @@ get_data <- function(url) {
     stop('Query returned no results.', call. = FALSE)
   }
 
-  pages <- ceiling(expected_rows / 100)
+  pages <- ceiling(expected_rows / 1000)
   dfs <- vector('list', pages)
   count = 1
 

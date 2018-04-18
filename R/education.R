@@ -5,8 +5,9 @@
 #' @param topic API data topic to query
 #' @param ... Additional required parameters to pass to an API call
 #' @param by Additional optional paramters to pass to an API call
+#' @param filters Optional query values to filter an API call
 #'
-#' @return A data.frame of education data
+#' @return A `data.frame` of education data
 #'
 #' @examples \dontrun{
 #' library(educationdata)

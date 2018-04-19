@@ -21,6 +21,68 @@ To install the alpha version of the package:
 devtools.install()
 ```
 
+Available Endpoints
+-------------------
+
+API endpoints follow a format of
+
+-   `level/source/topic/{required}/{variables}/grouping/variables`
+
+where:
+
+-   `level` is the data level to query (i.e., schools, school-districts, college-university)
+-   `source` is the data source for a specific level (i.e., ccd, ipeds, saipe)
+-   `topic` is the data topic to query
+-   `{required}/{variables}` are arguments that must be set for a specific topic
+-   `grouping/variables` are arguments that will provide data 'by' certain categories
+
+For example, the endpoint
+
+-   `college-university/ipeds/fall-enrollment/{year}/{level_of_study}/`
+
+will provide:
+
+-   college-university level data
+-   from IPEDS
+-   on fall-enrollment numbers
+-   for a specified year and level of study.
+
+While the endpoint
+
+-   `college-university/ipeds/fall-enrollment/{year}/{level_of_study}/race`
+
+will provide the same data, grouped by race.
+
+| Endpoint                                                                            | Years Available                       |
+|:------------------------------------------------------------------------------------|:--------------------------------------|
+| college-university/ipeds/admissions-enrollment/{year}/                              | 2001-2016                             |
+| college-university/ipeds/admissions-requirements/{year}/                            | 1990-2016                             |
+| college-university/ipeds/completers/{year}/                                         | 2011-2015                             |
+| college-university/ipeds/completions-cip/{year}/                                    | 1991-2015                             |
+| college-university/ipeds/directory/{year}/                                          | 1980, 1984-2016                       |
+| college-university/ipeds/enrollment-full-time-equivalent/{year}/{level\_of\_study}/ | 2003-2015                             |
+| college-university/ipeds/enrollment-headcount/{year}/{level\_of\_study}/            | 1996-2015                             |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/                 | 1986-2015                             |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/age/             | 1991, 1993, 1995, 1997, and 1999-2016 |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/age/sex/         | 1991, 1993, 1995, 1997, and 1999-2016 |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/race/            | 1986-2015                             |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/race/sex/        | 1986-2015                             |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/sex/             | 1986-2015                             |
+| college-university/ipeds/fall-retention/{year}/                                     | 2003-2016                             |
+| college-university/ipeds/grad-rates-200pct/{year}/                                  | 2007-2015                             |
+| college-university/ipeds/grad-rates-pell/{year}/                                    | 2015                                  |
+| college-university/ipeds/grad-rates/{year}/                                         | 1996-2015                             |
+| college-university/ipeds/institutional-characteristics/{year}/                      | 1980, 1984-2016                       |
+| college-university/ipeds/outcome-measures/{year}/                                   | 2015                                  |
+| college-university/ipeds/student-faculty-ratio/{year}/                              | 2009-2016                             |
+| school-districts/ccd/finance/{year}/                                                | 1991-2013                             |
+| school-districts/saipe/{year}/                                                      | 1995-2016                             |
+| schools/ccd/directory/{year}/                                                       | 1986-2014                             |
+| schools/ccd/enrollment/{year}/{grade}/                                              | 1987-2014                             |
+| schools/ccd/enrollment/{year}/{grade}/race/                                         | 1987-2014                             |
+| schools/ccd/enrollment/{year}/{grade}/race/sex/                                     | 1987-2014                             |
+| schools/ccd/enrollment/{year}/{grade}/sex/                                          | 1987-2014                             |
+
 Usage
 -----
 
@@ -43,49 +105,16 @@ The `get_education_data()` function will parse and validate several arguments ag
 -   topic - API data topic to query
 -   ... - Additional parameters required for a specific API call
 -   by - Additional optional parameters for a specific API call
--   filters - Optional query to filter the resutls from an API call
-
-Available Endpoints
--------------------
-
-| Endpoint                                                                                    | Years Available                       |
-|:--------------------------------------------------------------------------------------------|:--------------------------------------|
-| /api/v1/college-university/ipeds/admissions-enrollment/{year}/                              | 2001-2016                             |
-| /api/v1/college-university/ipeds/admissions-requirements/{year}/                            | 1990-2016                             |
-| /api/v1/college-university/ipeds/completers/{year}/                                         | 2011-2015                             |
-| /api/v1/college-university/ipeds/completions-cip/{year}/                                    | 1991-2015                             |
-| /api/v1/college-university/ipeds/directory/{year}/                                          | 1980, 1984-2016                       |
-| /api/v1/college-university/ipeds/enrollment-full-time-equivalent/{year}/{level\_of\_study}/ | 2003-2015                             |
-| /api/v1/college-university/ipeds/enrollment-headcount/{year}/{level\_of\_study}/            | 1996-2015                             |
-| /api/v1/college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/                 | 1986-2015                             |
-| /api/v1/college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/age/             | 1991, 1993, 1995, 1997, and 1999-2016 |
-| /api/v1/college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/age/sex/         | 1991, 1993, 1995, 1997, and 1999-2016 |
-| /api/v1/college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/race/            | 1986-2015                             |
-| /api/v1/college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/race/sex/        | 1986-2015                             |
-| /api/v1/college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/sex/             | 1986-2015                             |
-| /api/v1/college-university/ipeds/fall-retention/{year}/                                     | 2003-2016                             |
-| /api/v1/college-university/ipeds/grad-rates-200pct/{year}/                                  | 2007-2015                             |
-| /api/v1/college-university/ipeds/grad-rates-pell/{year}/                                    | 2015                                  |
-| /api/v1/college-university/ipeds/grad-rates/{year}/                                         | 1996-2015                             |
-| /api/v1/college-university/ipeds/institutional-characteristics/{year}/                      | 1980, 1984-2016                       |
-| /api/v1/college-university/ipeds/outcome-measures/{year}/                                   | 2015                                  |
-| /api/v1/college-university/ipeds/student-faculty-ratio/{year}/                              | 2009-2016                             |
-| /api/v1/school-districts/ccd/finance/{year}/                                                | 1991-2013                             |
-| /api/v1/school-districts/saipe/{year}/                                                      | 1995-2016                             |
-| /api/v1/schools/ccd/directory/{year}/                                                       | 1986-2014                             |
-| /api/v1/schools/ccd/enrollment/{year}/{grade}/                                              | 1987-2014                             |
-| /api/v1/schools/ccd/enrollment/{year}/{grade}/race/                                         | 1987-2014                             |
-| /api/v1/schools/ccd/enrollment/{year}/{grade}/race/sex/                                     | 1987-2014                             |
-| /api/v1/schools/ccd/enrollment/{year}/{grade}/sex/                                          | 1987-2014                             |
+-   filters - Optional query to filter the results from an API call
 
 Examples
 --------
 
 Let's build up some examples, starting with a simple API endpoint:
 
--   `/api/v1/schools/ccd/enrollment/{year}/{grade}/`
+-   `schools/ccd/enrollment/{year}/{grade}/`
 
-In this case, the `level` is `schools`, the `source` is `ccd`, and the `topic` is `enrollment`. Note that variables in curly brackets `year` and `grade` are required for this endpoint.
+In this case, the `level` is `schools`, the `source` is `ccd`, and the `topic` is `enrollment`. Note that variables in curly brackets (i.e., `year` and `grade`) are required for this endpoint.
 
 ``` r
 df <- get_education_data(level = 'schools', 
@@ -97,9 +126,9 @@ df <- get_education_data(level = 'schools',
 
 Note that this endpoint is also callable `by` certain variables:
 
--   `/api/v1/schools/ccd/enrollment/{year}/{grade}/race/`
--   `/api/v1/schools/ccd/enrollment/{year}/{grade}/sex/`
--   `/api/v1/schools/ccd/enrollment/{year}/{grade}/race/sex/`
+-   `schools/ccd/enrollment/{year}/{grade}/race/`
+-   `schools/ccd/enrollment/{year}/{grade}/sex/`
+-   `schools/ccd/enrollment/{year}/{grade}/race/sex/`
 
 These optional variables can be added to the `by` argument:
 

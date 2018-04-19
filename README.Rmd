@@ -32,6 +32,54 @@ that you will need to have the `devtools` package installed.
 devtools.install()
 ```
 
+## Available Endpoints
+
+API endpoints follow a format of
+
+  * `level/source/topic/{required}/{variables}/grouping/variables`
+
+where:
+
+  * `level` is the data level to query (i.e., schools, school-districts, 
+  college-university)
+  * `source` is the data source for a specific level (i.e., ccd, ipeds, saipe)
+  * `topic` is the data topic to query
+  * `{required}/{variables}` are arguments that must be set for a specific topic
+  * `grouping/variables` are arguments that will provide data 'by' certain 
+  categories
+  
+For example, the endpoint 
+
+  * `college-university/ipeds/fall-enrollment/{year}/{level_of_study}/`
+
+will provide:
+
+  * college-university level data 
+  * from IPEDS 
+  * on fall-enrollment numbers 
+  * for a specified year and level of study.
+
+While the endpoint 
+
+  * `college-university/ipeds/fall-enrollment/{year}/{level_of_study}/race`
+  
+will provide the same data, grouped by race.
+
+
+```{r endpoints, echo=FALSE}
+df <- educationdata::get_endpoint_info()
+vars <- c('endpoint_url', 
+          'years_available')
+df <- df[vars]
+df$endpoint_url <- gsub('/api/v1/', '', df$endpoint_url) 
+df <- df[order(df$endpoint_url), ]
+knitr::kable(df[vars], 
+             col.names = c('Endpoint', 'Years Available'),
+             row.names = FALSE)
+```
+
+
+
 ## Usage
 
 Use the `get_education_data()` function to retrieve a `data.frame` from an API 
@@ -55,31 +103,18 @@ against the API.
 * topic - API data topic to query
 * ... - Additional parameters required for a specific API call
 * by - Additional optional parameters for a specific API call
-* filters - Optional query to filter the resutls from an API call
-
-## Available Endpoints
-
-```{r endpoints, echo=FALSE}
-df <- educationdata::get_endpoint_info()
-vars <- c('endpoint_url', 
-          'years_available')
-df <- df[vars]
-df <- df[order(df$endpoint_url), ]
-knitr::kable(df[vars], 
-             col.names = c('Endpoint', 'Years Available'),
-             row.names = FALSE)
-```
+* filters - Optional query to filter the results from an API call
 
 
 ## Examples
 
 Let's build up some examples, starting with a simple API endpoint:
 
-* `/api/v1/schools/ccd/enrollment/{year}/{grade}/`
+* `schools/ccd/enrollment/{year}/{grade}/`
 
 In this case, the `level` is `schools`, the `source` is `ccd`, and the `topic` is 
-`enrollment`. Note that variables in curly brackets `year` and `grade` are 
-required for this endpoint.
+`enrollment`. Note that variables in curly brackets (i.e., `year` and `grade`) 
+are required for this endpoint.
 
 ```{r example-01, eval=FALSE}
 df <- get_education_data(level = 'schools', 
@@ -91,9 +126,9 @@ df <- get_education_data(level = 'schools',
 
 Note that this endpoint is also callable `by` certain variables:
 
-* `/api/v1/schools/ccd/enrollment/{year}/{grade}/race/`
-* `/api/v1/schools/ccd/enrollment/{year}/{grade}/sex/`
-* `/api/v1/schools/ccd/enrollment/{year}/{grade}/race/sex/`
+* `schools/ccd/enrollment/{year}/{grade}/race/`
+* `schools/ccd/enrollment/{year}/{grade}/sex/`
+* `schools/ccd/enrollment/{year}/{grade}/race/sex/`
 
 These optional variables can be added to the `by` argument:
 

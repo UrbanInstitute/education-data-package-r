@@ -44,6 +44,16 @@ validate_topic <- function(endpoints, level, source, topic) {
   }
 }
 
+validate_year <- function(endpoints, level, source, topic, year) {
+  years <- endpoints$parsed_years[endpoints$section == level & endpoints$class_name == source & endpoints$topic == topic]
+  valid_years <- unlist(unique(years))
+
+  if (!(year %in% valid_years)) {
+    stop(paste(year, 'is not a valid year for the requested endpoint.'),
+         call. = FALSE)
+  }
+}
+
 # validate required arguments for an API call
 validate_vars <- function(endpoints, level, source, topic, ..., by) {
   if (is.null(topic)) {
@@ -60,6 +70,10 @@ validate_vars <- function(endpoints, level, source, topic, ..., by) {
 
   parse_required_args <- function(required_var, additional_args) {
     if (required_var %in% names(additional_args)) {
+      if (required_var == 'year') {
+        year <- additional_args[['year']]
+        validate_year(endpoints, level, source, topic, year)
+      }
       url_stub <<- paste(url_stub, additional_args[[required_var]], sep = '/')
       additional_args[[required_var]] <<- NULL
     } else {

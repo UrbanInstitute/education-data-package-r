@@ -1,7 +1,6 @@
 #' Retrieve information on available API endpoints.
 #'
 #' @export
-
 get_endpoint_info <- function() {
   url <- 'https://ed-data-portal.urban.org/api/v1/api-endpoints/'
   res <- httr::GET(url)
@@ -28,6 +27,8 @@ get_endpoint_info <- function() {
 
   endpoints$required_vars <- lapply(endpoints$endpoint_url, get_required_vars)
   endpoints$optional_vars <- lapply(endpoints$endpoint_url, get_optional_vars)
+
+  endpoints$parsed_years <- lapply(endpoints$years_available, get_available_years)
 
   return(endpoints)
 }
@@ -67,6 +68,7 @@ get_optional_vars <- function(endpoint_url) {
 get_available_years <- function(unparsed_years) {
   unparsed_years <- gsub('and', '', unparsed_years)
   unparsed_years <- gsub(' ', '', unparsed_years)
+  unparsed_years <- gsub('-', '', unparsed_years)
   unparsed_years <- unlist(strsplit(unparsed_years, ','))
 
   parse_years <- function(unparsed_year) {
@@ -76,6 +78,11 @@ get_available_years <- function(unparsed_years) {
     else if (nchar(unparsed_year) == 8) {
       start <- as.integer(substr(unparsed_year, 1, 4))
       end <- as.integer(substr(unparsed_year, 5, 8))
+      start:end
+    }
+    else if(nchar(unparsed_year) == 11) {
+      start <- as.integer(substr(unparsed_year, 1, 4))
+      end <- as.integer(substr(unparsed_year, 8, 11))
       start:end
     } else {
       stop('Error in year parsing...')

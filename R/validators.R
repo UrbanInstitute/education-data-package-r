@@ -45,8 +45,11 @@ validate_topic <- function(endpoints, level, source, topic) {
 }
 
 validate_year <- function(endpoints, level, source, topic, year) {
-  years <- endpoints$parsed_years[endpoints$section == level & endpoints$class_name == source]
-  if (source != 'saipe') years <- years[endpoints$topic == topic]
+  if (source == 'saipe') {
+    years <- endpoints$parsed_years[endpoints$section == level & endpoints$class_name == source]
+  } else {
+    years <- endpoints$parsed_years[endpoints$section == level & endpoints$class_name == source & endpoints$topic == topic]
+  }
   valid_years <- unlist(unique(years))
 
   if (!(year %in% valid_years)) {

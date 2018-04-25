@@ -127,9 +127,8 @@ parse_filters <- function(url_stub, filters) {
 
   for (i in seq_along(filters)){
     name = names(filters[i])
-    for (j in filters[[i]]) {
-      filter_stub <- paste0(filter_stub, name, '=', j, '&')
-    }
+    filter = paste0(filters[[i]], collapse = ',')
+    filter_stub <- paste0(filter_stub, name, '=', filter, '&')
   }
 
   url_stub <- paste0(url_stub, filter_stub)

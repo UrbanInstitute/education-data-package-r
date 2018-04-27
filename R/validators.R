@@ -161,7 +161,7 @@ construct_url <- function(level,
   endpoints <- validate_source(endpoints, source)
   endpoints <- validate_topic(endpoints, source, topic)
 
-  View(endpoints)
+  #View(endpoints)
 
   url_stub <- validate_vars(endpoints, level, source, topic, ..., by = by)
   url_stub <- parse_filters(url_stub, filters)

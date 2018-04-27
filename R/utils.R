@@ -74,19 +74,24 @@ get_available_years <- function(unparsed_years) {
   parse_years <- function(unparsed_year) {
     if (nchar(unparsed_year) == 4) {
       as.integer(unparsed_year)
-    }
-    else if (nchar(unparsed_year) == 8) {
-      start <- as.integer(substr(unparsed_year, 1, 4))
-      end <- as.integer(substr(unparsed_year, 5, 8))
-      start:end
-    }
-    else if(nchar(unparsed_year) == 11) {
-      start <- as.integer(substr(unparsed_year, 1, 4))
-      end <- as.integer(substr(unparsed_year, 8, 11))
-      start:end
     } else {
-      stop('Error in year parsing...')
+      i = nchar(unparsed_year)
+      start <- as.integer(substr(unparsed_year, 1, 4))
+      end <- as.integer(substr(unparsed_year, i-3, i))
+      start:end
     }
+    # else if (nchar(unparsed_year) == 8) {
+    #   start <- as.integer(substr(unparsed_year, 1, 4))
+    #   end <- as.integer(substr(unparsed_year, 5, 8))
+    #   start:end
+    # }
+    # else if(nchar(unparsed_year) == 11) {
+    #   start <- as.integer(substr(unparsed_year, 1, 4))
+    #   end <- as.integer(substr(unparsed_year, 8, 11))
+    #   start:end
+    # } else {
+    #   stop('Error in year parsing...')
+    # }
   }
 
   parsed_years <- unlist(lapply(unparsed_years, parse_years))

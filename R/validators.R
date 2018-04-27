@@ -42,7 +42,7 @@ validate_topic <- function(endpoints, source, topic) {
     if (!is.null(topic)) {
       stop('Data source saipe does not accept a "topic" argument.')
     } else {
-      return()
+      return(endpoints)
     }
   }
 

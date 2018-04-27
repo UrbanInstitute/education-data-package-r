@@ -3,45 +3,57 @@
 # stops execution if given level not within valid levels of current API endpoints
 validate_level <- function(endpoints, level) {
   valid_levels <- unique(endpoints$section)
+
   if (!(level %in% valid_levels)) {
     stop('Invalid API level. Valid levels are: ',
          paste(valid_levels, collapse = ', '))
+  } else {
+    endpoints <- endpoints[endpoints$section == level, ]
   }
+
+  return(endpoints)
 }
 
 # validate a given source argument for an API call
 #
 # stops execution if a given source not within valid sources of a given level
 # of current API endpoints
-validate_source <- function(endpoints, level, source) {
-  valid_sources <- unique(endpoints$class_name[endpoints$section == level])
+validate_source <- function(endpoints, source) {
+  valid_sources <- unique(endpoints$class_name)
 
   if (!(source %in% valid_sources)) {
     stop('Invalid data source. Valid sources are: ',
          paste(valid_sources, collapse = ', '))
+  } else {
+    endpoints <- endpoints[endpoints$class_name == source, ]
   }
+
+  return(endpoints)
 }
 
 # validate a given topic argument for an API call
 #
 # stops execution if a given topic not within valid topics for a iven level and
 # source of current API endpoints
-validate_topic <- function(endpoints, level, source, topic) {
-  topics <- endpoints$topic[endpoints$section == level & endpoints$class_name == source]
-  valid_topics <- unique(topics)
+validate_topic <- function(endpoints, source, topic) {
+  valid_topics <- unique(endpoints$topic)
 
   if (source == 'saipe') {
     if (!is.null(topic)) {
       stop('Data source saipe does not accept a "topic" argument.')
     } else {
-      return()
+      return(endpoints)
     }
   }
 
   if (!(topic %in% valid_topics) | is.null(topic)) {
     stop('Invalid topic. Valid topics are: ',
          paste(valid_topics, collapse = ', '))
+  } else {
+    endpoints <- endpoints[endpoints$topic == topic, ]
   }
+
+  return(endpoints)
 }
 
 validate_year <- function(endpoints, level, source, topic, year) {
@@ -145,9 +157,11 @@ construct_url <- function(level,
                           filters) {
 
   endpoints <- get_endpoint_info()
-  validate_level(endpoints, level)
-  validate_source(endpoints, level, source)
-  validate_topic(endpoints, level, source, topic)
+  endpoints <- validate_level(endpoints, level)
+  endpoints <- validate_source(endpoints, source)
+  endpoints <- validate_topic(endpoints, source, topic)
+
+  #View(endpoints)
 
   url_stub <- validate_vars(endpoints, level, source, topic, ..., by = by)
   url_stub <- parse_filters(url_stub, filters)

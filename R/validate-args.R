@@ -19,7 +19,6 @@ validate_function_args <- function(level,
   }
 
   return(endpoints)
-
 }
 
 # validate a given level argument for an API call
@@ -62,7 +61,7 @@ validate_source <- function(endpoints, source) {
 
 # validate a given topic argument for an API call
 #
-# stops execution if a given topic not within valid topics for a iven level and
+# stops execution if a given topic not within valid topics for a given level and
 # source of current API endpoints
 #
 # returns a subset of the endpoints df

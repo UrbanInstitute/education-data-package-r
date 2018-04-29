@@ -1,7 +1,8 @@
-# retrieve results from all pages of an api query
+# retrieve results from all pages of an api query for a single year
 #
 # returns data.frame, or an error if count != nrow(data.frame)
-get_data <- function(url) {
+get_year_data <- function(url) {
+  message('\nFetching data from ', url, ' ...')
   request <- httr::GET(url)
   resp <- jsonlite::fromJSON(rawToChar(request$content))
   expected_rows <- resp$count
@@ -35,59 +36,13 @@ get_data <- function(url) {
   }
 
   return(df)
-
 }
 
-# retrieve API data results from a given page
+# retrieve results from all pages of an api query across all given years
 #
-# returns a data.frame of API results
-get_page_data <- function(page_url) {
-  message(page_url)
-  request <- httr::GET(page_url)
-  resp <- jsonlite::fromJSON(rawToChar(request$content))
-  df <- resp$results
-  return(df)
-}
-#
-# # retrieve and bind API data results from all pages of a given API call
-# #
-# # returns a data.frame of all observations from an API call
-# get_data <- function(url) {
-#   request <- httr::GET(url)
-#   resp <- jsonlite::fromJSON(rawToChar(request$content))
-#   pages <- ceiling(resp$count / 100)
-#
-#   if (pages > 2) {
-#     page_urls <- paste0(url, '?page=', 2:pages)
-#     page_urls <- c(url, page_urls)
-#   } else {
-#     return(resp$results)
-#   }
-#
-#   dfs <- lapply(page_urls, get_page_data)
-#   df <- do.call(rbind, dfs)
-#   return(df)
-# }
-
-# retrieve and bind API data results from all pages of a given API call in parallel
-#
-# returns a data.frame of all observations from an API call
-get_data_parallel <- function(url) {
-  request <- httr::GET(url)
-  resp <- jsonlite::fromJSON(rawToChar(request$content))
-  pages <- ceiling(resp$count / 1000)
-
-  if (pages > 2) {
-    page_urls <- paste0(url, '?page=', 2:pages)
-    page_urls <- c(url, page_urls)
-  } else {
-    return(resp$results)
-  }
-
-  cl <- parallel::makeCluster(6)
-  dfs <- parallel::parLapply(cl, page_urls, get_page_data)
-  parallel::stopCluster(cl)
-
-  df<- do.call(rbind, dfs)
+# returns data.frame
+get_all_data <- function(urls) {
+  dfs <- lapply(urls, get_year_data)
+  df <- do.call(rbind, dfs)
   return(df)
 }

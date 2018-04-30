@@ -6,10 +6,11 @@ Authors@R: c(
     person("Kyle", "Ueyama", email = "kueyama@urban.org", role = c("aut", "cre"))
     )
 Description: Allows R users to retrieve and parse data from the Urban Institute's 
-    Education Data API <https://ed-data-portal.urban.org/> into a data frame for 
+    Education Data API <https://ed-data-portal.urban.org/> into a 'data.frame' for 
     analysis.
 Depends: R (>= 3.1.0)
 Imports: 
+    glue,
     httr,
     jsonlite
 License: What license is it under?

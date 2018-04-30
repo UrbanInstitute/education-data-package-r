@@ -21,14 +21,19 @@ get_education_data <- function(level = NULL,
                                ...,
                                by = NULL,
                                filters = NULL) {
-  url <- construct_url(level = level,
-                       source = source,
-                       topic = topic,
-                       ...,
-                       by = by,
-                       filters = filters)
 
-  message('Fetching ', url, ' ...')
-  df <- get_data(url)
+  required_vars = list(...)
+
+  endpoints <- validate_function_args(level = level,
+                                      source = source,
+                                      topic = topic,
+                                      ... = ...,
+                                      by = by)
+
+  urls <- construct_url(endpoints = endpoints,
+                        required_vars = required_vars,
+                        filters  = filters)
+
+  df <- get_all_data(urls)
   return(df)
 }

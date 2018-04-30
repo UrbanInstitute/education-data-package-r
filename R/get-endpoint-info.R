@@ -1,4 +1,4 @@
-# Retrieve information on available API endpoints.
+# retrieve information on available API endpoints
 #
 # returns a parsed data.frame of endpoint information
 get_endpoint_info <- function() {
@@ -31,7 +31,7 @@ get_endpoint_info <- function() {
   return(endpoints)
 }
 
-# Retrieve the required variables for a given API endpoint
+# retrieve the required variables for a given API endpoint
 #
 # returns a vector of requried variables
 get_required_vars <- function(endpoint_url) {
@@ -43,7 +43,7 @@ get_required_vars <- function(endpoint_url) {
   return(req_args)
 }
 
-# Retrieve the optional variables for a given API endpoint
+# retrieve the optional variables for a given API endpoint
 #
 # returns a vector of optional variables
 get_optional_vars <- function(endpoint_url) {
@@ -60,7 +60,7 @@ get_optional_vars <- function(endpoint_url) {
   return(opt_args)
 }
 
-# Retrieve and parse the available years for a given API endpoint
+# retrieve and parse the available years for a given API endpoint
 #
 # returns a vector of available years
 get_available_years <- function(unparsed_years) {
@@ -78,18 +78,6 @@ get_available_years <- function(unparsed_years) {
       end <- as.integer(substr(unparsed_year, i-3, i))
       start:end
     }
-    # else if (nchar(unparsed_year) == 8) {
-    #   start <- as.integer(substr(unparsed_year, 1, 4))
-    #   end <- as.integer(substr(unparsed_year, 5, 8))
-    #   start:end
-    # }
-    # else if(nchar(unparsed_year) == 11) {
-    #   start <- as.integer(substr(unparsed_year, 1, 4))
-    #   end <- as.integer(substr(unparsed_year, 8, 11))
-    #   start:end
-    # } else {
-    #   stop('Error in year parsing...')
-    # }
   }
 
   parsed_years <- unlist(lapply(unparsed_years, parse_years))

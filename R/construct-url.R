@@ -1,3 +1,9 @@
+# construct urls from a given endpoint, required variables, and filters
+#
+# takes an endpoint_url, validates year, adds required variables in the
+# appropriate position, and adds any given filters
+#
+# returns a list of API urls to be queried
 construct_url <- function(endpoints,
                           required_vars,
                           filters) {
@@ -10,9 +16,9 @@ construct_url <- function(endpoints,
   return(urls)
 }
 
-# parse filters
+# parse filters and add to url
 #
-#
+# returns a url_stub with filters added
 parse_filters <- function(url_stub, filters) {
   if(is.null(filters)) {
     return(url_stub)
@@ -33,7 +39,9 @@ parse_filters <- function(url_stub, filters) {
 
 }
 
-# parse year
+# validate year argument
+#
+# returns a list of required variables with validated years
 parse_year <- function(endpoints, required_vars) {
 
   if(!'year' %in% names(required_vars)) stop('year is not a vaild variable.')

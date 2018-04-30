@@ -1,4 +1,8 @@
-# validate
+# validate the various arguments passed to the main get_education_data call
+#
+# each argument is validated and the enpoints data frame is subset
+# the endpoints data frame should contain only one row once this validation
+# is complete
 #
 # returns a subset of the endpoints df matching the specified endpoint call
 validate_function_args <- function(level,
@@ -88,6 +92,8 @@ validate_topic <- function(endpoints, source, topic) {
 
 # validate required variables
 #
+# stops execution if a non-valid combination of required variables is passed
+#
 # return a subset of endpoints
 validate_required_variables <- function(endpoints, ...) {
   reqs <- endpoints$required_vars
@@ -109,6 +115,8 @@ validate_required_variables <- function(endpoints, ...) {
 }
 
 # validate optional variables
+#
+# stops execution if a non-valid combination of optional variables is passed
 #
 # return a subset of endpoints
 validate_optional_variables <- function(endpoints, by) {

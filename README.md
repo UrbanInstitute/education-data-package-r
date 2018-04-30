@@ -14,11 +14,19 @@ To install the alpha version of the package:
 
 `git clone https://github.com/UI-Research/education-data-package-r.git`
 
--   Open the `educationdata.Rproj` and build from source in the R Console. Note that you will need to have the `devtools` package installed.
+-   If you have RStudio installed, open `educationdata.Rproj` and build from source in the console. If you are using the R GUI, set your working directory to the project folder.
+
+-   If you have the `devtools` package installed, run:
 
 ``` r
 # install.packages(devtools) # if necessary
-devtools.install()
+devtools::install()
+```
+
+-   Or if you don't have/want the `devtools` package, run:
+
+``` r
+install.packages(".", repos = NULL, type="source")
 ```
 
 Available Endpoints

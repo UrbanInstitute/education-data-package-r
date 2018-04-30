@@ -1,3 +1,4 @@
+---
 output: github_document
 ---
 
@@ -23,13 +24,22 @@ To install the alpha version of the package:
 
 `git clone https://github.com/UI-Research/education-data-package-r.git`
 
-* Open the `educationdata.Rproj` and build from source in the R Console. Note 
-that you will need to have the `devtools` package installed.
+* If you have RStudio installed, open `educationdata.Rproj` and build from 
+source in the console. If you are using the R GUI, set your working directory 
+to the project folder. 
+
+* If you have the `devtools` package installed, run:
 
 ```{r gh-installation, eval=FALSE}
 # install.packages(devtools) # if necessary
 devtools::install()
 ```
+
+* Or if you don't have/want the `devtools` package, run:
+```{r base-installation, eval=FALSE}
+install.packages(".", repos = NULL, type="source")
+```
+
 
 ## Available Endpoints
 
@@ -66,18 +76,22 @@ will provide the same data, grouped by race.
 
 
 ```{r endpoints, echo=FALSE}
-df <- educationdata::get_endpoint_info()
+url <- 'https://ed-data-portal.urban.org/api/v1/api-endpoints/'
+res <- httr::GET(url)
+df <- jsonlite::fromJSON(rawToChar(res$content))$results
+
 vars <- c('endpoint_url', 
           'years_available')
 df <- df[vars]
-df$endpoint_url <- gsub('/api/v1/', '', df$endpoint_url) 
+
+df$endpoint_url <- gsub('/api/v1/', '', df$endpoint_url)
+df$years_available <- gsub('â€“' ,'-', df$years_available)
 df <- df[order(df$endpoint_url), ]
+
 knitr::kable(df[vars], 
              col.names = c('Endpoint', 'Years Available'),
              row.names = FALSE)
 ```
-
-
 
 ## Usage
 

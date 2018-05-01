@@ -6,6 +6,7 @@
 #' @param ... Additional required parameters to pass to an API call
 #' @param by Additional optional paramters to pass to an API call
 #' @param filters Optional query values to filter an API call
+#' @param add_labels Add variable labels (when applicable)?
 #'
 #' @return A `data.frame` of education data
 #'
@@ -20,7 +21,8 @@ get_education_data <- function(level = NULL,
                                topic = NULL,
                                ...,
                                by = NULL,
-                               filters = NULL) {
+                               filters = NULL,
+                               add_labels = FALSE) {
 
   required_vars = list(...)
 
@@ -35,5 +37,10 @@ get_education_data <- function(level = NULL,
                         filters  = filters)
 
   df <- get_all_data(urls)
+
+  if(add_labels) {
+    df <- add_variable_labels(endpoints, df)
+  }
+
   return(df)
 }

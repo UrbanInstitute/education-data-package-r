@@ -35,6 +35,7 @@ parse_filters <- function(url_stub, filters) {
   }
 
   url_stub <- paste0(url_stub, filter_stub)
+  url_stub <- substr(url_stub, 1, nchar(url_stub) - 1)
   return(url_stub)
 
 }

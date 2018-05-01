@@ -94,7 +94,7 @@ Usage
 Use the `get_education_data()` function to retrieve a `data.frame` from an API endpoint.
 
 ``` r
-get_education_data(level, source, topic, ..., by, filters)
+get_education_data(level, source, topic, ..., by, filters, add_labels)
 ```
 
 The `get_education_data()` function will parse and validate several arguments against the API.
@@ -111,6 +111,7 @@ The `get_education_data()` function will parse and validate several arguments ag
 -   ... - Additional parameters required for a specific API call
 -   by - Additional optional parameters for a specific API call
 -   filters - Optional query to filter the results from an API call
+-   add\_labels - Add variable labels (when applicable)?
 
 Examples
 --------
@@ -126,6 +127,26 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          year = 2004,
+                         grade = 'grade-8')
+```
+
+The `year` parameter is vectorized and can accept multiple years:
+
+``` r
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         year = 2004:2008,
+                         grade = 'grade-8')
+```
+
+Or the endpoint can be called for 'all' `years`:
+
+``` r
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         year = 'all',
                          grade = 'grade-8')
 ```
 
@@ -156,4 +177,15 @@ df <- get_education_data(level = 'schools',
                          grade = 'grade-8',
                          by = list('race', 'sex'),
                          filters = list('ncessch' = '010000200277'))
+```
+
+Finally, the `add_labels` flag will map variables to a `factor` from their labels in the API.
+
+``` r
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         year = 2014,
+                         grade = 'grade-8',
+                         add_labels = TRUE)
 ```

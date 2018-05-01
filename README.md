@@ -16,21 +16,15 @@ To install the alpha version of the package:
 
 -   If you have RStudio installed, open `educationdata.Rproj` and build from source in the console. If you are using the R GUI, set your working directory to the project folder.
 
--   If you have the `devtools` package installed, run:
+-   Install the `devtools` package if you don't already have it, and run:
 
 ``` r
 # install.packages(devtools) # if necessary
 devtools::install()
 ```
 
--   Or if you don't have/want the `devtools` package, run:
-
-``` r
-install.packages(".", repos = NULL, type="source")
-```
-
-Available Endpoints
--------------------
+Endpoint Format
+---------------
 
 API endpoints follow a format of
 
@@ -60,6 +54,9 @@ While the endpoint
 -   `college-university/ipeds/fall-enrollment/{year}/{level_of_study}/race`
 
 will provide the same data, grouped by race.
+
+Available Endpoints
+-------------------
 
 | Endpoint                                                                            | Years Available                       |
 |:------------------------------------------------------------------------------------|:--------------------------------------|

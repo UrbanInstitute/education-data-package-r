@@ -28,20 +28,14 @@ To install the alpha version of the package:
 source in the console. If you are using the R GUI, set your working directory 
 to the project folder. 
 
-* If you have the `devtools` package installed, run:
+* Install the `devtools` package if you don't already have it, and run:
 
 ```{r gh-installation, eval=FALSE}
 # install.packages(devtools) # if necessary
 devtools::install()
 ```
 
-* Or if you don't have/want the `devtools` package, run:
-```{r base-installation, eval=FALSE}
-install.packages(".", repos = NULL, type="source")
-```
-
-
-## Available Endpoints
+## Endpoint Format
 
 API endpoints follow a format of
 
@@ -74,6 +68,7 @@ While the endpoint
   
 will provide the same data, grouped by race.
 
+## Available Endpoints
 
 ```{r endpoints, echo=FALSE}
 url <- 'https://ed-data-portal.urban.org/api/v1/api-endpoints/'

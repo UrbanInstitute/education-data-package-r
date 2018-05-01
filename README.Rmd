@@ -94,7 +94,7 @@ Use the `get_education_data()` function to retrieve a `data.frame` from an API
 endpoint. 
 
 ```{r usage, eval=FALSE}
-get_education_data(level, source, topic, ..., by, filters)
+get_education_data(level, source, topic, ..., by, filters, add_labels)
 ```
 
 The `get_education_data()` function will parse and validate several arguments 
@@ -112,6 +112,7 @@ against the API.
 * ... - Additional parameters required for a specific API call
 * by - Additional optional parameters for a specific API call
 * filters - Optional query to filter the results from an API call
+* add_labels - Add variable labels (when applicable)?
 
 
 ## Examples
@@ -124,11 +125,31 @@ In this case, the `level` is `schools`, the `source` is `ccd`, and the `topic` i
 `enrollment`. Note that variables in curly brackets (i.e., `year` and `grade`) 
 are required for this endpoint.
 
-```{r example-01, eval=FALSE}
+```{r example-01-a, eval=FALSE}
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
                          year = 2004,
+                         grade = 'grade-8')
+```
+
+The `year` parameter is vectorized and can accept multiple years:
+
+```{r example-01-b, eval=FALSE}
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         year = 2004:2008,
+                         grade = 'grade-8')
+```
+
+Or the endpoint can be called for 'all' `years`:
+
+```{r example-01-c, eval=FALSE}
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         year = 'all',
                          grade = 'grade-8')
 ```
 
@@ -159,4 +180,16 @@ df <- get_education_data(level = 'schools',
                          grade = 'grade-8',
                          by = list('race', 'sex'),
                          filters = list('ncessch' = '010000200277'))
+```
+
+Finally, the `add_labels` flag will map variables to a `factor` from their 
+labels in the API.
+
+```{r example-04, eval=FALSE}
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         year = 2014,
+                         grade = 'grade-8',
+                         add_labels = TRUE)
 ```

@@ -2,8 +2,16 @@
 #
 # returns data.frame, or an error if count != nrow(data.frame)
 get_year_data <- function(url) {
-  message('\nFetching data from ', url, ' ...')
+  message('\nFetching data for ', substring(url, 41), ' ...')
   request <- httr::GET(url)
+
+  if (request$status_code != 200) {
+    stop('Query page not found.\n',
+         'Please double-check your arguments (especially filters).\n',
+         'Consider filing an issue with the development team if this issue persists.',
+         call. = FALSE)
+  }
+
   resp <- jsonlite::fromJSON(rawToChar(request$content))
   expected_rows <- resp$count
 

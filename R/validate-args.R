@@ -34,9 +34,16 @@ validate_function_args <- function(level,
 validate_level <- function(endpoints, level) {
   valid_levels <- unique(endpoints$section)
 
-  if (!(level %in% valid_levels)) {
-    stop('Invalid API level. Valid levels are: ',
-         paste(valid_levels, collapse = ', '))
+  if (is.null(level)) {
+    stop('"level" argument must be specified.\nValid levels are:\n\t',
+         paste(valid_levels,
+               collapse = ', '),
+         call. = FALSE)
+  } else if (!(level %in% valid_levels) || is.null(level)) {
+    stop('"level" argument "', level, '" is invalid.\nValid levels are:\n\t',
+         paste(valid_levels,
+               collapse = '\n\t'),
+         call. = FALSE)
   } else {
     endpoints <- endpoints[endpoints$section == level, ]
   }
@@ -53,9 +60,16 @@ validate_level <- function(endpoints, level) {
 validate_source <- function(endpoints, source) {
   valid_sources <- unique(endpoints$class_name)
 
-  if (!(source %in% valid_sources)) {
-    stop('Invalid data source. Valid sources are: ',
-         paste(valid_sources, collapse = ', '))
+  if (is.null(source)) {
+    stop('"source" argument must be specified.\nValid sources are:\n\t',
+         paste(valid_sources,
+               collapse = '\n\t'),
+         call. = FALSE)
+  } else if (!(source %in% valid_sources)) {
+    stop('"souce" argument "', source, '" is invalid.\nValid sources are:\n\t',
+         paste(valid_sources,
+               collapse = '\n\t'),
+         call. = FALSE)
   } else {
     endpoints <- endpoints[endpoints$class_name == source, ]
   }
@@ -74,15 +88,23 @@ validate_topic <- function(endpoints, source, topic) {
 
   if (source == 'saipe') {
     if (!is.null(topic)) {
-      stop('Data source saipe does not accept a "topic" argument.')
+      stop('Data source "saipe" does not accept a "topic" argument.',
+           call. = FALSE)
     } else {
       return(endpoints)
     }
   }
 
-  if (!(topic %in% valid_topics) | is.null(topic)) {
-    stop('Invalid topic. Valid topics are: ',
-         paste(valid_topics, collapse = ', '))
+  if(is.null(topic)) {
+    stop('"topic" argument must be specified.\nValid topics are:\n\t',
+         paste(valid_topics,
+               collapse = '\n\t'),
+         call. = FALSE)
+  } else if (!(topic %in% valid_topics)) {
+    stop('"topic" argument "', topic, '" is invalid.\nValid topics are:\n\t',
+         paste(valid_topics,
+               collapse = '\n\t'),
+         call. = FALSE)
   } else {
     endpoints <- endpoints[endpoints$topic == topic, ]
   }
@@ -103,9 +125,8 @@ validate_required_variables <- function(endpoints, ...) {
 
   if (sum(subs) == 0) {
     vars <- paste(vars, collapse = '/')
-    reqs <- paste(unlist(unique(reqs)), collapse = ' & ')
-    stop(vars, ' is not a valid endpoint combination.\n',
-         'Requested endpoint requires that ', reqs, ' be specified.',
+    reqs <- paste(unlist(unique(reqs)), collapse = '" & "')
+    stop('Requested endpoint requires that "', reqs, '" be specified.',
          call. = F)
   }
 
@@ -125,7 +146,9 @@ validate_optional_variables <- function(endpoints, by) {
   subs <- unlist(subs)
 
   if (sum(subs) != 1) {
-    stop(paste(by, collapse = '/'), ' is not a valid endpoint option',
+    stop(paste(by, collapse = '/'), ' is not a valid endpoint option.\n',
+         'Valid endpoint options are:\n\t',
+         paste(opts[!is.na(opts)], collapse = '\n\t'),
          call. = F)
   }
 

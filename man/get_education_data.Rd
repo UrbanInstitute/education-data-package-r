@@ -5,7 +5,7 @@
 \title{Obtain data from the Urban Institute Education Data Portal API}
 \usage{
 get_education_data(level = NULL, source = NULL, topic = NULL, ...,
-  by = NULL, filters = NULL)
+  by = NULL, filters = NULL, add_labels = FALSE)
 }
 \arguments{
 \item{level}{API data level to query}
@@ -19,6 +19,8 @@ get_education_data(level = NULL, source = NULL, topic = NULL, ...,
 \item{by}{Additional optional paramters to pass to an API call}
 
 \item{filters}{Optional query values to filter an API call}
+
+\item{add_labels}{Add variable labels (when applicable)?}
 }
 \value{
 A `data.frame` of education data

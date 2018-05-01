@@ -35,7 +35,7 @@ get_label_text <- function(varlist, var) {
   text <- unlist(strsplit(text, ','))
   text <- unlist(lapply(text, function(x) gsub(';',',', x)))
 
-  mapping <- read.delim(text=text, header = FALSE, sep = '\t')
+  mapping <- utils::read.delim(text=text, header = FALSE, sep = '\t')
   mapping <- unique(mapping)
 
   return(mapping)

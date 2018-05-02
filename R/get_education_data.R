@@ -38,7 +38,7 @@ get_education_data <- function(level = NULL,
 
   df <- get_all_data(urls)
 
-  if(add_labels) {
+  if(add_labels & nrow(df) != 0) {
     df <- add_variable_labels(endpoints, df)
   }
 

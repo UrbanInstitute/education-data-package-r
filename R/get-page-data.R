@@ -16,7 +16,9 @@ get_year_data <- function(url) {
   expected_rows <- resp$count
 
   if (expected_rows == 0) {
-    stop('Query returned no results.', call. = FALSE)
+    warning('Query ', url, ' returned no results.', call. = FALSE)
+    df <- data.frame()
+    return(df)
   }
 
   pages <- ceiling(expected_rows / nrow(resp$results))
@@ -30,6 +32,14 @@ get_year_data <- function(url) {
     count = count + 1
     message(paste("Processing page", count, 'out of', pages))
     request <- httr::GET(url)
+
+    if (request$status_code != 200) {
+      stop('Query page not found.\n',
+           'Please double-check your arguments (especially filters).\n',
+           'Consider filing an issue with the development team if this issue persists.',
+           call. = FALSE)
+    }
+
     resp <- jsonlite::fromJSON(rawToChar(request$content))
     dfs[[count]] <- resp$results
     url <- resp[['next']]

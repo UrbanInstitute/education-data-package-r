@@ -23,6 +23,54 @@ To install the alpha version of the package:
 devtools::install()
 ```
 
+Quick Start Guide
+-----------------
+
+``` r
+library(educationdata)
+
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         year = 2014,
+                         grade = 'grade-12',
+                         by = list('race', 'sex'),
+                         filters = list('ncessch' = '340606000122'),
+                         add_labels = TRUE)
+
+head(df)
+#>   year      ncessch grade                              race    sex
+#> 1 2014 340606000122    12 American Indian or Alaskan Native Female
+#> 2 2014 340606000122    12 American Indian or Alaskan Native   Male
+#> 3 2014 340606000122    12                             Asian Female
+#> 4 2014 340606000122    12                             Asian   Male
+#> 5 2014 340606000122    12                          Hispanic Female
+#> 6 2014 340606000122    12                          Hispanic   Male
+#>   enrollment
+#> 1          0
+#> 2          0
+#> 3         27
+#> 4         36
+#> 5         29
+#> 6         30
+```
+
+The `get_education_data()` function will return a `data.frame` from a call to the Education Data API.
+
+``` r
+get_education_data(level, source, topic , ..., by, filters, add_labels)
+```
+
+where:
+
+-   level (required) - API data level to query.
+-   source (requried) - API data source to query.
+-   topic (required) - API data topic to query.
+-   ... (required) - Additional parameters required for a specific endpoint.
+-   by (optional) - Optional parameters for a specific API call.
+-   filters (optional) - Optional query to filter the results from an API call.
+-   add\_labels - Add variable labels (when applicable)? Defaults to `FALSE`.
+
 Endpoint Format
 ---------------
 
@@ -88,6 +136,48 @@ Available Endpoints
 | schools/ccd/enrollment/{year}/{grade}/race/sex/                                     | 1987-2014                             |
 | schools/ccd/enrollment/{year}/{grade}/sex/                                          | 1987-2014                             |
 
+Required Variables
+------------------
+
+In addition to `year`, the other requried variables for certain endpoints accept the following values:
+
+### Grade
+
+| Function Argument    | Grade            |
+|----------------------|------------------|
+| `grade = 'grade-pk'` | Pre-K            |
+| `grade = 'grade-k'`  | Kindergarten     |
+| `grade = 'grade-1'`  | Grade 1          |
+| `grade = 'grade-2'`  | Grade 2          |
+| `grade = 'grade-3'`  | Grade 3          |
+| `grade = 'grade-4'`  | Grade 4          |
+| `grade = 'grade-5'`  | Grade 5          |
+| `grade = 'grade-6'`  | Grade 6          |
+| `grade = 'grade-7'`  | Grade 7          |
+| `grade = 'grade-8'`  | Grade 8          |
+| `grade = 'grade-9'`  | Grade 9          |
+| `grade = 'grade-10'` | Grade 10         |
+| `grade = 'grade-11'` | Grade 11         |
+| `grade = 'grade-12'` | Grade 12         |
+| `grade = 'grade-13'` | Grade 13         |
+| `grade = 'grade-14'` | Adult Education  |
+| `grade = 'grade-15'` | Ungraded         |
+| `grade = 'grade-16'` | K-12             |
+| `grade = 'grade-20'` | Grades 7 and 8   |
+| `grade = 'grade-21'` | Grade 9 and 10   |
+| `grade = 'grade-22'` | Grades 11 and 12 |
+| `grade = 'grade-99'` | Total            |
+
+### Level of Study
+
+| Function Argument                       | Level of Study     |
+|-----------------------------------------|--------------------|
+| `level_of_study = 'undergraduate'`      | Undergraduate      |
+| `level_of_study = 'graduate'`           | Graduate           |
+| `level_of_study = 'first-professional'` | First Professional |
+| `level_of_study = 'post-baccalaureate'` | Post-baccalaureate |
+| `level_of_study = '99'`                 | Total              |
+
 Usage
 -----
 
@@ -99,19 +189,19 @@ get_education_data(level, source, topic, ..., by, filters, add_labels)
 
 The `get_education_data()` function will parse and validate several arguments against the API.
 
--   level - API data level to query. Current levels are:
+-   level (required) - API data level to query. Current levels are:
     -   college-university
     -   school-districts
     -   schools
--   source - API data source to query. Current sources are:
+-   source (required) - API data source to query. Current sources are:
     -   ccd
     -   ipeds
     -   saipe
--   topic - API data topic to query
--   ... - Additional parameters required for a specific API call
--   by - Additional optional parameters for a specific API call
--   filters - Optional query to filter the results from an API call
--   add\_labels - Add variable labels (when applicable)?
+-   topic (required) - API data topic to query.
+-   ... (required) - Additional parameters required for a specific API call.
+-   by - Optional parameters for a specific API call.
+-   filters - Optional query to filter the results from an API call.
+-   add\_labels - Add variable labels (when applicable)? Defaults to `FALSE`.
 
 Examples
 --------

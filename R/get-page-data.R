@@ -1,6 +1,6 @@
 # retrieve results from all pages of an api query for a single year
 #
-# returns data.frame, or an error if count != nrow(data.frame)
+# returns data.frame, or an error if query fails
 get_year_data <- function(url) {
   message('\nFetching data for ', substring(url, 41), ' ...')
   request <- httr::GET(url)

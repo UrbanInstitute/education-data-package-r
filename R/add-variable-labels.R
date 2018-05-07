@@ -1,3 +1,6 @@
+# add variable labels to a given data frame
+#
+# returns a data frame with variable labels applied
 add_variable_labels <- function(endpoints, df) {
   varlist <- get_endpoint_varlist(endpoints)
   df <- apply_label_text(df, varlist)
@@ -26,12 +29,12 @@ get_endpoint_varlist <- function(endpoints) {
 # returns a data frame of variable values and their corresponding label
 get_label_text <- function(varlist, var) {
   text <- varlist$values[varlist$variable == var]
-  # print(var)
-  # print(text)
+
   text <- gsub('"', '', text)
   text <- gsub(' : ', '\t', text)
   text <- gsub(', ', ' ', text)
   text <- gsub(",(\\d{3})", ';\\1', text)
+
   text <- unlist(strsplit(text, ','))
   text <- unlist(lapply(text, function(x) gsub(';',',', x)))
 

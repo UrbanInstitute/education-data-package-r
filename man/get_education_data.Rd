@@ -16,7 +16,7 @@ get_education_data(level = NULL, source = NULL, topic = NULL, ...,
 
 \item{...}{Additional required parameters to pass to an API call}
 
-\item{by}{Additional optional paramters to pass to an API call}
+\item{by}{Additional optional parameters to pass to an API call}
 
 \item{filters}{Optional query values to filter an API call}
 

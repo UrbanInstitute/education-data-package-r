@@ -16,23 +16,20 @@ knitr::opts_chunk$set(
 
 Retrieve data from the Urban Institute's [Education Data API](https://ed-data-portal.urban.org/) as a `data.frame` for easy analysis.
 
+**Note:** This package is still currently under **active** development. Please 
+file all bugs, issues, and suggestions as an 
+[Issue in the GitHub repository](https://github.com/UrbanInstitute/education-data-package-r/issues) 
+for the development team. 
+
 ## Installation
 
-To install the alpha version of the package:
-
-* Clone the repository from GitHub.
-
-`git clone https://github.com/UI-Research/education-data-package-r.git`
-
-* If you have RStudio installed, open `educationdata.Rproj` and build from 
-source in the console. If you are using the R GUI, set your working directory 
-to the project folder. 
+To install the package:
 
 * Install the `devtools` package if you don't already have it, and run:
 
 ```{r gh-installation, eval=FALSE}
 # install.packages(devtools) # if necessary
-devtools::install()
+devtools::install_github('UrbanInstitute/education-data-package-r')
 ```
 
 ## Quick Start Guide
@@ -114,7 +111,10 @@ vars <- c('endpoint_url',
 df <- df[vars]
 
 df$endpoint_url <- gsub('/api/v1/', '', df$endpoint_url)
-df$years_available <- gsub('â€“' ,'-', df$years_available)
+df$years_available <- gsub('and' ,'', df$years_available)
+df$years_available <- gsub('\u20AC' ,'-', df$years_available)
+df$years_available <- gsub('\u00E2' ,'', df$years_available)
+df$years_available <- gsub('\u201C' ,'', df$years_available)
 df <- df[order(df$endpoint_url), ]
 
 knitr::kable(df[vars], 

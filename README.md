@@ -5,22 +5,18 @@ educationdata
 
 Retrieve data from the Urban Institute's [Education Data API](https://ed-data-portal.urban.org/) as a `data.frame` for easy analysis.
 
+**Note:** This package is still currently under **active** development. Please file all bugs, issues, and suggestions as an [Issue in the GitHub repository](https://github.com/UrbanInstitute/education-data-package-r/issues) for the development team.
+
 Installation
 ------------
 
-To install the alpha version of the package:
-
--   Clone the repository from GitHub.
-
-`git clone https://github.com/UI-Research/education-data-package-r.git`
-
--   If you have RStudio installed, open `educationdata.Rproj` and build from source in the console. If you are using the R GUI, set your working directory to the project folder.
+To install the package:
 
 -   Install the `devtools` package if you don't already have it, and run:
 
 ``` r
 # install.packages(devtools) # if necessary
-devtools::install()
+devtools::install_github('UrbanInstitute/education-data-package-r')
 ```
 
 Quick Start Guide
@@ -106,35 +102,35 @@ will provide the same data, grouped by race.
 Available Endpoints
 -------------------
 
-| Endpoint                                                                            | Years Available                       |
-|:------------------------------------------------------------------------------------|:--------------------------------------|
-| college-university/ipeds/admissions-enrollment/{year}/                              | 2001-2016                             |
-| college-university/ipeds/admissions-requirements/{year}/                            | 1990-2016                             |
-| college-university/ipeds/completers/{year}/                                         | 2011-2015                             |
-| college-university/ipeds/completions-cip/{year}/                                    | 1991-2015                             |
-| college-university/ipeds/directory/{year}/                                          | 1980, 1984-2016                       |
-| college-university/ipeds/enrollment-full-time-equivalent/{year}/{level\_of\_study}/ | 2003-2015                             |
-| college-university/ipeds/enrollment-headcount/{year}/{level\_of\_study}/            | 1996-2015                             |
-| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/                 | 1986-2015                             |
-| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/age/             | 1991, 1993, 1995, 1997, and 1999-2016 |
-| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/age/sex/         | 1991, 1993, 1995, 1997, and 1999-2016 |
-| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/race/            | 1986-2015                             |
-| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/race/sex/        | 1986-2015                             |
-| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/sex/             | 1986-2015                             |
-| college-university/ipeds/fall-retention/{year}/                                     | 2003-2016                             |
-| college-university/ipeds/grad-rates-200pct/{year}/                                  | 2007-2015                             |
-| college-university/ipeds/grad-rates-pell/{year}/                                    | 2015                                  |
-| college-university/ipeds/grad-rates/{year}/                                         | 1996-2015                             |
-| college-university/ipeds/institutional-characteristics/{year}/                      | 1980, 1984-2016                       |
-| college-university/ipeds/outcome-measures/{year}/                                   | 2015                                  |
-| college-university/ipeds/student-faculty-ratio/{year}/                              | 2009-2016                             |
-| school-districts/ccd/finance/{year}/                                                | 1991-2013                             |
-| school-districts/saipe/{year}/                                                      | 1995-2016                             |
-| schools/ccd/directory/{year}/                                                       | 1986-2014                             |
-| schools/ccd/enrollment/{year}/{grade}/                                              | 1987-2014                             |
-| schools/ccd/enrollment/{year}/{grade}/race/                                         | 1987-2014                             |
-| schools/ccd/enrollment/{year}/{grade}/race/sex/                                     | 1987-2014                             |
-| schools/ccd/enrollment/{year}/{grade}/sex/                                          | 1987-2014                             |
+| Endpoint                                                                            | Years Available                   |
+|:------------------------------------------------------------------------------------|:----------------------------------|
+| college-university/ipeds/admissions-enrollment/{year}/                              | 2001-2016                         |
+| college-university/ipeds/admissions-requirements/{year}/                            | 1990-2016                         |
+| college-university/ipeds/completers/{year}/                                         | 2011-2015                         |
+| college-university/ipeds/completions-cip/{year}/                                    | 1991-2015                         |
+| college-university/ipeds/directory/{year}/                                          | 1980, 1984-2016                   |
+| college-university/ipeds/enrollment-full-time-equivalent/{year}/{level\_of\_study}/ | 2003-2015                         |
+| college-university/ipeds/enrollment-headcount/{year}/{level\_of\_study}/            | 1996-2015                         |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/                 | 1986-2015                         |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/age/             | 1991, 1993, 1995, 1997, 1999-2016 |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/age/sex/         | 1991, 1993, 1995, 1997, 1999-2016 |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/race/            | 1986-2015                         |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/race/sex/        | 1986-2015                         |
+| college-university/ipeds/fall-enrollment/{year}/{level\_of\_study}/sex/             | 1986-2015                         |
+| college-university/ipeds/fall-retention/{year}/                                     | 2003-2016                         |
+| college-university/ipeds/grad-rates-200pct/{year}/                                  | 2007-2015                         |
+| college-university/ipeds/grad-rates-pell/{year}/                                    | 2015                              |
+| college-university/ipeds/grad-rates/{year}/                                         | 1996-2015                         |
+| college-university/ipeds/institutional-characteristics/{year}/                      | 1980, 1984-2016                   |
+| college-university/ipeds/outcome-measures/{year}/                                   | 2015                              |
+| college-university/ipeds/student-faculty-ratio/{year}/                              | 2009-2016                         |
+| school-districts/ccd/finance/{year}/                                                | 1991-2013                         |
+| school-districts/saipe/{year}/                                                      | 1995-2016                         |
+| schools/ccd/directory/{year}/                                                       | 1986-2014                         |
+| schools/ccd/enrollment/{year}/{grade}/                                              | 1987-2014                         |
+| schools/ccd/enrollment/{year}/{grade}/race/                                         | 1987-2014                         |
+| schools/ccd/enrollment/{year}/{grade}/race/sex/                                     | 1987-2014                         |
+| schools/ccd/enrollment/{year}/{grade}/sex/                                          | 1987-2014                         |
 
 Required Variables
 ------------------

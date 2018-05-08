@@ -3,6 +3,8 @@
 educationdata
 =============
 
+[![Travis-CI Build Status](https://travis-ci.org/UrbanInstitute/education-data-package-r.svg?branch=master)](https://travis-ci.org/UrbanInstitute/education-data-package-r)
+
 Retrieve data from the Urban Institute's [Education Data API](https://ed-data-portal.urban.org/) as a `data.frame` for easy analysis.
 
 **Note:** This package is still currently under **active** development. Please file all bugs, issues, and suggestions as an [Issue in the GitHub repository](https://github.com/UrbanInstitute/education-data-package-r/issues) for the development team.

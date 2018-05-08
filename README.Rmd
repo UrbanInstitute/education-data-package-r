@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
 
 # educationdata
 
+[![Travis-CI Build Status](https://travis-ci.org/UrbanInstitute/education-data-package-r.svg?branch=master)](https://travis-ci.org/UrbanInstitute/education-data-package-r)
+
 Retrieve data from the Urban Institute's [Education Data API](https://ed-data-portal.urban.org/) as a `data.frame` for easy analysis.
 
 **Note:** This package is still currently under **active** development. Please 

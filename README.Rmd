@@ -30,7 +30,7 @@ To install the package:
 * Install the `devtools` package if you don't already have it, and run:
 
 ```{r gh-installation, eval=FALSE}
-# install.packages(devtools) # if necessary
+# install.packages('devtools') # if necessary
 devtools::install_github('UrbanInstitute/education-data-package-r')
 ```
 

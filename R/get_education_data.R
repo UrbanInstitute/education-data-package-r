@@ -4,7 +4,7 @@
 #' @param source API data source to query
 #' @param topic API data topic to query
 #' @param ... Additional required parameters to pass to an API call
-#' @param by Additional optional paramters to pass to an API call
+#' @param by Additional optional parameters to pass to an API call
 #' @param filters Optional query values to filter an API call
 #' @param add_labels Add variable labels (when applicable)?
 #'

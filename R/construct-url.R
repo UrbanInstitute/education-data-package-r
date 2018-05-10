@@ -10,6 +10,7 @@ construct_url <- function(endpoints,
 
   required_vars <- parse_year(endpoints, required_vars)
   required_vars <- parse_grade(required_vars)
+  required_vars <- parse_level_of_study(required_vars)
 
   url_stub = paste0('https://ed-data-portal.urban.org', endpoints$endpoint_url)
   url_stub <- parse_filters(url_stub, filters)
@@ -67,7 +68,7 @@ parse_year <- function(endpoints, required_vars) {
 
 # validate grade argument
 #
-#
+# returns a list of required variables with validated grade
 parse_grade <- function(required_vars) {
 
   if (!('grade' %in% names(required_vars))) {
@@ -109,6 +110,40 @@ parse_grade <- function(required_vars) {
   } else{
     grade <- names(valid_grades[match])
     required_vars$grade <- grade
+  }
+
+  return(required_vars)
+}
+
+# validate level_of_study argument
+#
+# returns a list of required variables with validated level_of_study
+parse_level_of_study <- function(required_vars) {
+
+  if (!('level_of_study' %in% names(required_vars))) {
+    return(required_vars)
+  } else {
+    level_of_study <- as.character(required_vars$level_of_study)
+  }
+
+  valid_study <- list('undergraduate' = c('undergraduate', 'undergrad'),
+                      'graduate' = c('graduate', 'grad'),
+                      'first-professional' = c('first-professional'),
+                      'post-baccalaureate' = c('post-baccalaureate',
+                                               'post-bac',
+                                               'postbac'),
+                      '99' = c('99', 'total'))
+
+  match <- lapply(names(valid_study), function(x) level_of_study %in% valid_study[[x]])
+  match <- unlist(match)
+
+  if (sum(match) != 1) {
+    stop(level_of_study, ' is not a valid level of study. Valid levels are:\n\t',
+         paste(names(valid_study), collapse='\n\t'),
+         call. = FALSE)
+  } else{
+    level_of_study <- names(valid_study[match])
+    required_vars$level_of_study <- level_of_study
   }
 
   return(required_vars)

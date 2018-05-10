@@ -9,6 +9,7 @@ construct_url <- function(endpoints,
                           filters) {
 
   required_vars <- parse_year(endpoints, required_vars)
+  required_vars <- parse_grade(required_vars)
 
   url_stub = paste0('https://ed-data-portal.urban.org', endpoints$endpoint_url)
   url_stub <- parse_filters(url_stub, filters)
@@ -60,6 +61,55 @@ parse_year <- function(endpoints, required_vars) {
          )
 
   required_vars$year <- year
+
+  return(required_vars)
+}
+
+# validate grade argument
+#
+#
+parse_grade <- function(required_vars) {
+
+  if (!('grade' %in% names(required_vars))) {
+    return(required_vars)
+  } else {
+    grade <- as.character(required_vars$grade)
+  }
+
+  valid_grades <- list('grade-pk' = c('grade-pk', 'pk', 'pre-k'),
+                    'grade-k' = c('grade-k', 'k'),
+                    'grade-1' = c('grade-1', '1'),
+                    'grade-2' = c('grade-2', '2'),
+                    'grade-3' = c('grade-3', '3'),
+                    'grade-4' = c('grade-4', '4'),
+                    'grade-5' = c('grade-5', '5'),
+                    'grade-6' = c('grade-6', '6'),
+                    'grade-7' = c('grade-7', '7'),
+                    'grade-8' = c('grade-8', '8'),
+                    'grade-9' = c('grade-9', '9'),
+                    'grade-10' = c('grade-10', '10'),
+                    'grade-11' = c('grade-11', '11'),
+                    'grade-12' = c('grade-12', '12'),
+                    'grade-13' = c('grade-13', '13'),
+                    'grade-14' = c('grade-14', '14', 'adult-education'),
+                    'grade-15' = c('grade-15', '15', 'ungraded'),
+                    'grade-16' = c('grade-16', '16', 'k-12'),
+                    'grade-20' = c('grade-20', '20', '7-8'),
+                    'grade-21' = c('grade-21', '21', '9-10'),
+                    'grade-22' = c('grade-22', '22', '11-12'),
+                    'grade-99' = c('grade-99', '99', 'total'))
+
+  match <- lapply(names(valid_grades), function(x) grade %in% valid_grades[[x]])
+  match <- unlist(match)
+
+  if (sum(match) != 1) {
+    stop(grade, ' is not a valid grade level. Valid grade levels are:\n\t',
+         paste(names(valid_grades), collapse='\n\t'),
+         call. = FALSE)
+  } else{
+    grade <- names(valid_grades[match])
+    required_vars$grade <- grade
+  }
 
   return(required_vars)
 }

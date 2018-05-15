@@ -14,7 +14,10 @@ construct_url <- function(endpoints,
 
   url_stub = paste0('https://ed-data-portal.urban.org', endpoints$endpoint_url)
   url_stub <- parse_filters(url_stub, filters)
-  urls <- do.call(glue::glue, c(url_stub , required_vars))
+
+  url_combos <- expand.grid(required_vars)
+  urls <- glue::glue_data(url_combos, url_stub)
+
   return(urls)
 }
 
@@ -100,10 +103,13 @@ parse_grade <- function(required_vars) {
                     'grade-22' = c('grade-22', '22', '11-12'),
                     'grade-99' = c('grade-99', '99', 'total'))
 
+  if (length(grade) == 1 && grade == 'all') grade <- names(valid_grades)
+
   match <- lapply(names(valid_grades), function(x) grade %in% valid_grades[[x]])
+  match <- lapply(match, function(x) as.logical(sum(x)))
   match <- unlist(match)
 
-  if (sum(match) != 1) {
+  if (sum(match) == 0) {
     stop(grade, ' is not a valid grade level. Valid grade levels are:\n\t',
          paste(names(valid_grades), collapse='\n\t'),
          call. = FALSE)
@@ -134,10 +140,15 @@ parse_level_of_study <- function(required_vars) {
                                                'postbac'),
                       '99' = c('99', 'total'))
 
+  if (length(level_of_study) == 1 && level_of_study == 'all') {
+    level_of_study <- names(valid_study)
+  }
+
   match <- lapply(names(valid_study), function(x) level_of_study %in% valid_study[[x]])
+  match <- lapply(match, function(x) as.logical(sum(x)))
   match <- unlist(match)
 
-  if (sum(match) != 1) {
+  if (sum(match) == 0) {
     stop(level_of_study, ' is not a valid level of study. Valid levels are:\n\t',
          paste(names(valid_study), collapse='\n\t'),
          call. = FALSE)

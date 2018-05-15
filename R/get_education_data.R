@@ -19,18 +19,16 @@
 get_education_data <- function(level = NULL,
                                source = NULL,
                                topic = NULL,
-                               ...,
                                by = NULL,
                                filters = NULL,
                                add_labels = FALSE) {
 
-  required_vars = list(...)
-
   endpoints <- validate_function_args(level = level,
                                       source = source,
                                       topic = topic,
-                                      ... = ...,
                                       by = by)
+
+  required_vars <- get_required_varlist(endpoints)
 
   urls <- construct_url(endpoints = endpoints,
                         required_vars = required_vars,

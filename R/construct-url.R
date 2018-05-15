@@ -8,12 +8,14 @@ construct_url <- function(endpoints,
                           required_vars,
                           filters) {
 
+  required_vars <- parse_required_vars(required_vars, filters)
+
   required_vars <- parse_year(endpoints, required_vars)
   required_vars <- parse_grade(required_vars)
   required_vars <- parse_level_of_study(required_vars)
 
   url_stub = paste0('https://ed-data-portal.urban.org', endpoints$endpoint_url)
-  url_stub <- parse_filters(url_stub, filters)
+  url_stub <- parse_filters(url_stub, filters, required_vars)
 
   url_combos <- expand.grid(required_vars)
   urls <- glue::glue_data(url_combos, url_stub)
@@ -21,11 +23,29 @@ construct_url <- function(endpoints,
   return(urls)
 }
 
+# parse required vars from filters
+#
+# returns a list of required var arguments and their values
+parse_required_vars <- function(required_vars, filters) {
+  filters <- filters[names(filters) %in% names(required_vars)]
+
+  for (i in seq_along(filters)){
+    name = names(filters[i])
+    required_vars[[name]] <- filters[[name]]
+  }
+
+  return(required_vars)
+
+}
+
 # parse filters and add to url
 #
 # returns a url_stub with filters added
-parse_filters <- function(url_stub, filters) {
-  if(is.null(filters)) {
+parse_filters <- function(url_stub, filters, required_vars) {
+
+  filters <- filters[!(names(filters) %in% names(required_vars))]
+
+  if(length(filters) == 0) {
     return(url_stub)
   } else {
     url_stub <- paste0(url_stub, '?')
@@ -54,6 +74,7 @@ parse_year <- function(endpoints, required_vars) {
 
   valid_years <- unlist(unique(endpoints$parsed_years))
   year <- required_vars$year
+  if (is.null(year)) year <- 'all'
 
   if (length(year) == 1 && year == 'all') year <- valid_years
 
@@ -79,6 +100,8 @@ parse_grade <- function(required_vars) {
   } else {
     grade <- as.character(required_vars$grade)
   }
+
+  if (length(grade) == 0) grade <- 'all'
 
   valid_grades <- list('grade-pk' = c('grade-pk', 'pk', 'pre-k'),
                     'grade-k' = c('grade-k', 'k'),
@@ -131,6 +154,8 @@ parse_level_of_study <- function(required_vars) {
   } else {
     level_of_study <- as.character(required_vars$level_of_study)
   }
+
+  if (length(level_of_study) == 0) level_of_study <- 'all'
 
   valid_study <- list('undergraduate' = c('undergraduate', 'undergrad'),
                       'graduate' = c('graduate', 'grad'),

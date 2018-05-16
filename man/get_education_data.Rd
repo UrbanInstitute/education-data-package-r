@@ -4,8 +4,8 @@
 \alias{get_education_data}
 \title{Obtain data from the Urban Institute Education Data Portal API}
 \usage{
-get_education_data(level = NULL, source = NULL, topic = NULL, ...,
-  by = NULL, filters = NULL, add_labels = FALSE)
+get_education_data(level = NULL, source = NULL, topic = NULL, by = NULL,
+  filters = NULL, add_labels = FALSE)
 }
 \arguments{
 \item{level}{API data level to query}
@@ -13,8 +13,6 @@ get_education_data(level = NULL, source = NULL, topic = NULL, ...,
 \item{source}{API data source to query}
 
 \item{topic}{API data topic to query}
-
-\item{...}{Additional required parameters to pass to an API call}
 
 \item{by}{Additional optional parameters to pass to an API call}
 

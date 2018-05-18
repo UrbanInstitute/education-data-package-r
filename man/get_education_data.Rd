@@ -4,8 +4,8 @@
 \alias{get_education_data}
 \title{Obtain data from the Urban Institute Education Data Portal API}
 \usage{
-get_education_data(level = NULL, source = NULL, topic = NULL, ...,
-  by = NULL, filters = NULL, add_labels = FALSE)
+get_education_data(level = NULL, source = NULL, topic = NULL, by = NULL,
+  filters = NULL, add_labels = FALSE)
 }
 \arguments{
 \item{level}{API data level to query}
@@ -14,13 +14,11 @@ get_education_data(level = NULL, source = NULL, topic = NULL, ...,
 
 \item{topic}{API data topic to query}
 
-\item{...}{Additional required parameters to pass to an API call}
+\item{by}{Optional 'list' of grouping parameters to pass to an API call}
 
-\item{by}{Additional optional parameters to pass to an API call}
+\item{filters}{Optional 'list' of query values to filter an API call}
 
-\item{filters}{Optional query values to filter an API call}
-
-\item{add_labels}{Add variable labels (when applicable)?}
+\item{add_labels}{Add variable labels (when applicable)? Defaults to FALSE.}
 }
 \value{
 A `data.frame` of education data
@@ -31,7 +29,7 @@ Obtain data from the Urban Institute Education Data Portal API
 \examples{
 \dontrun{
 library(educationdata)
-df <- get_education_data(level = 'school-districts', source = 'ccd', topic = 'finance', year = 2004)
+df <- get_education_data(level = 'school-districts', source = 'ccd', topic = 'finance')
 }
 
 }

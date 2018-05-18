@@ -14,9 +14,13 @@ get_education_data(level = NULL, source = NULL, topic = NULL, by = NULL,
 
 \item{topic}{API data topic to query}
 
+<<<<<<< HEAD
 \item{by}{Optional 'list' of grouping parameters to pass to an API call}
 
 \item{filters}{Optional 'list' of query values to filter an API call}
+=======
+\item{by}{Additional optional parameters to pass to an API call}
+>>>>>>> 42159a7e2671767bec832233a08b26f290b5e768
 
 \item{add_labels}{Add variable labels (when applicable)? Defaults to FALSE.}
 }

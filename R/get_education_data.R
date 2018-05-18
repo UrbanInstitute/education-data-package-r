@@ -3,15 +3,9 @@
 #' @param level API data level to query
 #' @param source API data source to query
 #' @param topic API data topic to query
-<<<<<<< HEAD
 #' @param by Optional 'list' of grouping parameters to pass to an API call
 #' @param filters Optional 'list' of query values to filter an API call
 #' @param add_labels Add variable labels (when applicable)? Defaults to FALSE.
-=======
-#' @param by Additional optional parameters to pass to an API call
-#' @param filters Optional query values to filter an API call
-#' @param add_labels Add variable labels (when applicable)?
->>>>>>> 42159a7e2671767bec832233a08b26f290b5e768
 #'
 #' @return A `data.frame` of education data
 #'

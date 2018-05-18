@@ -8,14 +8,13 @@
 validate_function_args <- function(level,
                                    source,
                                    topic,
-                                   ...,
                                    by) {
 
   endpoints <- get_endpoint_info()
   endpoints <- validate_level(endpoints, level)
   endpoints <- validate_source(endpoints, source)
   endpoints <- validate_topic(endpoints, source, topic)
-  endpoints <- validate_required_variables(endpoints, ...)
+  #endpoints <- validate_required_variables(endpoints, ...)
   endpoints <- validate_optional_variables(endpoints, by)
 
   if (nrow(endpoints) != 1) {
@@ -133,6 +132,14 @@ validate_required_variables <- function(endpoints, ...) {
   endpoints <- endpoints[subs, ]
 
   return(endpoints)
+}
+
+get_required_varlist <- function(endpoints) {
+  reqs <- unlist(endpoints$required_vars)
+  required_vars <- vector('list', length(reqs))
+  names(required_vars) <- reqs
+
+  return(required_vars)
 }
 
 # validate optional variables

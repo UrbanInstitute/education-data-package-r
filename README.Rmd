@@ -166,6 +166,7 @@ knitr::kable(df[vars],
 The following will return a `data.frame` across all years and grades:
 
 ```{r example-01, eval=FALSE}
+library(educationdata)
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment')
@@ -194,7 +195,7 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 2010:2015,
+                         filters = list(year = 1988:1990,
                                         grade = 6:8))
 ```
 
@@ -205,7 +206,7 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 2010:2015,
+                         filters = list(year = 1988:1990,
                                         grade = 6:8,
                                         ncessch = '010000200277'))
 ```
@@ -218,7 +219,7 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 2010:2015,
+                         filters = list(year = 1988:1990,
                                         grade = 6:8,
                                         ncessch = '010000200277'),
                          add_labels = TRUE)

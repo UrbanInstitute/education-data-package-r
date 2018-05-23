@@ -79,7 +79,6 @@ Available Endpoints
 | college-university | ipeds  | completions-cip                 | NA        | year                   | 1991-2015                         |
 | college-university | ipeds  | directory                       | NA        | year                   | 1980, 1984-2016                   |
 | college-university | ipeds  | enrollment-full-time-equivalent | NA        | year, level\_of\_study | 2003-2015                         |
-| college-university | ipeds  | enrollment-headcount            | NA        | year, level\_of\_study | 1996-2015                         |
 | college-university | ipeds  | fall-enrollment                 | NA        | year, level\_of\_study | 1986-2015                         |
 | college-university | ipeds  | fall-enrollment                 | age       | year, level\_of\_study | 1991, 1993, 1995, 1997, 1999-2016 |
 | college-university | ipeds  | fall-enrollment                 | age, sex  | year, level\_of\_study | 1991, 1993, 1995, 1997, 1999-2016 |
@@ -160,6 +159,7 @@ Let's build up some examples, from the following set of endpoints.
 The following will return a `data.frame` across all years and grades:
 
 ``` r
+library(educationdata)
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment')
@@ -187,7 +187,7 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 2010:2015,
+                         filters = list(year = 1988:1990,
                                         grade = 6:8))
 ```
 
@@ -198,7 +198,7 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 2010:2015,
+                         filters = list(year = 1988:1990,
                                         grade = 6:8,
                                         ncessch = '010000200277'))
 ```
@@ -210,7 +210,7 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 2010:2015,
+                         filters = list(year = 1988:1990,
                                         grade = 6:8,
                                         ncessch = '010000200277'),
                          add_labels = TRUE)

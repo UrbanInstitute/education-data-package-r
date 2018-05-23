@@ -3,34 +3,31 @@
 #' @param level API data level to query
 #' @param source API data source to query
 #' @param topic API data topic to query
-#' @param ... Additional required parameters to pass to an API call
-#' @param by Additional optional parameters to pass to an API call
-#' @param filters Optional query values to filter an API call
-#' @param add_labels Add variable labels (when applicable)?
+#' @param by Optional 'list' of grouping parameters to pass to an API call
+#' @param filters Optional 'list' of query values to filter an API call
+#' @param add_labels Add variable labels (when applicable)? Defaults to FALSE.
 #'
 #' @return A `data.frame` of education data
 #'
 #' @examples \dontrun{
 #' library(educationdata)
-#' df <- get_education_data(level = 'school-districts', source = 'ccd', topic = 'finance', year = 2004)
+#' df <- get_education_data(level = 'school-districts', source = 'ccd', topic = 'finance')
 #' }
 #'
 #' @export
 get_education_data <- function(level = NULL,
                                source = NULL,
                                topic = NULL,
-                               ...,
                                by = NULL,
                                filters = NULL,
                                add_labels = FALSE) {
 
-  required_vars = list(...)
-
   endpoints <- validate_function_args(level = level,
                                       source = source,
                                       topic = topic,
-                                      ... = ...,
                                       by = by)
+
+  required_vars <- get_required_varlist(endpoints)
 
   urls <- construct_url(endpoints = endpoints,
                         required_vars = required_vars,

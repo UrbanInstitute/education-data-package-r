@@ -1,3 +1,13 @@
+# educationdata 0.0.0.9002
+
+* Note that this package is still currently under **active** development. 
+Please file all bugs, issues, and suggestions as an Issue in the GitHub 
+repository for the development team. 
+
+* Filter validation added to API calls. `get_education_data` calls with an 
+invalid `filter` variable will return an error. Note that this validation only 
+checks against the variable to filter, and note the value itself.
+
 # educationdata 0.0.0.9001 (2018-05-23)
 
 * Note that this package is still currently under **active** development. 

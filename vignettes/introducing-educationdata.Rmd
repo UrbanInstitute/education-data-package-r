@@ -1,0 +1,240 @@
+---
+title: "Introducing educationdata"
+author: "Kyle Ueyama"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The `educationdata` package allows the user to retrieve data from the Urban 
+Institute's [Education Data API](https://ed-data-portal.urban.org/) as a 
+`data.frame` for analysis. The package contains one major function, 
+`get_education_data`, which will get data from a specified API endpoint and 
+return a `data.frame` to the user.
+
+## Usage
+
+The `get_education_data` function will return a `data.frame` from a call to 
+the Education Data API.  
+
+```{r usage-01, eval=FALSE}
+library(educationdata)
+get_education_data(level, source, topic, by, filters, add_labels)
+```
+
+where:
+
+* level (required) - API data level to query.
+* source (requried) - API data source to query.
+* topic (required) - API data topic to query.
+* by (optional) - Optional `list` of grouping parameters for an API call.
+* filters (optional) - Optional `list` query to filter the results from an API 
+call.
+* add_labels - Add variable labels as factors (when applicable)? Defaults to 
+`FALSE`.
+
+This simple example will obtain 'college-university' `level` data from the 
+'ipeds' `source` for the 'student-faculty-ratio' `topic`:
+
+```{r usage-02, message=FALSE}
+library(educationdata)
+ 
+df <- get_education_data(
+   level = 'college-university',
+   source = 'ipeds',
+   topic = 'student-faculty-ratio'
+ )
+
+head(df)
+```
+
+A somewhat more complex example will obtain 'school' `level` data from the 
+'ccd' `source` for the 'enrollment' `topic`, broken out `by` 'race' and 'sex'. 
+The API query is subset with `filters` for the 'year' 2008, 'grade' 9 through 
+12, and a 'ncessch' code of 340606000122. Finally, the `add_labels` flag will 
+map integer codes to their factor labels ('race' and 'sex' in this instance).
+
+```{r usage-03, message=FALSE}
+library(educationdata)
+
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         by = list('race', 'sex'),
+                         filters = list(year = 2008,
+                                        grade = 9:12,
+                                        ncessch = '340606000122'),
+                         add_labels = TRUE)
+
+head(df)
+```
+
+## Available Endpoints
+
+```{r endpoints, echo=FALSE}
+source('../R/get-endpoint-info.R')
+df <- get_endpoint_info()
+
+df$years_available <- gsub('and' ,'', df$years_available)
+df$years_available <- gsub('\u20AC' ,'-', df$years_available)
+df$years_available <- gsub('\u00E2' ,'', df$years_available)
+df$years_available <- gsub('\u201C' ,'', df$years_available)
+df$optional_vars <- lapply(df$optional_vars, 
+                           function(x) paste(x, collapse = ', '))
+df$required_vars <- lapply(df$required_vars, 
+                           function(x) paste(x, collapse = ', '))
+df <- df[order(df$endpoint_url), ]
+
+vars <- c('section', 
+          'class_name', 
+          'topic', 
+          'optional_vars',
+          'required_vars',
+          'years_available')
+
+knitr::kable(df[vars], 
+             col.names = c('Level', 
+                           'Source', 
+                           'Topic', 
+                           'By',
+                           'Main Filters',
+                           'Years Available'),
+             row.names = FALSE)
+```
+
+## Main Filters
+
+Due to the way the API is set-up, the variables listed within 'main filters'
+are often the fastest way to subset an API call.
+
+In addition to `year`, the other main filters for certain endpoints 
+accept the following values:
+
+### Grade
+| Filter Argument | Grade |
+|-------------------|-------|
+| `grade = 'grade-pk'` | Pre-K  |
+| `grade = 'grade-k'`  | Kindergarten  |
+| `grade = 'grade-1'` | Grade 1  |
+| `grade = 'grade-2'` | Grade 2  |
+| `grade = 'grade-3'` | Grade 3  |
+| `grade = 'grade-4'` | Grade 4  |
+| `grade = 'grade-5'` | Grade 5  |
+| `grade = 'grade-6'` | Grade 6  |
+| `grade = 'grade-7'` | Grade 7  |
+| `grade = 'grade-8'` | Grade 8  |
+| `grade = 'grade-9'` | Grade 9  |
+| `grade = 'grade-10'` | Grade 10  |
+| `grade = 'grade-11'` | Grade 11  |
+| `grade = 'grade-12'` | Grade 12  |
+| `grade = 'grade-13'` | Grade 13  |
+| `grade = 'grade-14'` | Adult Education |
+| `grade = 'grade-15'` | Ungraded  |
+| `grade = 'grade-16'` | K-12  |
+| `grade = 'grade-20'` | Grades 7 and 8  |
+| `grade = 'grade-21'` | Grade 9 and 10  |
+| `grade = 'grade-22'` | Grades 11 and 12  |
+| `grade = 'grade-99'` | Total  |
+
+### Level of Study
+| Filter Argument | Level of Study |
+|-------------------|----------------| 
+| `level_of_study = 'undergraduate'` | Undergraduate |
+| `level_of_study = 'graduate'` | Graduate |
+| `level_of_study = 'first-professional'` | First Professional |
+| `level_of_study = 'post-baccalaureate'` | Post-baccalaureate |
+| `level_of_study = '99'` | Total |
+
+
+## Examples
+
+Let's build up some examples, from the following set of endpoints.
+
+```{r example-endpoints, echo = FALSE}
+df <- df[df$section == 'schools' & df$topic == 'enrollment', ]
+
+knitr::kable(df[vars], 
+             col.names = c('Level', 
+                           'Source', 
+                           'Topic', 
+                           'By',
+                           'Main Filters',
+                           'Years Available'),
+             row.names = FALSE)
+```
+
+
+The following will return a `data.frame` across all years and grades:
+
+```{r example-01, eval=FALSE}
+library(educationdata)
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment')
+```
+
+Note that this endpoint is also callable `by` certain variables:
+
+* race
+* sex
+* race, sex
+
+These variables can be added to the `by` argument:
+
+```{r example-02, eval=FALSE}
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         by = list('race', 'sex'))
+```
+
+You may also filter the results of an API call. In this case `year` and 
+`grade` will provide the most time-efficient subsets, and can be vectorized:
+
+```{r example-03, eval=FALSE}
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         by = list('race', 'sex'),
+                         filters = list(year = 1988:1990,
+                                        grade = 6:8))
+```
+
+Additional variables can also be passed to `filters` to subset further:
+
+```{r example-04, eval=FALSE}
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         by = list('race', 'sex'),
+                         filters = list(year = 1988:1990,
+                                        grade = 6:8,
+                                        ncessch = '010000200277'))
+```
+
+Finally, the `add_labels` flag will map variables to a `factor` from their 
+labels in the API.
+
+```{r example-05, eval=FALSE}
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         by = list('race', 'sex'),
+                         filters = list(year = 1988:1990,
+                                        grade = 6:8,
+                                        ncessch = '010000200277'),
+                         add_labels = TRUE)
+```
+
+
+

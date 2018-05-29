@@ -13,6 +13,7 @@ construct_url <- function(endpoints,
   required_vars <- parse_year(endpoints, required_vars)
   required_vars <- parse_grade(required_vars)
   required_vars <- parse_level_of_study(required_vars)
+  validate_filters(endpoints, filters)
 
   url_stub = paste0('https://ed-data-portal.urban.org', endpoints$endpoint_url)
   url_stub <- parse_filters(url_stub, filters, required_vars)
@@ -35,6 +36,32 @@ parse_required_vars <- function(required_vars, filters) {
   }
 
   return(required_vars)
+
+}
+
+
+# validate filters
+#
+#
+validate_filters <- function(endpoints, filters) {
+  url <- paste0(
+    'https://ed-data-portal.urban.org/api/v1/api-endpoint-varlist/?endpoint_id=',
+    endpoints$endpoint_id
+    )
+  res <- httr::GET(url)
+  varlist <- jsonlite::fromJSON(rawToChar(res$content))$results
+
+  filter_vars <- names(filters)
+
+  lapply(
+    filter_vars,
+    function(x) if ((!(x %in% varlist$variable)) ||
+                    varlist[varlist$variable == x, ]$is_filter != 1) {
+      stop(x, ' is not a valid filter variable for this endpoint.',
+           call. = FALSE)
+    }
+  )
+
 
 }
 

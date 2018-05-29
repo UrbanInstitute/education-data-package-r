@@ -1,4 +1,4 @@
-# educationdata 0.0.0.9002
+# educationdata 0.0.0.9002 (2018-05-29)
 
 * Note that this package is still currently under **active** development. 
 Please file all bugs, issues, and suggestions as an Issue in the GitHub 

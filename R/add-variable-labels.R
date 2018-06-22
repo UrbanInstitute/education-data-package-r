@@ -12,7 +12,7 @@ add_variable_labels <- function(endpoints, df) {
 #
 # returns a data frame of variable metadata
 get_endpoint_varlist <- function(endpoints) {
-  url <- paste0('https://ed-data-portal.urban.org/',
+  url <- paste0('https://educationdata.urban.org/',
                 'api/v1/api-endpoint-varlist/?endpoint_id=',
                 endpoints$endpoint_id)
 

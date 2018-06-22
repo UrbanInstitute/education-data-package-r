@@ -41,3 +41,33 @@ get_education_data <- function(level = NULL,
 
   return(df)
 }
+
+get_education_data_csv <- function(level = NULL,
+                               source = NULL,
+                               topic = NULL,
+                               by = NULL,
+                               filters = NULL,
+                               add_labels = FALSE) {
+
+  endpoints <- validate_function_args(level = level,
+                                      source = source,
+                                      topic = topic,
+                                      by = by)
+
+  required_vars <- get_required_varlist(endpoints)
+
+  urls <- construct_url_csv(endpoints = endpoints,
+                            required_vars = required_vars,
+                            filters  = filters)
+
+  cols <- get_csv_cols(endpoints, urls)
+
+  df <- get_csv_data(urls, cols)
+
+  if(add_labels & nrow(df) != 0) {
+    df <- add_variable_labels(endpoints, df)
+  }
+
+  return(df)
+}
+

@@ -2,7 +2,7 @@
 #
 # returns a parsed data.frame of endpoint information
 get_endpoint_info <- function() {
-  url <- 'https://ed-data-portal.urban.org/api/v1/api-endpoints/'
+  url <- 'https://educationdata.urban.org/api/v1/api-endpoints/'
   res <- httr::GET(url)
   endpoints <- jsonlite::fromJSON(rawToChar(res$content))$results
 

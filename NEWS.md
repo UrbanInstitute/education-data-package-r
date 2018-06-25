@@ -1,3 +1,11 @@
+# educationdata 0.0.0.9003 (2018-06-27)
+
+* Note that this package is still currently under **active** development. 
+Please file all bugs, issues, and suggestions as an Issue in the GitHub 
+repository for the development team. 
+
+* Add csv option to allow users to download larger extracts from csv.
+
 # educationdata 0.0.0.9002 (2018-05-29)
 
 * Note that this package is still currently under **active** development. 

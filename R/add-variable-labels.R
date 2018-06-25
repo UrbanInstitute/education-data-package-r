@@ -14,7 +14,8 @@ add_variable_labels <- function(endpoints, df) {
 get_endpoint_varlist <- function(endpoints) {
   url <- paste0('https://educationdata.urban.org/',
                 'api/v1/api-endpoint-varlist/?endpoint_id=',
-                endpoints$endpoint_id)
+                endpoints$endpoint_id,
+                '&mode=R')
 
   request <- httr::GET(url)
   varlist <- jsonlite::fromJSON(rawToChar(request$content))$results

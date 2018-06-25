@@ -67,38 +67,35 @@ where:
 -   by (optional) - Optional `list` of grouping parameters for an API call.
 -   filters (optional) - Optional `list` query to filter the results from an API call.
 -   add\_labels - Add variable labels (when applicable)? Defaults to `FALSE`.
+-   csv - Download the full csv file? Defaults to `FALSE`.
 
 Available Endpoints
 -------------------
 
 | Level              | Source | Topic                           | By        | Main Filters           | Years Available                   |
 |:-------------------|:-------|:--------------------------------|:----------|:-----------------------|:----------------------------------|
-| college-university | ipeds  | admissions-enrollment           | NA        | year                   | 2001-2016                         |
-| college-university | ipeds  | admissions-requirements         | NA        | year                   | 1990-2016                         |
-| college-university | ipeds  | completers                      | NA        | year                   | 2011-2015                         |
-| college-university | ipeds  | completions-cip                 | NA        | year                   | 1991-2015                         |
-| college-university | ipeds  | directory                       | NA        | year                   | 1980, 1984-2016                   |
-| college-university | ipeds  | enrollment-full-time-equivalent | NA        | year, level\_of\_study | 2003-2015                         |
-| college-university | ipeds  | fall-enrollment                 | NA        | year, level\_of\_study | 1986-2015                         |
-| college-university | ipeds  | fall-enrollment                 | age       | year, level\_of\_study | 1991, 1993, 1995, 1997, 1999-2016 |
-| college-university | ipeds  | fall-enrollment                 | age, sex  | year, level\_of\_study | 1991, 1993, 1995, 1997, 1999-2016 |
-| college-university | ipeds  | fall-enrollment                 | race      | year, level\_of\_study | 1986-2015                         |
-| college-university | ipeds  | fall-enrollment                 | race, sex | year, level\_of\_study | 1986-2015                         |
-| college-university | ipeds  | fall-enrollment                 | sex       | year, level\_of\_study | 1986-2015                         |
-| college-university | ipeds  | fall-retention                  | NA        | year                   | 2003-2016                         |
-| college-university | ipeds  | grad-rates-200pct               | NA        | year                   | 2007-2015                         |
+| college-university | ipeds  | admissions-enrollment           | NA        | year                   | 2001–2016                         |
+| college-university | ipeds  | admissions-requirements         | NA        | year                   | 1990–2016                         |
+| college-university | ipeds  | completers                      | NA        | year                   | 2011–2015                         |
+| college-university | ipeds  | completions-cip                 | NA        | year                   | 1991–2015                         |
+| college-university | ipeds  | directory                       | NA        | year                   | 1980, 1984–2016                   |
+| college-university | ipeds  | enrollment-full-time-equivalent | NA        | year, level\_of\_study | 2003–2015                         |
+| college-university | ipeds  | fall-enrollment                 | age, sex  | year, level\_of\_study | 1991, 1993, 1995, 1997, 1999–2016 |
+| college-university | ipeds  | fall-enrollment                 | race, sex | year, level\_of\_study | 1986–2015                         |
+| college-university | ipeds  | fall-retention                  | NA        | year                   | 2003–2016                         |
+| college-university | ipeds  | grad-rates-200pct               | NA        | year                   | 2007–2015                         |
 | college-university | ipeds  | grad-rates-pell                 | NA        | year                   | 2015                              |
-| college-university | ipeds  | grad-rates                      | NA        | year                   | 1996-2015                         |
-| college-university | ipeds  | institutional-characteristics   | NA        | year                   | 1980, 1984-2016                   |
+| college-university | ipeds  | grad-rates                      | NA        | year                   | 1996–2015                         |
+| college-university | ipeds  | institutional-characteristics   | NA        | year                   | 1980, 1984–2016                   |
 | college-university | ipeds  | outcome-measures                | NA        | year                   | 2015                              |
-| college-university | ipeds  | student-faculty-ratio           | NA        | year                   | 2009-2016                         |
-| school-districts   | ccd    | finance                         | NA        | year                   | 1991-2013                         |
-| school-districts   | saipe  | NA                              | NA        | year                   | 1995-2016                         |
-| schools            | ccd    | directory                       | NA        | year                   | 1986-2014                         |
-| schools            | ccd    | enrollment                      | NA        | year, grade            | 1987-2014                         |
-| schools            | ccd    | enrollment                      | race      | year, grade            | 1987-2014                         |
-| schools            | ccd    | enrollment                      | race, sex | year, grade            | 1987-2014                         |
-| schools            | ccd    | enrollment                      | sex       | year, grade            | 1987-2014                         |
+| college-university | ipeds  | student-faculty-ratio           | NA        | year                   | 2009–2016                         |
+| school-districts   | ccd    | finance                         | NA        | year                   | 1991–2013                         |
+| school-districts   | saipe  | NA                              | NA        | year                   | 1995, 1997, 1999–2016             |
+| schools            | ccd    | directory                       | NA        | year                   | 1986–2014                         |
+| schools            | ccd    | enrollment                      | NA        | year, grade            | 1987–2014                         |
+| schools            | ccd    | enrollment                      | race      | year, grade            | 1987–2014                         |
+| schools            | ccd    | enrollment                      | race, sex | year, grade            | 1987–2014                         |
+| schools            | ccd    | enrollment                      | sex       | year, grade            | 1987–2014                         |
 
 Main Filters
 ------------
@@ -151,10 +148,10 @@ Let's build up some examples, from the following set of endpoints.
 
 | Level   | Source | Topic      | By        | Main Filters | Years Available |
 |:--------|:-------|:-----------|:----------|:-------------|:----------------|
-| schools | ccd    | enrollment | NA        | year, grade  | 1987-2014       |
-| schools | ccd    | enrollment | race      | year, grade  | 1987-2014       |
-| schools | ccd    | enrollment | race, sex | year, grade  | 1987-2014       |
-| schools | ccd    | enrollment | sex       | year, grade  | 1987-2014       |
+| schools | ccd    | enrollment | NA        | year, grade  | 1987–2014       |
+| schools | ccd    | enrollment | race      | year, grade  | 1987–2014       |
+| schools | ccd    | enrollment | race, sex | year, grade  | 1987–2014       |
+| schools | ccd    | enrollment | sex       | year, grade  | 1987–2014       |
 
 The following will return a `data.frame` across all years and grades:
 
@@ -187,8 +184,8 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 1988:1990,
-                                        grade = 6:8))
+                         filters = list(year = 2008,
+                                        grade = 9:12))
 ```
 
 Additional variables can also be passed to `filters` to subset further:
@@ -198,20 +195,34 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 1988:1990,
-                                        grade = 6:8,
-                                        ncessch = '010000200277'))
+                         filters = list(year = 2008,
+                                        grade = 9:12,
+                                        ncessch = '3406060001227'))
 ```
 
-Finally, the `add_labels` flag will map variables to a `factor` from their labels in the API.
+The `add_labels` flag will map variables to a `factor` from their labels in the API.
 
 ``` r
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 1988:1990,
-                                        grade = 6:8,
-                                        ncessch = '010000200277'),
+                         filters = list(year = 2008,
+                                        grade = 9:12,
+                                        ncessch = '340606000122'),
                          add_labels = TRUE)
+```
+
+Finally, the `csv` flag can be set to download the full `.csv` data frame. In general, the `csv` functionality is much faster when retrieving the full data frame (or a large subset) and much slower when retrieving a small subset of a data frame (especially ones with a lot of `filters` added). In this example, the full `csv` for 2008 must be downloaded and then subset to the 96 observations.
+
+``` r
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         by = list('race', 'sex'),
+                         filters = list(year = 2008,
+                                        grade = 9:12,
+                                        ncessch = '340606000122'),
+                         add_labels = TRUE,
+                         csv = TRUE)
 ```

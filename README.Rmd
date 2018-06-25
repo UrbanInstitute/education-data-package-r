@@ -67,6 +67,7 @@ where:
 * filters (optional) - Optional `list` query to filter the results from an API 
 call.
 * add_labels - Add variable labels (when applicable)? Defaults to `FALSE`.
+* csv - Download the full csv file? Defaults to `FALSE`.
 
 ## Available Endpoints
 
@@ -195,8 +196,8 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 1988:1990,
-                                        grade = 6:8))
+                         filters = list(year = 2008,
+                                        grade = 9:12))
 ```
 
 Additional variables can also be passed to `filters` to subset further:
@@ -206,12 +207,12 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 1988:1990,
-                                        grade = 6:8,
-                                        ncessch = '010000200277'))
+                         filters = list(year = 2008,
+                                        grade = 9:12,
+                                        ncessch = '3406060001227'))
 ```
 
-Finally, the `add_labels` flag will map variables to a `factor` from their 
+The `add_labels` flag will map variables to a `factor` from their 
 labels in the API.
 
 ```{r example-05, eval=FALSE}
@@ -219,8 +220,27 @@ df <- get_education_data(level = 'schools',
                          source = 'ccd', 
                          topic = 'enrollment', 
                          by = list('race', 'sex'),
-                         filters = list(year = 1988:1990,
-                                        grade = 6:8,
-                                        ncessch = '010000200277'),
+                         filters = list(year = 2008,
+                                        grade = 9:12,
+                                        ncessch = '340606000122'),
                          add_labels = TRUE)
+```
+
+Finally, the `csv` flag can be set to download the full `.csv` data frame. In 
+general, the `csv` functionality is much faster when retrieving the full data 
+frame (or a large subset) and much slower when retrieving a small subset of a 
+data frame (especially ones with a lot of `filters` added). In this example, 
+the full `csv` for 2008 must be downloaded and then subset to the 96 
+observations.
+
+```{r example-06, eval=FALSE}
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         by = list('race', 'sex'),
+                         filters = list(year = 2008,
+                                        grade = 9:12,
+                                        ncessch = '340606000122'),
+                         add_labels = TRUE,
+                         csv = TRUE)
 ```

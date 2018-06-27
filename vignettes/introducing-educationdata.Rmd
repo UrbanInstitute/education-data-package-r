@@ -29,7 +29,7 @@ the Education Data API.
 
 ```{r usage-01, eval=FALSE}
 library(educationdata)
-get_education_data(level, source, topic, by, filters, add_labels)
+get_education_data(level, source, topic, by, filters, add_labels, csv)
 ```
 
 where:
@@ -42,6 +42,7 @@ where:
 call.
 * add_labels - Add variable labels as factors (when applicable)? Defaults to 
 `FALSE`.
+* csv - Download the full csv file? Defaults to `FALSE`.
 
 This simple example will obtain 'college-university' `level` data from the 
 'ipeds' `source` for the 'student-faculty-ratio' `topic`:
@@ -236,5 +237,22 @@ df <- get_education_data(level = 'schools',
                          add_labels = TRUE)
 ```
 
+Finally, the `csv` flag can be set to download the full `.csv` data frame. In 
+general, the `csv` functionality is much faster when retrieving the full data 
+frame (or a large subset) and much slower when retrieving a small subset of a 
+data frame (especially ones with a lot of `filters` added). In this example, 
+the full `csv` for 2008 must be downloaded and then subset to the 96 
+observations.
 
+```{r example-06, eval=FALSE}
+df <- get_education_data(level = 'schools', 
+                         source = 'ccd', 
+                         topic = 'enrollment', 
+                         by = list('race', 'sex'),
+                         filters = list(year = 1988:1990,
+                                        grade = 6:8,
+                                        ncessch = '010000200277'),
+                         add_labels = TRUE,
+                         csv = TRUE)
+```
 

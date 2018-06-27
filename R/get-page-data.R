@@ -2,7 +2,9 @@
 #
 # returns data.frame, or an error if query fails
 get_year_data <- function(url) {
-  message('\nFetching data for ', substring(url, 41), ' ...')
+  fetch <- substring(url, 40)
+  fetch <- gsub('\\?mode=R', '', fetch)
+  message('\nFetching data for ', fetch, ' ...')
   request <- httr::GET(url)
 
   if (request$status_code != 200) {

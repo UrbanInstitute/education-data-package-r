@@ -15,7 +15,9 @@ construct_url <- function(endpoints,
   required_vars <- parse_level_of_study(required_vars)
   validate_filters(endpoints, filters)
 
-  url_stub = paste0('https://ed-data-portal.urban.org', endpoints$endpoint_url)
+  url_stub = paste0('https://educationdata.urban.org',
+                    endpoints$endpoint_url,
+                    '?mode=R')
   url_stub <- parse_filters(url_stub, filters, required_vars)
 
   url_combos <- expand.grid(required_vars)
@@ -45,8 +47,9 @@ parse_required_vars <- function(required_vars, filters) {
 #
 validate_filters <- function(endpoints, filters) {
   url <- paste0(
-    'https://ed-data-portal.urban.org/api/v1/api-endpoint-varlist/?endpoint_id=',
-    endpoints$endpoint_id
+    'https://educationdata.urban.org/api/v1/api-endpoint-varlist/?endpoint_id=',
+    endpoints$endpoint_id,
+    '&mode=R'
     )
   res <- httr::GET(url)
   varlist <- jsonlite::fromJSON(rawToChar(res$content))$results
@@ -75,7 +78,7 @@ parse_filters <- function(url_stub, filters, required_vars) {
   if(length(filters) == 0) {
     return(url_stub)
   } else {
-    url_stub <- paste0(url_stub, '?')
+    url_stub <- paste0(url_stub, '&')
   }
 
   filter_stub <- ''

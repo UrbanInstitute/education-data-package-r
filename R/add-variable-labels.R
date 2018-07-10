@@ -18,6 +18,12 @@ get_endpoint_varlist <- function(endpoints) {
                 '&mode=R')
 
   request <- httr::GET(url)
+
+  if (request$status_code > 399) {
+    stop('API currently unavailable. Please try again later.',
+         call. = FALSE)
+  }
+
   varlist <- jsonlite::fromJSON(rawToChar(request$content))$results
 
   varlist <- varlist[(varlist$format != 'string' & varlist$format != 'numeric'), ]

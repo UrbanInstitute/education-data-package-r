@@ -20,6 +20,12 @@ construct_url_csv <- function(endpoints,
     '&mode=R')
 
   request <- httr::GET(download_url)
+
+  if (request$status_code > 399) {
+    stop('API currently unavailable. Please try again later.',
+         call. = FALSE)
+  }
+
   resp <- jsonlite::fromJSON(rawToChar(request$content))$results
   files <- resp$file_name[grepl('.csv', resp$file_name)]
 
@@ -51,6 +57,10 @@ get_csv_cols <- function(endpoints, urls) {
     '&mode=R'
   )
   request <- httr::GET(varlist_url)
+  if (request$status_code > 399) {
+    stop('API currently unavailable. Please try again later.',
+         call. = FALSE)
+  }
   varlist <- jsonlite::fromJSON(rawToChar(request$content))$results
 
   con <- file(urls[1], open = 'r')

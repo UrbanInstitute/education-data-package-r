@@ -51,7 +51,12 @@ validate_filters <- function(endpoints, filters) {
     endpoints$endpoint_id,
     '&mode=R'
     )
+
   res <- httr::GET(url)
+  if (res$status_code > 399) {
+    stop('API currently unavailable. Please try again later.',
+         call. = FALSE)
+  }
   varlist <- jsonlite::fromJSON(rawToChar(res$content))$results
 
   filter_vars <- names(filters)

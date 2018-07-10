@@ -1,3 +1,10 @@
+# educationdata 0.0.1 (2018-07-10)
+
+* This release brings the `educationdata` package out of active development. 
+Bug fixes and new features will be handled as noted or requested.
+
+* Add better exception handling when API returns an HTTP error.
+
 # educationdata 0.0.0.9003 (2018-06-27)
 
 * Note that this package is still currently under **active** development. 

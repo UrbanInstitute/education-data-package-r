@@ -4,6 +4,10 @@
 get_endpoint_info <- function() {
   url <- 'https://educationdata.urban.org/api/v1/api-endpoints/?mode=R'
   res <- httr::GET(url)
+  if (res$status_code > 399) {
+    stop('API currently unavailable. Please try again later.',
+         call. = FALSE)
+  }
   endpoints <- jsonlite::fromJSON(rawToChar(res$content))$results
 
   vars <- c('endpoint_id',

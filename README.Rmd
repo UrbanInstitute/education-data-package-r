@@ -56,7 +56,7 @@ get_education_data(level, source, topic, by, filters, add_labels)
 where:
 
 * level (required) - API data level to query.
-* source (requried) - API data source to query.
+* source (required) - API data source to query.
 * topic (required) - API data topic to query.
 * by (optional) - Optional `list` of grouping parameters for an API call.
 * filters (optional) - Optional `list` query to filter the results from an API 

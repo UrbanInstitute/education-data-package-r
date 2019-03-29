@@ -43,7 +43,7 @@ df <- get_education_data(level = 'schools',
                                         ncessch = '340606000122'),
                          add_labels = TRUE)
 
-head(df)
+str(df)
 ```
 
 The `get_education_data()` function will return a `data.frame` from a call to 

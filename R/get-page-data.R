@@ -7,6 +7,14 @@ get_year_data <- function(url) {
   message('\nFetching data for ', fetch, ' ...')
   request <- httr::GET(url)
 
+  if (request$status_code == 504) {
+    stop('The endpoint you are trying to reach is currently unavailable.\n',
+         'Please try your query again later.\n',
+         'Consider filing an issue with the development team if this issue persists.',
+         call. = FALSE
+         )
+  }
+
   if (request$status_code != 200) {
     stop('Query page not found.\n',
          'Please double-check your arguments (especially filters).\n',
@@ -34,6 +42,14 @@ get_year_data <- function(url) {
     count = count + 1
     message(paste("Processing page", count, 'out of', pages))
     request <- httr::GET(url)
+
+    if (request$status_code == 504) {
+      stop('The endpoint you are trying to reach is currently unavailable.\n',
+           'Please try your query again later.\n',
+           'Consider filing an issue with the development team if this issue persists.',
+           call. = FALSE
+      )
+    }
 
     if (request$status_code != 200) {
       stop('Query page not found.\n',

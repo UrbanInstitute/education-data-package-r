@@ -1,3 +1,7 @@
+# educationdata 0.0.2 (2019-04-15)
+
+* Added improved error messaging when API returns a 504 status code
+
 # educationdata 0.0.1 (2018-07-10)
 
 * This release brings the `educationdata` package out of active development. 

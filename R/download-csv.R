@@ -85,7 +85,6 @@ get_csv_cols <- function(endpoints, urls, url_path) {
 #
 # returns a data.frame for a single csv file
 download_csv <- function(url, cols, filters) {
-  print(url)
   message('\nFetching data for ', basename(url), ' ...')
   df <- readr::read_csv(url, col_types = cols, na = c('', '.'))
   df <- apply_csv_filters(df, filters)

@@ -5,17 +5,19 @@
 # returns a list of download urls to be queried
 construct_url_csv <- function(endpoints,
                               required_vars,
-                              filters) {
+                              filters,
+                              url_path) {
 
   required_vars <- parse_required_vars(required_vars, filters)
 
   required_vars <- parse_year(endpoints, required_vars)
   required_vars <- parse_grade(required_vars)
   required_vars <- parse_level_of_study(required_vars)
-  validate_filters(endpoints, filters)
+  validate_filters(endpoints, filters, url_path)
 
   download_url <- paste0(
-    'https://educationdata.urban.org/api/v1/api-downloads/?endpoint_id=',
+    url_path,
+    '/api/v1/api-downloads/?endpoint_id=',
     endpoints$endpoint_id,
     '&mode=R')
 
@@ -29,7 +31,8 @@ construct_url_csv <- function(endpoints,
   resp <- jsonlite::fromJSON(rawToChar(request$content))$results
   files <- resp$file_name[grepl('.csv', resp$file_name)]
 
-  urls <- paste('https://educationdata.urban.org/csv',
+  urls <- paste(url_path,
+                "csv",
                 endpoints$class_name,
                 files,
                 sep = '/')
@@ -50,9 +53,10 @@ construct_url_csv <- function(endpoints,
 # match csv variables to their correct data type for parsing
 #
 # returns a string of col specs to be passed to readr::read_csv
-get_csv_cols <- function(endpoints, urls) {
+get_csv_cols <- function(endpoints, urls, url_path) {
   varlist_url <- paste0(
-    'https://educationdata.urban.org/api/v1/api-endpoint-varlist/?endpoint_id=',
+    url_path,
+    '/api/v1/api-endpoint-varlist/?endpoint_id=',
     endpoints$endpoint_id,
     '&mode=R'
   )

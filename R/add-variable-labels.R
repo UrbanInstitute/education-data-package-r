@@ -1,8 +1,8 @@
 # add variable labels to a given data frame
 #
 # returns a data frame with variable labels applied
-add_variable_labels <- function(endpoints, df) {
-  varlist <- get_endpoint_varlist(endpoints)
+add_variable_labels <- function(endpoints, df, url_path) {
+  varlist <- get_endpoint_varlist(endpoints, url_path)
   df <- apply_label_text(df, varlist)
   return(df)
 }
@@ -11,9 +11,9 @@ add_variable_labels <- function(endpoints, df) {
 # get endpoint varlist from an endpoint id
 #
 # returns a data frame of variable metadata
-get_endpoint_varlist <- function(endpoints) {
-  url <- paste0('https://educationdata.urban.org/',
-                'api/v1/api-endpoint-varlist/?endpoint_id=',
+get_endpoint_varlist <- function(endpoints, url_path) {
+  url <- paste0(url_path,
+                '/api/v1/api-endpoint-varlist/?endpoint_id=',
                 endpoints$endpoint_id,
                 '&mode=R')
 

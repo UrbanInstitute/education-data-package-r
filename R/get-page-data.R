@@ -2,8 +2,15 @@
 #
 # returns data.frame, or an error if query fails
 get_year_data <- function(url) {
-  fetch <- substring(url, 40)
-  fetch <- gsub('\\?mode=R', '', fetch)
+
+  if (!grepl("stg", url)) {
+    fetch <- gsub("https://educationdata.urban.org/api/v1/", "", url)
+
+  } else {
+    fetch <- gsub("https://educationdata-stg.urban.org/api/v1/", "staging ", url)
+  }
+  fetch <- gsub('\\mode=R&', '', fetch)
+  fetch <- gsub('\\mode=R', '', fetch)
   message('\nFetching data for ', fetch, ' ...')
   request <- httr::GET(url)
 

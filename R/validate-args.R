@@ -8,9 +8,10 @@
 validate_function_args <- function(level,
                                    source,
                                    topic,
-                                   by) {
+                                   by,
+                                   url_path) {
 
-  endpoints <- get_endpoint_info()
+  endpoints <- get_endpoint_info(url_path)
   endpoints <- validate_level(endpoints, level)
   endpoints <- validate_source(endpoints, source)
   endpoints <- validate_topic(endpoints, source, topic)
@@ -65,7 +66,7 @@ validate_source <- function(endpoints, source) {
                collapse = '\n\t'),
          call. = FALSE)
   } else if (!(source %in% valid_sources)) {
-    stop('"souce" argument "', source, '" is invalid.\nValid sources are:\n\t',
+    stop('"source" argument "', source, '" is invalid.\nValid sources are:\n\t',
          paste(valid_sources,
                collapse = '\n\t'),
          call. = FALSE)

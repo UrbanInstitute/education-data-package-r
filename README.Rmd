@@ -68,7 +68,7 @@ call.
 
 ```{r endpoints, echo=FALSE}
 source('R/get-endpoint-info.R')
-df <- get_endpoint_info()
+df <- get_endpoint_info("https://educationdata.urban.org")
 
 df$years_available <- gsub('and' ,'', df$years_available)
 df$years_available <- gsub('\u20AC' ,'-', df$years_available)

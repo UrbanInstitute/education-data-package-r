@@ -1,3 +1,9 @@
+# educationdata 0.0.3 (2019-07-29)
+
+* Added mapping for `grade_edfacts` endpoints.
+
+* Added option to test staging server to `get_education_data()` call.
+
 # educationdata 0.0.2 (2019-04-15)
 
 * Added improved error messaging when API returns a 504 status code

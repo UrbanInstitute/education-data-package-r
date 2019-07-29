@@ -1,8 +1,8 @@
 # retrieve information on available API endpoints
 #
 # returns a parsed data.frame of endpoint information
-get_endpoint_info <- function() {
-  url <- 'https://educationdata.urban.org/api/v1/api-endpoints/?mode=R'
+get_endpoint_info <- function(url_path) {
+  url <- paste0(url_path, '/api/v1/api-endpoints/?mode=R')
   res <- httr::GET(url)
   if (res$status_code > 399) {
     stop('API currently unavailable. Please try again later.',

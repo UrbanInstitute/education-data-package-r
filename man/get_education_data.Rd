@@ -4,8 +4,9 @@
 \alias{get_education_data}
 \title{Obtain data from the Urban Institute Education Data Portal API}
 \usage{
-get_education_data(level = NULL, source = NULL, topic = NULL, by = NULL,
-  filters = NULL, add_labels = FALSE, csv = FALSE)
+get_education_data(level = NULL, source = NULL, topic = NULL,
+  by = NULL, filters = NULL, add_labels = FALSE, csv = FALSE,
+  staging = FALSE)
 }
 \arguments{
 \item{level}{API data level to query}

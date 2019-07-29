@@ -22,12 +22,13 @@ get_education_data <- function(level = NULL,
                                by = NULL,
                                filters = NULL,
                                add_labels = FALSE,
-                               csv = FALSE) {
+                               csv = FALSE,
+                               staging = FALSE) {
 
   if (csv) {
-    df <- get_education_data_csv(level, source, topic, by, filters, add_labels)
+    df <- get_education_data_csv(level, source, topic, by, filters, add_labels, staging)
   } else {
-    df <- get_education_data_json(level, source, topic, by, filters, add_labels)
+    df <- get_education_data_json(level, source, topic, by, filters, add_labels, staging)
   }
 
   return(df)
@@ -43,23 +44,32 @@ get_education_data_json <- function(level = NULL,
                                     topic = NULL,
                                     by = NULL,
                                     filters = NULL,
-                                    add_labels = FALSE) {
+                                    add_labels = FALSE,
+                                    staging = FALSE) {
+
+  if (!staging) {
+    url_path <- "https://educationdata.urban.org"
+  } else {
+    url_path <- "https://educationdata-stg.urban.org"
+  }
 
   endpoints <- validate_function_args(level = level,
                                       source = source,
                                       topic = topic,
-                                      by = by)
+                                      by = by,
+                                      url_path = url_path)
 
   required_vars <- get_required_varlist(endpoints)
 
   urls <- construct_url(endpoints = endpoints,
                         required_vars = required_vars,
-                        filters  = filters)
+                        filters  = filters,
+                        url_path)
 
   df <- get_all_data(urls)
 
   if(add_labels & nrow(df) != 0) {
-    df <- add_variable_labels(endpoints, df)
+    df <- add_variable_labels(endpoints, df, url_path)
   }
 
   return(df)
@@ -73,20 +83,29 @@ get_education_data_csv <- function(level = NULL,
                                    topic = NULL,
                                    by = NULL,
                                    filters = NULL,
-                                   add_labels = FALSE) {
+                                   add_labels = FALSE,
+                                   staging = FALSE) {
+
+  if (!staging) {
+    url_path <- "https://educationdata.urban.org"
+  } else {
+    url_path <- "https://educationdata-stg.urban.org"
+  }
 
   endpoints <- validate_function_args(level = level,
                                       source = source,
                                       topic = topic,
-                                      by = by)
+                                      by = by,
+                                      url_path)
 
   required_vars <- get_required_varlist(endpoints)
 
   urls <- construct_url_csv(endpoints = endpoints,
                             required_vars = required_vars,
-                            filters  = filters)
+                            filters  = filters,
+                            url_path)
 
-  cols <- get_csv_cols(endpoints, urls)
+  cols <- get_csv_cols(endpoints, urls, url_path)
 
   df <- get_csv_data(urls, cols, filters)
 

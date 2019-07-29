@@ -6,16 +6,18 @@
 # returns a list of API urls to be queried
 construct_url <- function(endpoints,
                           required_vars,
-                          filters) {
+                          filters,
+                          url_path) {
 
   required_vars <- parse_required_vars(required_vars, filters)
 
   required_vars <- parse_year(endpoints, required_vars)
   required_vars <- parse_grade(required_vars)
+  required_vars <- parse_grade_edfacts(required_vars)
   required_vars <- parse_level_of_study(required_vars)
-  validate_filters(endpoints, filters)
+  validate_filters(endpoints, filters, url_path)
 
-  url_stub = paste0('https://educationdata.urban.org',
+  url_stub = paste0(url_path,
                     endpoints$endpoint_url,
                     '?mode=R')
   url_stub <- parse_filters(url_stub, filters, required_vars)
@@ -45,9 +47,10 @@ parse_required_vars <- function(required_vars, filters) {
 # validate filters
 #
 #
-validate_filters <- function(endpoints, filters) {
+validate_filters <- function(endpoints, filters, url_path) {
   url <- paste0(
-    'https://educationdata.urban.org/api/v1/api-endpoint-varlist/?endpoint_id=',
+    url_path,
+    '/api/v1/api-endpoint-varlist/?endpoint_id=',
     endpoints$endpoint_id,
     '&mode=R'
     )
@@ -178,6 +181,47 @@ parse_grade <- function(required_vars) {
 
   return(required_vars)
 }
+
+# validate grade_edfacts argument
+#
+# returns a list of required variables with validated grade_edfacts
+parse_grade_edfacts <- function(required_vars) {
+
+  if (!('grade_edfacts' %in% names(required_vars))) {
+    return(required_vars)
+  } else {
+    grade <- as.character(required_vars$grade_edfacts)
+  }
+
+  if (length(grade) == 0) grade <- 'all'
+
+  valid_grades <- list('grade-3' = c('grade-3', '3'),
+                       'grade-4' = c('grade-4', '4'),
+                       'grade-5' = c('grade-5', '5'),
+                       'grade-6' = c('grade-6', '6'),
+                       'grade-7' = c('grade-7', '7'),
+                       'grade-8' = c('grade-8', '8'),
+                       'grade-9' = c('grade-9', '9', '9-12'),
+                       'grade-99' = c('grade-99', '99', 'total'))
+
+  if (length(grade) == 1 && grade == 'all') grade <- names(valid_grades)
+
+  match <- lapply(names(valid_grades), function(x) grade %in% valid_grades[[x]])
+  match <- lapply(match, function(x) as.logical(sum(x)))
+  match <- unlist(match)
+
+  if (sum(match) == 0) {
+    stop(grade, ' is not a valid grade_edfacts level. Valid grade levels are:\n\t',
+         paste(names(valid_grades), collapse='\n\t'),
+         call. = FALSE)
+  } else{
+    grade <- names(valid_grades[match])
+    required_vars$grade_edfacts <- grade
+  }
+
+  return(required_vars)
+}
+
 
 # validate level_of_study argument
 #

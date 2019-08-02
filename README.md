@@ -39,15 +39,14 @@ df <- get_education_data(level = 'schools',
                          add_labels = TRUE)
 
 str(df)
-#> 'data.frame':    96 obs. of  10 variables:
+#> 'data.frame':    96 obs. of  9 variables:
 #>  $ year       : int  2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 ...
-#>  $ fips       : Factor w/ 76 levels "Suppressed data",..: 34 34 34 34 34 34 34 34 34 34 ...
+#>  $ fips       : Factor w/ 76 levels "Alabama","Alaska",..: 31 31 31 31 31 31 31 31 31 31 ...
 #>  $ ncessch    : chr  "340606000122" "340606000122" "340606000122" "340606000122" ...
-#>  $ grade      : Factor w/ 21 levels "Suppressed data",..: 13 13 13 13 13 13 13 13 13 13 ...
-#>  $ race       : Factor w/ 14 levels "Suppressed data",..: 8 8 7 7 6 6 5 5 4 4 ...
-#>  $ sex        : Factor w/ 7 levels "Suppressed data",..: 5 4 5 4 5 4 5 4 5 4 ...
+#>  $ grade      : Factor w/ 21 levels "Pre-K","Kindergarten",..: 11 11 11 11 11 11 11 11 11 11 ...
+#>  $ race       : Factor w/ 14 levels "White","Black",..: 5 5 4 4 3 3 2 2 1 1 ...
+#>  $ sex        : Factor w/ 7 levels "Male","Female",..: 2 1 2 1 2 1 2 1 2 1 ...
 #>  $ enrollment : int  0 0 32 39 38 39 46 41 166 151 ...
-#>  $ school_id  : int  122 122 122 122 122 122 122 122 122 122 ...
 #>  $ leaid      : int  3406060 3406060 3406060 3406060 3406060 3406060 3406060 3406060 3406060 3406060 ...
 #>  $ ncessch_num: num  3.41e+11 3.41e+11 3.41e+11 3.41e+11 3.41e+11 ...
 ```
@@ -74,71 +73,80 @@ where:
 
 ## Available Endpoints
 
-| Level              | Source    | Topic                           | By                    | Main Filters           | Years Available                   |
-| :----------------- | :-------- | :------------------------------ | :-------------------- | :--------------------- | :-------------------------------- |
-| college-university | ipeds     | academic-libraries              | NA                    | year                   | 2013–2015                         |
-| college-university | ipeds     | admissions-enrollment           | NA                    | year                   | 2001–2016                         |
-| college-university | ipeds     | admissions-requirements         | NA                    | year                   | 1990–2016                         |
-| college-university | ipeds     | completers                      | NA                    | year                   | 2011–2015                         |
-| college-university | ipeds     | completions-cip-2               | NA                    | year                   | 1991–2015                         |
-| college-university | ipeds     | completions-cip-6               | NA                    | year                   | 1983–2016                         |
-| college-university | ipeds     | directory                       | NA                    | year                   | 1980, 1984–2016                   |
-| college-university | ipeds     | enrollment-full-time-equivalent | NA                    | year, level\_of\_study | 2003–2015                         |
-| college-university | ipeds     | enrollment-headcount            | NA                    | year, level\_of\_study | 1996–2015                         |
-| college-university | ipeds     | fall-enrollment                 | age, sex              | year, level\_of\_study | 1991, 1993, 1995, 1997, 1999–2016 |
-| college-university | ipeds     | fall-enrollment                 | race, sex             | year, level\_of\_study | 1986–2015                         |
-| college-university | ipeds     | fall-retention                  | NA                    | year                   | 2003–2016                         |
-| college-university | ipeds     | grad-rates-200pct               | NA                    | year                   | 2007–2015                         |
-| college-university | ipeds     | grad-rates-pell                 | NA                    | year                   | 2015                              |
-| college-university | ipeds     | grad-rates                      | NA                    | year                   | 1996–2015                         |
-| college-university | ipeds     | institutional-characteristics   | NA                    | year                   | 1980, 1984–2016                   |
-| college-university | ipeds     | outcome-measures                | NA                    | year                   | 2015                              |
-| college-university | ipeds     | student-faculty-ratio           | NA                    | year                   | 2009–2016                         |
-| college-university | scorecard | default                         | NA                    | year                   | 1996–2016                         |
-| college-university | scorecard | earnings                        | NA                    | year                   | 2003–2014                         |
-| college-university | scorecard | institutional-characteristics   | NA                    | year                   | 1996–2016                         |
-| college-university | scorecard | repayment                       | NA                    | year                   | 2007–2016                         |
-| college-university | scorecard | student-characteristics         | aid-applicants        | year                   | 1997–2016                         |
-| college-university | scorecard | student-characteristics         | home-neighborhood     | year                   | 1997–2016                         |
-| school-districts   | ccd       | directory                       | NA                    | year                   | 1986–2016                         |
-| school-districts   | ccd       | enrollment                      | NA                    | year, grade            | 1987–2016                         |
-| school-districts   | ccd       | enrollment                      | race                  | year, grade            | 1987–2016                         |
-| school-districts   | ccd       | enrollment                      | race, sex             | year, grade            | 1998–2016                         |
-| school-districts   | ccd       | enrollment                      | sex                   | year, grade            | 1987–2016                         |
-| school-districts   | ccd       | finance                         | NA                    | year                   | 1991–2014                         |
-| school-districts   | saipe     | NA                              | NA                    | year                   | 1995, 1997, 1999–2016             |
-| schools            | ccd       | directory                       | NA                    | year                   | 1986–2016                         |
-| schools            | ccd       | enrollment                      | NA                    | year, grade            | 1987–2016                         |
-| schools            | ccd       | enrollment                      | race                  | year, grade            | 1987–2016                         |
-| schools            | ccd       | enrollment                      | race, sex             | year, grade            | 1998–2016                         |
-| schools            | ccd       | enrollment                      | sex                   | year, grade            | 1987–2016                         |
-| schools            | crdc      | ap-exams                        | disability, sex       | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | ap-exams                        | lep, sex              | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | ap-exams                        | race, sex             | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | ap-ib-enrollment                | disability, sex       | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | ap-ib-enrollment                | lep, sex              | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | ap-ib-enrollment                | race, sex             | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | chronic-absenteeism             | disability, sex       | year                   | 2013, 2015                        |
-| schools            | crdc      | chronic-absenteeism             | lep, sex              | year                   | 2013, 2015                        |
-| schools            | crdc      | chronic-absenteeism             | race, sex             | year                   | 2013, 2015                        |
-| schools            | crdc      | directory                       | NA                    | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | discipline                      | disability, lep, sex  | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | discipline                      | disability, race, sex | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | discipline                      | disability, sex       | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | enrollment                      | disability, sex       | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | enrollment                      | lep, sex              | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | enrollment                      | race, sex             | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | harassment-or-bullying          | allegations           | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | harassment-or-bullying          | disability, sex       | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | harassment-or-bullying          | lep, sex              | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | harassment-or-bullying          | race, sex             | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | restraint-and-seclusion         | disability, lep, sex  | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | restraint-and-seclusion         | disability, race, sex | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | restraint-and-seclusion         | disability, sex       | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | restraint-and-seclusion         | instances             | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | sat-act-participation           | disability, sex       | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | sat-act-participation           | lep, sex              | year                   | 2011, 2013, 2015                  |
-| schools            | crdc      | sat-act-participation           | race, sex             | year                   | 2011, 2013, 2015                  |
+| Level              | Source    | Topic                           | By                    | Main Filters           | Years Available                               |
+| :----------------- | :-------- | :------------------------------ | :-------------------- | :--------------------- | :-------------------------------------------- |
+| college-university | ipeds     | academic-libraries              | NA                    | year                   | 2013–2016                                     |
+| college-university | ipeds     | admissions-enrollment           | NA                    | year                   | 2001–2017                                     |
+| college-university | ipeds     | admissions-requirements         | NA                    | year                   | 1990–2017                                     |
+| college-university | ipeds     | completers                      | NA                    | year                   | 2011–2016                                     |
+| college-university | ipeds     | completions-cip-2               | NA                    | year                   | 1991–2016                                     |
+| college-university | ipeds     | completions-cip-6               | NA                    | year                   | 1983–2016                                     |
+| college-university | ipeds     | directory                       | NA                    | year                   | 1980, 1984–2017                               |
+| college-university | ipeds     | enrollment-full-time-equivalent | NA                    | year, level\_of\_study | 1997–2016                                     |
+| college-university | ipeds     | enrollment-headcount            | NA                    | year, level\_of\_study | 1996–2016                                     |
+| college-university | ipeds     | fall-enrollment                 | age, sex              | year, level\_of\_study | 1991, 1993, 1995, 1997, 1999–2017             |
+| college-university | ipeds     | fall-enrollment                 | race, sex             | year, level\_of\_study | 1986–2017                                     |
+| college-university | ipeds     | fall-enrollment                 | residence             | year                   | 1986, 1988, 1992, 1994, 1996, 1998, 2000–2017 |
+| college-university | ipeds     | fall-retention                  | NA                    | year                   | 2003–2017                                     |
+| college-university | ipeds     | grad-rates-200pct               | NA                    | year                   | 2007–2016                                     |
+| college-university | ipeds     | grad-rates-pell                 | NA                    | year                   | 2015–2016                                     |
+| college-university | ipeds     | grad-rates                      | NA                    | year                   | 1996–2016                                     |
+| college-university | ipeds     | institutional-characteristics   | NA                    | year                   | 1980, 1984–2017                               |
+| college-university | ipeds     | outcome-measures                | NA                    | year                   | 2015–2016                                     |
+| college-university | ipeds     | student-faculty-ratio           | NA                    | year                   | 2009–2017                                     |
+| college-university | scorecard | default                         | NA                    | year                   | 1996–2017                                     |
+| college-university | scorecard | earnings                        | NA                    | year                   | 2003–2014                                     |
+| college-university | scorecard | institutional-characteristics   | NA                    | year                   | 1996–2017                                     |
+| college-university | scorecard | repayment                       | NA                    | year                   | 2007–2016                                     |
+| college-university | scorecard | student-characteristics         | aid-applicants        | year                   | 1997–2016                                     |
+| college-university | scorecard | student-characteristics         | home-neighborhood     | year                   | 1997–2016                                     |
+| school-districts   | ccd       | directory                       | NA                    | year                   | 1986–2016                                     |
+| school-districts   | ccd       | enrollment                      | NA                    | year, grade            | 1986–2016                                     |
+| school-districts   | ccd       | enrollment                      | race                  | year, grade            | 1986–2016                                     |
+| school-districts   | ccd       | enrollment                      | race, sex             | year, grade            | 1998–2016                                     |
+| school-districts   | ccd       | enrollment                      | sex                   | year, grade            | 1986–2016                                     |
+| school-districts   | ccd       | finance                         | NA                    | year                   | 1991, 1994–2015                               |
+| school-districts   | edfacts   | assessments                     | NA                    | year, grade\_edfacts   | 2009–2016                                     |
+| school-districts   | edfacts   | assessments                     | race                  | year, grade\_edfacts   | 2009–2016                                     |
+| school-districts   | edfacts   | assessments                     | sex                   | year, grade\_edfacts   | 2009–2016                                     |
+| school-districts   | edfacts   | assessments                     | special-populations   | year, grade\_edfacts   | 2009–2016                                     |
+| school-districts   | saipe     | NA                              | NA                    | year                   | 1995, 1997, 1999–2017                         |
+| schools            | ccd       | directory                       | NA                    | year                   | 1986–2016                                     |
+| schools            | ccd       | enrollment                      | NA                    | year, grade            | 1986–2016                                     |
+| schools            | ccd       | enrollment                      | race                  | year, grade            | 1986–2016                                     |
+| schools            | ccd       | enrollment                      | race, sex             | year, grade            | 1986–2016                                     |
+| schools            | ccd       | enrollment                      | sex                   | year, grade            | 1986–2016                                     |
+| schools            | crdc      | ap-exams                        | disability, sex       | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | ap-exams                        | lep, sex              | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | ap-exams                        | race, sex             | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | ap-ib-enrollment                | disability, sex       | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | ap-ib-enrollment                | lep, sex              | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | ap-ib-enrollment                | race, sex             | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | chronic-absenteeism             | disability, sex       | year                   | 2013, 2015                                    |
+| schools            | crdc      | chronic-absenteeism             | lep, sex              | year                   | 2013, 2015                                    |
+| schools            | crdc      | chronic-absenteeism             | race, sex             | year                   | 2013, 2015                                    |
+| schools            | crdc      | directory                       | NA                    | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | discipline                      | disability, lep, sex  | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | discipline                      | disability, race, sex | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | discipline                      | disability, sex       | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | enrollment                      | disability, sex       | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | enrollment                      | lep, sex              | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | enrollment                      | race, sex             | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | harassment-or-bullying          | allegations           | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | harassment-or-bullying          | disability, sex       | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | harassment-or-bullying          | lep, sex              | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | harassment-or-bullying          | race, sex             | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | restraint-and-seclusion         | disability, lep, sex  | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | restraint-and-seclusion         | disability, race, sex | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | restraint-and-seclusion         | disability, sex       | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | restraint-and-seclusion         | instances             | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | sat-act-participation           | disability, sex       | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | sat-act-participation           | lep, sex              | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | sat-act-participation           | race, sex             | year                   | 2011, 2013, 2015                              |
+| schools            | edfacts   | assessments                     | NA                    | year, grade\_edfacts   | 2009–2016                                     |
+| schools            | edfacts   | assessments                     | race                  | year, grade\_edfacts   | 2009–2016                                     |
+| schools            | edfacts   | assessments                     | sex                   | year, grade\_edfacts   | 2009–2016                                     |
+| schools            | edfacts   | assessments                     | special-populations   | year, grade\_edfacts   | 2009–2016                                     |
 
 ## Main Filters
 
@@ -191,10 +199,10 @@ Let’s build up some examples, from the following set of endpoints.
 
 | Level   | Source | Topic      | By              | Main Filters | Years Available  |
 | :------ | :----- | :--------- | :-------------- | :----------- | :--------------- |
-| schools | ccd    | enrollment | NA              | year, grade  | 1987–2016        |
-| schools | ccd    | enrollment | race            | year, grade  | 1987–2016        |
-| schools | ccd    | enrollment | race, sex       | year, grade  | 1998–2016        |
-| schools | ccd    | enrollment | sex             | year, grade  | 1987–2016        |
+| schools | ccd    | enrollment | NA              | year, grade  | 1986–2016        |
+| schools | ccd    | enrollment | race            | year, grade  | 1986–2016        |
+| schools | ccd    | enrollment | race, sex       | year, grade  | 1986–2016        |
+| schools | ccd    | enrollment | sex             | year, grade  | 1986–2016        |
 | schools | crdc   | enrollment | disability, sex | year         | 2011, 2013, 2015 |
 | schools | crdc   | enrollment | lep, sex        | year         | 2011, 2013, 2015 |
 | schools | crdc   | enrollment | race, sex       | year         | 2011, 2013, 2015 |

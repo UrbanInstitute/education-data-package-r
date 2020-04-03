@@ -1,3 +1,7 @@
+# educationdata 0.0.4 (2020-04-03)
+
+* Fixed issue with `add_labels` when downloading from csv.
+
 # educationdata 0.0.3 (2019-07-29)
 
 * Added mapping for `grade_edfacts` endpoints.

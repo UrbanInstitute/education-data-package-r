@@ -110,7 +110,7 @@ get_education_data_csv <- function(level = NULL,
   df <- get_csv_data(urls, cols, filters)
 
   if(add_labels & nrow(df) != 0) {
-    df <- add_variable_labels(endpoints, df)
+    df <- add_variable_labels(endpoints, df, url_path)
   }
 
   return(df)

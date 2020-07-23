@@ -52,7 +52,7 @@ get_required_vars <- function(endpoint_url) {
 # returns a vector of optional variables
 get_optional_vars <- function(endpoint_url) {
   args <- unlist(strsplit(endpoint_url, '/'))
-  pos <- grep('year', args)
+  pos <- grep('\\{year\\}', args)
   args <- args[pos:length(args)]
 
   opt_args <- args[!(grepl('\\{.*\\}', args))]

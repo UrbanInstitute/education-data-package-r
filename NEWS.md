@@ -1,3 +1,7 @@
+# educationdata 0.0.5 (2020-07-21)
+
+* Fixed issue with year parsing to accomodate new endpoints.
+
 # educationdata 0.0.4 (2020-04-03)
 
 * Fixed issue with `add_labels` when downloading from csv.

@@ -25,3 +25,30 @@ test_that('csv returns same results as api', {
   expect_equal(ncol(df1), ncol(df2))
   expect_equal(sort(names(df1)), sort(names(df2)))
 })
+
+test_that("filters properly parsed when pulling from csv", {
+  df1 <- get_education_data(level = "college-university",
+                            source = "ipeds",
+                            topic = "fall-enrollment",
+                            filters = list(year = 2001,
+                                           level_of_study = "undergraduate",
+                                           class_level = 99,
+                                           fips = 1),
+                            by = list("race", "sex"),
+                            add_labels = TRUE,
+                            csv = TRUE)
+
+  df2 <- get_education_data(level = "college-university",
+                            source = "ipeds",
+                            topic = "fall-enrollment",
+                            filters = list(year = 2001,
+                                           level_of_study = "undergraduate",
+                                           class_level = 99,
+                                           fips = 1),
+                            by = list("race", "sex"),
+                            add_labels = TRUE,
+                            csv = FALSE)
+
+  expect_gt(nrow(df1), 0)
+  expect_equal(dim(df1), dim(df2))
+})

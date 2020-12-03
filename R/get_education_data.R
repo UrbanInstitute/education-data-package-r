@@ -7,13 +7,9 @@
 #' @param filters Optional 'list' of query values to filter an API call
 #' @param add_labels Add variable labels (when applicable)? Defaults to FALSE.
 #' @param csv Download the full csv file? Defaults to FALSE.
+#' @param staging FOR TESTING ONLY. Defaults to FALSE.
 #'
 #' @return A `data.frame` of education data
-#'
-#' @examples \dontrun{
-#' library(educationdata)
-#' df <- get_education_data(level = 'school-districts', source = 'ccd', topic = 'finance')
-#' }
 #'
 #' @export
 get_education_data <- function(level = NULL,
@@ -100,10 +96,14 @@ get_education_data_csv <- function(level = NULL,
 
   required_vars <- get_required_varlist(endpoints)
 
-  urls <- construct_url_csv(endpoints = endpoints,
+  resp <- construct_url_csv(endpoints = endpoints,
                             required_vars = required_vars,
                             filters  = filters,
                             url_path)
+
+  urls <- resp$urls
+  required_vars <- resp$required_vars
+  filters <- resp$filters
 
   cols <- get_csv_cols(endpoints, urls, url_path)
 

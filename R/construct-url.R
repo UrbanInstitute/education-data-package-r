@@ -103,6 +103,13 @@ parse_filters <- function(url_stub, filters, required_vars) {
 
 }
 
+# parse filters to catch csv/api differences
+parse_filters_csv <- function(filters, required_vars) {
+  index <- names(filters)[which(names(filters) %in% names(required_vars))]
+  filters[index] <- required_vars[index]
+  return(filters)
+}
+
 # validate year argument
 #
 # returns a list of required variables with validated years
@@ -226,7 +233,7 @@ parse_grade_edfacts <- function(required_vars) {
 # validate level_of_study argument
 #
 # returns a list of required variables with validated level_of_study
-parse_level_of_study <- function(required_vars) {
+parse_level_of_study <- function(required_vars, csv = FALSE) {
 
   if (!('level_of_study' %in% names(required_vars))) {
     return(required_vars)
@@ -236,13 +243,22 @@ parse_level_of_study <- function(required_vars) {
 
   if (length(level_of_study) == 0) level_of_study <- 'all'
 
-  valid_study <- list('undergraduate' = c('undergraduate', 'undergrad'),
-                      'graduate' = c('graduate', 'grad'),
-                      'first-professional' = c('first-professional'),
-                      'post-baccalaureate' = c('post-baccalaureate',
-                                               'post-bac',
-                                               'postbac'),
-                      '99' = c('99', 'total'))
+  if (csv) {
+    valid_study <- list('1' = c('1', 'undergraduate', 'undergrad'),
+                        '2' = c('2','graduate', 'grad'),
+                        '3' = c('3','first-professional'),
+                        '4' = c('4', 'post-baccalaureate', 'post-bac', 'postbac'),
+                        '99' = c('99', 'total'))
+
+  } else {
+    valid_study <- list('undergraduate' = c('undergraduate', 'undergrad'),
+                        'graduate' = c('graduate', 'grad'),
+                        'first-professional' = c('first-professional'),
+                        'post-baccalaureate' = c('post-baccalaureate',
+                                                 'post-bac',
+                                                 'postbac'),
+                        '99' = c('99', 'total'))
+  }
 
   if (length(level_of_study) == 1 && level_of_study == 'all') {
     level_of_study <- names(valid_study)
@@ -258,6 +274,7 @@ parse_level_of_study <- function(required_vars) {
          call. = FALSE)
   } else{
     level_of_study <- names(valid_study[match])
+    if (csv) level_of_study <- as.integer(level_of_study)
     required_vars$level_of_study <- level_of_study
   }
 

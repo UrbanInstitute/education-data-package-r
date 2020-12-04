@@ -29,17 +29,12 @@ get_education_data(
 \item{add_labels}{Add variable labels (when applicable)? Defaults to FALSE.}
 
 \item{csv}{Download the full csv file? Defaults to FALSE.}
+
+\item{staging}{FOR TESTING ONLY. Defaults to FALSE.}
 }
 \value{
 A `data.frame` of education data
 }
 \description{
 Obtain data from the Urban Institute Education Data Portal API
-}
-\examples{
-\dontrun{
-library(educationdata)
-df <- get_education_data(level = 'school-districts', source = 'ccd', topic = 'finance')
-}
-
 }

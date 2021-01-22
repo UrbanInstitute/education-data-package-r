@@ -5,3 +5,5 @@
 ^benchmarks/*
 ^\.travis\.yml$
 ^LICENSE\.md$
+^doc$
+^Meta$

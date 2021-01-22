@@ -10,6 +10,11 @@ Retrieve data from the Urban Institute’s [Education Data
 API](https://ed-data-portal.urban.org/) as a `data.frame` for easy
 analysis.
 
+**NOTE**: By downloading and using this programming package, you agree
+to abide by the Data Policy and Terms of Use of the Education Data
+Portal. For more information, see
+<https://educationdata.urban.org/documentation/#terms>.
+
 ## Installation
 
 To install `educationdata`:

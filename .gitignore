@@ -8,3 +8,5 @@ vignettes/*.R
 .DS_Store
 test.R
 benchmarks/*
+doc
+Meta

@@ -22,6 +22,10 @@ Institute's [Education Data API](https://ed-data-portal.urban.org/) as a
 `get_education_data`, which will get data from a specified API endpoint and 
 return a `data.frame` to the user.
 
+**NOTE**: By downloading and using this programming package, you agree to abide
+by the Data Policy and Terms of Use of the Education Data Portal. For more 
+information, see [https://educationdata.urban.org/documentation/#terms](https://educationdata.urban.org/documentation/#terms)
+
 ## Usage
 
 The `get_education_data` function will return a `data.frame` from a call to 

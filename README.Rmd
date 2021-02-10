@@ -243,3 +243,36 @@ df <- get_education_data(level = 'schools',
                          add_labels = TRUE,
                          csv = TRUE)
 ```
+
+## Summary Endpoints
+
+You can now access the new summary endpoint functionality using the 
+`get_education_data_summary()` function.
+
+```{r example-07, eval=FALSE}
+
+df <- get_education_data_summary(
+    level = "schools",
+    source = "ccd",
+    topic = "enrollment",
+    stat = "sum",
+    var = "enrollment",
+    group_by = "fips",
+    filters = list(fips = 6:8, year = 2004:2005)
+)
+
+```
+
+In this example, we take the `schools/ccd/enrollment` endpoint and retrieve the 
+`sum` of `enrollment` by `fips` code, filtered to `fips` codes 6, 7, 8 for the 
+`year`s 2004 and 2005.
+
+The syntax largely follows the original syntax of `get_education_data()`: with 
+three new arguments:
+
+* `stat` is the summary statistic to be retrieved. Valid statistics include:
+`avg`, `sum`, `count`, `median`, `min`, `max`, `stddev`, and `variance`.
+* `var` is the variable to run the summary statistic on.
+* `group_by` is the grouping variable(s) to use. This can be a single string, 
+or a vector of multiple variables, i.e., `group_by = c("fips", "race")`.
+

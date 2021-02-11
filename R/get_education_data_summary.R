@@ -4,10 +4,11 @@
 #' @param level API data level to query
 #' @param source API data source to query
 #' @param topic API data topic to query
-#' @param by Optional 'list' of grouping parameters to pass to an API call
-#' @param stat
-#' @param var
-#' @param group_by
+#' @param subtopic Optional additional parameters to pass to an API call. Only
+#' applicable to certain endpoints.
+#' @param stat Summary statistic to be calculated. Valid options
+#' @param var Variable to be summarized.
+#' @param by Variable(s) to group results by.
 #' @param filters Optional 'list' of query values to filter an API call
 #' @param staging FOR TESTING ONLY. Defaults to FALSE.
 #'
@@ -17,10 +18,10 @@
 get_education_data_summary <- function(level,
                                        source,
                                        topic = NULL,
-                                       by = NULL,
+                                       subtopic = NULL,
                                        stat = NULL,
                                        var = NULL,
-                                       group_by = NULL,
+                                       by = NULL,
                                        filters = NULL,
                                        staging = FALSE) {
 
@@ -35,20 +36,20 @@ get_education_data_summary <- function(level,
   endpoint <- paste(level, source, sep = "/")
 
   if (!is.null(topic)) {
-    endpoint <- paste(endpoint, topic, "summaries", sep = "/")
-  } else {
-    endpoint <- paste(endpoint, "summaries", sep = "/")
+    endpoint <- paste(endpoint, topic, sep = "/")
   }
 
-  if (!is.null(by)) {
-    endpoint <- paste(endpoint, paste(by, collapse = "/"), sep = "/")
+  if (!is.null(subtopic)) {
+    endpoint <- paste(endpoint, paste(subtopic, collapse = "/"), "summaries", sep = "/")
+  } else {
+    endpoint <- paste(endpoint, "summaries", sep = "/")
   }
 
   # set query string parameters
   query_params <- paste0(
     "?stat=", stat, "&",
     "var=", var, "&",
-    "by=", paste(group_by, collapse = ",")
+    "by=", paste(by, collapse = ",")
   )
 
   # set url

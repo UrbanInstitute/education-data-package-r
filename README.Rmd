@@ -41,7 +41,7 @@ library(educationdata)
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '340606000122'),
@@ -54,7 +54,7 @@ The `get_education_data()` function will return a `data.frame` from a call to
 the Education Data API.  
 
 ```{r quickstart-02, eval=FALSE}
-get_education_data(level, source, topic, by, filters, add_labels)
+get_education_data(level, source, topic, subtopic, filters, add_labels)
 ```
 
 where:
@@ -62,7 +62,7 @@ where:
 * level (required) - API data level to query.
 * source (required) - API data source to query.
 * topic (required) - API data topic to query.
-* by (optional) - Optional `list` of grouping parameters for an API call.
+* subtopic (optional) - Optional `list` of grouping parameters for an API call.
 * filters (optional) - Optional `list` query to filter the results from an API 
 call.
 * add_labels - Add variable labels (when applicable)? Defaults to `FALSE`.
@@ -95,7 +95,7 @@ knitr::kable(df[vars],
              col.names = c('Level', 
                            'Source', 
                            'Topic', 
-                           'By',
+                           'Subtopic',
                            'Main Filters',
                            'Years Available'),
              row.names = FALSE)
@@ -156,7 +156,7 @@ knitr::kable(df[vars],
              col.names = c('Level', 
                            'Source', 
                            'Topic', 
-                           'By',
+                           'Subtopic',
                            'Main Filters',
                            'Years Available'),
              row.names = FALSE)
@@ -172,19 +172,19 @@ df <- get_education_data(level = 'schools',
                          topic = 'enrollment')
 ```
 
-Note that this endpoint is also callable `by` certain variables:
+Note that this endpoint is also callable by certain `subtopic` variables:
 
 * race
 * sex
 * race, sex
 
-These variables can be added to the `by` argument:
+These variables can be added to the `subtopic` argument:
 
 ```{r example-02, eval=FALSE}
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'))
+                         subtopic = list('race', 'sex'))
 ```
 
 You may also filter the results of an API call. In this case `year` and 
@@ -194,7 +194,7 @@ You may also filter the results of an API call. In this case `year` and
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12))
 ```
@@ -205,7 +205,7 @@ Additional variables can also be passed to `filters` to subset further:
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '3406060001227'))
@@ -218,7 +218,7 @@ labels in the API.
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '340606000122'),
@@ -236,7 +236,7 @@ observations.
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '340606000122'),
@@ -257,7 +257,7 @@ df <- get_education_data_summary(
     topic = "enrollment",
     stat = "sum",
     var = "enrollment",
-    group_by = "fips",
+    by = "fips",
     filters = list(fips = 6:8, year = 2004:2005)
 )
 
@@ -273,6 +273,36 @@ three new arguments:
 * `stat` is the summary statistic to be retrieved. Valid statistics include:
 `avg`, `sum`, `count`, `median`, `min`, `max`, `stddev`, and `variance`.
 * `var` is the variable to run the summary statistic on.
-* `group_by` is the grouping variable(s) to use. This can be a single string, 
-or a vector of multiple variables, i.e., `group_by = c("fips", "race")`.
+* `by` is the grouping variable(s) to use. This can be a single string, 
+or a vector of multiple variables, i.e., `by = c("fips", "race")`.
 
+Some endpoints are further broken out by subtopic. These can be specified using 
+the `subtopic` option.
+
+```{r example-08, eval=FALSE}
+df <- get_education_data_summary(
+    level = "schools",
+    source = "crdc",
+    topic = "harassment-or-bullying",
+    subtopic = "allegations",
+    stat = "sum",
+    var = "allegations_harass_sex",
+    by = "fips",
+    staging = TRUE
+)
+```
+
+Note that only some endpoints have an applicable `subtopic`, and this list is 
+slightly different from the syntax of the full data API. Endpoints for 
+`subtopics` for the summary endpoint functionality include:
+
+* schools/crdc/harassment-or-bullying/allegations
+* schools/crdc/harassment-or-bullying/students
+* schools/crdc/restraint-and-seclusion/instances
+* schools/crdc/restraint-and-seclusion/students
+* college-university/ipeds/enrollment-full-time-equivalent/summaries
+* college-university/ipeds/fall-enrollment/age/summaries
+* college-university/ipeds/fall-enrollment/race/summaries
+* college-university/ipeds/fall-enrollment/residence/summaries
+* college-university/scorecard/student-characteristics/aid-applicants/summaries
+* college-university/scorecard/student-characteristics/home-neighborhood/summaries

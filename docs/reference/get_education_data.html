@@ -136,6 +136,7 @@
   level <span class='op'>=</span> <span class='cn'>NULL</span>,
   source <span class='op'>=</span> <span class='cn'>NULL</span>,
   topic <span class='op'>=</span> <span class='cn'>NULL</span>,
+  subtopic <span class='op'>=</span> <span class='cn'>NULL</span>,
   by <span class='op'>=</span> <span class='cn'>NULL</span>,
   filters <span class='op'>=</span> <span class='cn'>NULL</span>,
   add_labels <span class='op'>=</span> <span class='cn'>FALSE</span>,
@@ -159,8 +160,12 @@
       <td><p>API data topic to query</p></td>
     </tr>
     <tr>
-      <th>by</th>
+      <th>subtopic</th>
       <td><p>Optional 'list' of grouping parameters to pass to an API call</p></td>
+    </tr>
+    <tr>
+      <th>by</th>
+      <td><p>DEPRECATED in favor of `subtopic`</p></td>
     </tr>
     <tr>
       <th>filters</th>

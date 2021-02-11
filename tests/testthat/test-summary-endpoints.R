@@ -8,7 +8,26 @@ test_that("basic summary endpoints function call returns results", {
     topic = "enrollment",
     stat = "sum",
     var = "enrollment",
-    group_by = "fips",
+    by = "fips",
+    staging = TRUE
+  )
+
+  expect_is(df, "data.frame")
+  expect_gt(nrow(df), 0)
+  expect_gt(ncol(df), 0)
+
+})
+
+test_that("summary endpoints function call handles subtopics", {
+
+  df <- get_education_data_summary(
+    level = "schools",
+    source = "crdc",
+    topic = "harassment-or-bullying",
+    subtopic = "allegations",
+    stat = "sum",
+    var = "allegations_harass_sex",
+    by = "fips",
     staging = TRUE
   )
 
@@ -20,7 +39,7 @@ test_that("basic summary endpoints function call returns results", {
 
 test_that("summary endpoints function handles multiple group_by vars", {
 
-  group_by <- c("fips", "race")
+  by <- c("fips", "race")
 
   df <- get_education_data_summary(
     level = "schools",
@@ -28,14 +47,14 @@ test_that("summary endpoints function handles multiple group_by vars", {
     topic = "enrollment",
     stat = "sum",
     var = "enrollment",
-    group_by = group_by,
+    by = by,
     staging = TRUE
   )
 
   expect_is(df, "data.frame")
   expect_gt(nrow(df), 0)
   expect_gt(ncol(df), 0)
-  expect_true(all(group_by %in% colnames(df)))
+  expect_true(all(by %in% colnames(df)))
 
 })
 
@@ -52,7 +71,7 @@ test_that("summary endpoints function handles filters correctly", {
     topic = "enrollment",
     stat = "sum",
     var = "enrollment",
-    group_by = "fips",
+    by = "fips",
     filters = filters,
     staging = TRUE
   )
@@ -75,7 +94,7 @@ test_that("summary endpoints function returns expected errors", {
       source = "ccd",
       topic = "enrollment",
       stat = "fake",
-      group_by = "fips",
+      by = "fips",
       var = "enrollment",
       staging = TRUE
     )
@@ -89,7 +108,7 @@ test_that("summary endpoints function returns expected errors", {
       source = "ccd",
       topic = "enrollment",
       stat = "sum",
-      group_by = "fake",
+      by = "fake",
       var = "enrollment",
       staging = TRUE
     )

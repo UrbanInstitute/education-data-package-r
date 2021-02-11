@@ -3,7 +3,8 @@
 #' @param level API data level to query
 #' @param source API data source to query
 #' @param topic API data topic to query
-#' @param by Optional 'list' of grouping parameters to pass to an API call
+#' @param subtopic Optional 'list' of grouping parameters to pass to an API call
+#' @param by DEPRECATED in favor of `subtopic`
 #' @param filters Optional 'list' of query values to filter an API call
 #' @param add_labels Add variable labels (when applicable)? Defaults to FALSE.
 #' @param csv Download the full csv file? Defaults to FALSE.
@@ -15,16 +16,25 @@
 get_education_data <- function(level = NULL,
                                source = NULL,
                                topic = NULL,
+                               subtopic = NULL,
                                by = NULL,
                                filters = NULL,
                                add_labels = FALSE,
                                csv = FALSE,
                                staging = FALSE) {
 
+  if (!is.null(by)) {
+    warning("The `by` argument has been deprecated in favor of `subtopic`.\n",
+            "Please update your script to use `subtopic` instead.")
+    subtopic <- by
+  }
+
+
+
   if (csv) {
-    df <- get_education_data_csv(level, source, topic, by, filters, add_labels, staging)
+    df <- get_education_data_csv(level, source, topic, subtopic, filters, add_labels, staging)
   } else {
-    df <- get_education_data_json(level, source, topic, by, filters, add_labels, staging)
+    df <- get_education_data_json(level, source, topic, subtopic, filters, add_labels, staging)
   }
 
   return(df)

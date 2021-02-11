@@ -35,7 +35,7 @@ library(educationdata)
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '340606000122'),
@@ -58,7 +58,7 @@ The `get_education_data()` function will return a `data.frame` from a
 call to the Education Data API.
 
 ``` r
-get_education_data(level, source, topic, by, filters, add_labels)
+get_education_data(level, source, topic, subtopic, filters, add_labels)
 ```
 
 where:
@@ -66,8 +66,8 @@ where:
 -   level (required) - API data level to query.
 -   source (required) - API data source to query.
 -   topic (required) - API data topic to query.
--   by (optional) - Optional `list` of grouping parameters for an API
-    call.
+-   subtopic (optional) - Optional `list` of grouping parameters for an
+    API call.
 -   filters (optional) - Optional `list` query to filter the results
     from an API call.
 -   add\_labels - Add variable labels (when applicable)? Defaults to
@@ -76,7 +76,7 @@ where:
 
 ## Available Endpoints
 
-| Level              | Source    | Topic                              | By                    | Main Filters           | Years Available                               |
+| Level              | Source    | Topic                              | Subtopic              | Main Filters           | Years Available                               |
 |:-------------------|:----------|:-----------------------------------|:----------------------|:-----------------------|:----------------------------------------------|
 | college-university | fsa       | campus-based-volume                | NA                    | year                   | 2001–2017                                     |
 | college-university | fsa       | financial-responsibility           | NA                    | year                   | 2006–2016                                     |
@@ -221,7 +221,7 @@ accept the following values:
 
 Let’s build up some examples, from the following set of endpoints.
 
-| Level   | Source | Topic      | By              | Main Filters | Years Available  |
+| Level   | Source | Topic      | Subtopic        | Main Filters | Years Available  |
 |:--------|:-------|:-----------|:----------------|:-------------|:-----------------|
 | schools | ccd    | enrollment | NA              | year, grade  | 1986–2018        |
 | schools | ccd    | enrollment | race            | year, grade  | 1986–2018        |
@@ -240,19 +240,20 @@ df <- get_education_data(level = 'schools',
                          topic = 'enrollment')
 ```
 
-Note that this endpoint is also callable `by` certain variables:
+Note that this endpoint is also callable by certain `subtopic`
+variables:
 
 -   race
 -   sex
 -   race, sex
 
-These variables can be added to the `by` argument:
+These variables can be added to the `subtopic` argument:
 
 ``` r
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'))
+                         subtopic = list('race', 'sex'))
 ```
 
 You may also filter the results of an API call. In this case `year` and
@@ -263,7 +264,7 @@ vectorized:
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12))
 ```
@@ -274,7 +275,7 @@ Additional variables can also be passed to `filters` to subset further:
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '3406060001227'))
@@ -287,7 +288,7 @@ in the API.
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '340606000122'),
@@ -305,7 +306,7 @@ downloaded and then subset to the 96 observations.
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '340606000122'),
@@ -325,7 +326,7 @@ df <- get_education_data_summary(
     topic = "enrollment",
     stat = "sum",
     var = "enrollment",
-    group_by = "fips",
+    by = "fips",
     filters = list(fips = 6:8, year = 2004:2005)
 )
 ```
@@ -341,6 +342,38 @@ The syntax largely follows the original syntax of
     include: `avg`, `sum`, `count`, `median`, `min`, `max`, `stddev`,
     and `variance`.
 -   `var` is the variable to run the summary statistic on.
--   `group_by` is the grouping variable(s) to use. This can be a single
+-   `by` is the grouping variable(s) to use. This can be a single
     string, or a vector of multiple variables, i.e.,
-    `group_by = c("fips", "race")`.
+    `by = c("fips", "race")`.
+
+Some endpoints are further broken out by subtopic. These can be
+specified using the `subtopic` option.
+
+``` r
+df <- get_education_data_summary(
+    level = "schools",
+    source = "crdc",
+    topic = "harassment-or-bullying",
+    subtopic = "allegations",
+    stat = "sum",
+    var = "allegations_harass_sex",
+    by = "fips",
+    staging = TRUE
+)
+```
+
+Note that only some endpoints have an applicable `subtopic`, and this
+list is slightly different from the syntax of the full data API.
+Endpoints for `subtopics` for the summary endpoint functionality
+include:
+
+-   schools/crdc/harassment-or-bullying/allegations
+-   schools/crdc/harassment-or-bullying/students
+-   schools/crdc/restraint-and-seclusion/instances
+-   schools/crdc/restraint-and-seclusion/students
+-   college-university/ipeds/enrollment-full-time-equivalent/summaries
+-   college-university/ipeds/fall-enrollment/age/summaries
+-   college-university/ipeds/fall-enrollment/race/summaries
+-   college-university/ipeds/fall-enrollment/residence/summaries
+-   college-university/scorecard/student-characteristics/aid-applicants/summaries
+-   college-university/scorecard/student-characteristics/home-neighborhood/summaries

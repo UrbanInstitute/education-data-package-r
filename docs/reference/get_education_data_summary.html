@@ -6,7 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • educationdata</title>
+<title>Obtain data from the Urban Institute Education Data Portal API summary
+endpoint functionality. — get_education_data_summary • educationdata</title>
 
 
 <!-- jquery -->
@@ -39,7 +40,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Obtain data from the Urban Institute Education Data Portal API summary
+endpoint functionality. — get_education_data_summary" />
+<meta property="og:description" content="Obtain data from the Urban Institute Education Data Portal API summary
+endpoint functionality." />
 
 
 
@@ -58,7 +62,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -120,49 +124,78 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Obtain data from the Urban Institute Education Data Portal API summary
+endpoint functionality.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/UrbanInstitute/education-data-package-r/blob/master/R/get_education_data_summary.R'><code>R/get_education_data_summary.R</code></a></small>
+    <div class="hidden name"><code>get_education_data_summary.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Obtain data from the Urban Institute Education Data Portal API summary
+endpoint functionality.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>get_education_data_summary</span><span class='op'>(</span>
+  <span class='va'>level</span>,
+  <span class='va'>source</span>,
+  topic <span class='op'>=</span> <span class='cn'>NULL</span>,
+  subtopic <span class='op'>=</span> <span class='cn'>NULL</span>,
+  stat <span class='op'>=</span> <span class='cn'>NULL</span>,
+  var <span class='op'>=</span> <span class='cn'>NULL</span>,
+  by <span class='op'>=</span> <span class='cn'>NULL</span>,
+  filters <span class='op'>=</span> <span class='cn'>NULL</span>,
+  staging <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="get_education_data.html">get_education_data()</a></code> </p>
-        </td>
-        <td><p>Obtain data from the Urban Institute Education Data Portal API</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_education_data_summary.html">get_education_data_summary()</a></code> </p>
-        </td>
-        <td><p>Obtain data from the Urban Institute Education Data Portal API summary
-endpoint functionality.</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>level</th>
+      <td><p>API data level to query</p></td>
+    </tr>
+    <tr>
+      <th>source</th>
+      <td><p>API data source to query</p></td>
+    </tr>
+    <tr>
+      <th>topic</th>
+      <td><p>API data topic to query</p></td>
+    </tr>
+    <tr>
+      <th>subtopic</th>
+      <td><p>Optional additional parameters to pass to an API call. Only
+applicable to certain endpoints.</p></td>
+    </tr>
+    <tr>
+      <th>stat</th>
+      <td><p>Summary statistic to be calculated. Valid options</p></td>
+    </tr>
+    <tr>
+      <th>var</th>
+      <td><p>Variable to be summarized.</p></td>
+    </tr>
+    <tr>
+      <th>by</th>
+      <td><p>Variable(s) to group results by.</p></td>
+    </tr>
+    <tr>
+      <th>filters</th>
+      <td><p>Optional 'list' of query values to filter an API call</p></td>
+    </tr>
+    <tr>
+      <th>staging</th>
+      <td><p>FOR TESTING ONLY. Defaults to FALSE.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A `data.frame` of aggregated education data</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

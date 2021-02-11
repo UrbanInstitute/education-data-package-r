@@ -8,6 +8,7 @@ get_education_data(
   level = NULL,
   source = NULL,
   topic = NULL,
+  subtopic = NULL,
   by = NULL,
   filters = NULL,
   add_labels = FALSE,
@@ -22,7 +23,9 @@ get_education_data(
 
 \item{topic}{API data topic to query}
 
-\item{by}{Optional 'list' of grouping parameters to pass to an API call}
+\item{subtopic}{Optional 'list' of grouping parameters to pass to an API call}
+
+\item{by}{DEPRECATED in favor of `subtopic`}
 
 \item{filters}{Optional 'list' of query values to filter an API call}
 

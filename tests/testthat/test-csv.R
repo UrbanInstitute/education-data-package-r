@@ -34,7 +34,7 @@ test_that("filters properly parsed when pulling from csv", {
                                            level_of_study = "undergraduate",
                                            class_level = 99,
                                            fips = 1),
-                            by = list("race", "sex"),
+                            subtopic = list("race", "sex"),
                             add_labels = TRUE,
                             csv = TRUE)
 
@@ -45,7 +45,7 @@ test_that("filters properly parsed when pulling from csv", {
                                            level_of_study = "undergraduate",
                                            class_level = 99,
                                            fips = 1),
-                            by = list("race", "sex"),
+                            subtopic = list("race", "sex"),
                             add_labels = TRUE,
                             csv = FALSE)
 

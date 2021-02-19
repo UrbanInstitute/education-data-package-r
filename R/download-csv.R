@@ -11,7 +11,8 @@ construct_url_csv <- function(endpoints,
   required_vars <- parse_required_vars(required_vars, filters)
 
   required_vars <- parse_year(endpoints, required_vars)
-  required_vars <- parse_grade(required_vars)
+  required_vars <- parse_grade(required_vars, csv = TRUE)
+  required_vars <- parse_grade_edfacts(required_vars, csv = TRUE)
   required_vars <- parse_level_of_study(required_vars, csv = TRUE)
   filters <- parse_filters_csv(filters, required_vars)
   validate_filters(endpoints, filters, url_path)

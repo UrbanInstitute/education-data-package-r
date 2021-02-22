@@ -1,4 +1,4 @@
-# educationdata 0.0.7
+# educationdata 0.0.7 (2021-02-23)
 
 * Added `get_education_data_summary()` to interface with the summary endpoint
 functionality.

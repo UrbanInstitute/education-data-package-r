@@ -287,8 +287,7 @@ df <- get_education_data_summary(
     subtopic = "allegations",
     stat = "sum",
     var = "allegations_harass_sex",
-    by = "fips",
-    staging = TRUE
+    by = "fips"
 )
 ```
 
@@ -306,3 +305,6 @@ slightly different from the syntax of the full data API. Endpoints for
 * college-university/ipeds/fall-enrollment/residence/summaries
 * college-university/scorecard/student-characteristics/aid-applicants/summaries
 * college-university/scorecard/student-characteristics/home-neighborhood/summaries
+
+For more information on the summary endpoint functionality, see the 
+[full API documentation](https://educationdata.urban.org/documentation/index.html#summary_endpoints).

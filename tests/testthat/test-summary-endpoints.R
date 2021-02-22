@@ -8,8 +8,7 @@ test_that("basic summary endpoints function call returns results", {
     topic = "enrollment",
     stat = "sum",
     var = "enrollment",
-    by = "fips",
-    staging = TRUE
+    by = "fips"
   )
 
   expect_is(df, "data.frame")
@@ -27,8 +26,7 @@ test_that("summary endpoints function call handles subtopics", {
     subtopic = "allegations",
     stat = "sum",
     var = "allegations_harass_sex",
-    by = "fips",
-    staging = TRUE
+    by = "fips"
   )
 
   expect_is(df, "data.frame")
@@ -47,8 +45,7 @@ test_that("summary endpoints function handles multiple group_by vars", {
     topic = "enrollment",
     stat = "sum",
     var = "enrollment",
-    by = by,
-    staging = TRUE
+    by = by
   )
 
   expect_is(df, "data.frame")
@@ -72,8 +69,7 @@ test_that("summary endpoints function handles filters correctly", {
     stat = "sum",
     var = "enrollment",
     by = "fips",
-    filters = filters,
-    staging = TRUE
+    filters = filters
   )
 
   expect_is(df, "data.frame")
@@ -95,8 +91,7 @@ test_that("summary endpoints function returns expected errors", {
       topic = "enrollment",
       stat = "fake",
       by = "fips",
-      var = "enrollment",
-      staging = TRUE
+      var = "enrollment"
     )
 
   )
@@ -109,8 +104,7 @@ test_that("summary endpoints function returns expected errors", {
       topic = "enrollment",
       stat = "sum",
       by = "fake",
-      var = "enrollment",
-      staging = TRUE
+      var = "enrollment"
     )
 
   )

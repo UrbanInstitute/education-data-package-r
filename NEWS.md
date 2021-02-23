@@ -1,39 +1,47 @@
-# educationdata 0.0.7 (2021-02-18)
+## educationdata 0.0.8 (2021-02-25)
 
 * Fixed issue with applying filters when downloading CCD & EdFacts data from 
 csv, kudos @jknowles for debugging assistance.
 
-# educationdata 0.0.6 (2020-12-03)
+## educationdata 0.0.7 (2021-02-23)
+
+* Added `get_education_data_summary()` to interface with the summary endpoint
+functionality.
+
+* Soft-deprecated the `by` argument in `get_education_data()` in favor of 
+the `subtopic` argument, to be more consistent with API metadata structure.
+
+## educationdata 0.0.6 (2020-12-03)
 
 * Fixed issue with applying filters when downloading IPEDS data from csv, 
 kudos @danliIDEA for debugging assistance.
 
-# educationdata 0.0.5 (2020-07-21)
+## educationdata 0.0.5 (2020-07-21)
 
 * Fixed issue with year parsing to accommodate new endpoints.
 
-# educationdata 0.0.4 (2020-04-03)
+## educationdata 0.0.4 (2020-04-03)
 
 * Fixed issue with `add_labels` when downloading from csv.
 
-# educationdata 0.0.3 (2019-07-29)
+## educationdata 0.0.3 (2019-07-29)
 
 * Added mapping for `grade_edfacts` endpoints.
 
 * Added option to test staging server to `get_education_data()` call.
 
-# educationdata 0.0.2 (2019-04-15)
+## educationdata 0.0.2 (2019-04-15)
 
 * Added improved error messaging when API returns a 504 status code
 
-# educationdata 0.0.1 (2018-07-10)
+## educationdata 0.0.1 (2018-07-10)
 
 * This release brings the `educationdata` package out of active development. 
 Bug fixes and new features will be handled as noted or requested.
 
 * Add better exception handling when API returns an HTTP error.
 
-# educationdata 0.0.0.9003 (2018-06-27)
+## educationdata 0.0.0.9003 (2018-06-27)
 
 * Note that this package is still currently under **active** development. 
 Please file all bugs, issues, and suggestions as an Issue in the GitHub 
@@ -41,7 +49,7 @@ repository for the development team.
 
 * Add csv option to allow users to download larger extracts from csv.
 
-# educationdata 0.0.0.9002 (2018-05-29)
+## educationdata 0.0.0.9002 (2018-05-29)
 
 * Note that this package is still currently under **active** development. 
 Please file all bugs, issues, and suggestions as an Issue in the GitHub 
@@ -51,7 +59,7 @@ repository for the development team.
 invalid `filter` variable will return an error. Note that this validation only 
 checks against the variable to filter, and note the value itself.
 
-# educationdata 0.0.0.9001 (2018-05-23)
+## educationdata 0.0.0.9001 (2018-05-23)
 
 * Note that this package is still currently under **active** development. 
 Please file all bugs, issues, and suggestions as an Issue in the GitHub 
@@ -102,7 +110,7 @@ can be filtered by `level_of_study`. i.e., users can now supply just
 `level_of_study = 'post-bac'` instead of the full 
 `level_of_study = 'post-baccalaureate'` that is ultimately passed to the API.
 
-# educationdata 0.0.0.9000 (2018-05-07)
+## educationdata 0.0.0.9000 (2018-05-07)
 
 * This is the initial alpha release of the `educationdata` package. Note that 
 this package is still currently under **active** development. Please file all 

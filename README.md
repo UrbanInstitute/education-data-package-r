@@ -35,7 +35,7 @@ library(educationdata)
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '340606000122'),
@@ -58,7 +58,7 @@ The `get_education_data()` function will return a `data.frame` from a
 call to the Education Data API.
 
 ``` r
-get_education_data(level, source, topic, by, filters, add_labels)
+get_education_data(level, source, topic, subtopic, filters, add_labels)
 ```
 
 where:
@@ -66,8 +66,8 @@ where:
 -   level (required) - API data level to query.
 -   source (required) - API data source to query.
 -   topic (required) - API data topic to query.
--   by (optional) - Optional `list` of grouping parameters for an API
-    call.
+-   subtopic (optional) - Optional `list` of grouping parameters for an
+    API call.
 -   filters (optional) - Optional `list` query to filter the results
     from an API call.
 -   add\_labels - Add variable labels (when applicable)? Defaults to
@@ -76,8 +76,9 @@ where:
 
 ## Available Endpoints
 
-| Level              | Source    | Topic                              | By                    | Main Filters           | Years Available                               |
+| Level              | Source    | Topic                              | Subtopic              | Main Filters           | Years Available                               |
 |:-------------------|:----------|:-----------------------------------|:----------------------|:-----------------------|:----------------------------------------------|
+| college-university | fsa       | 90-10-revenue-percentages          | NA                    | year                   | 2014–2017                                     |
 | college-university | fsa       | campus-based-volume                | NA                    | year                   | 2001–2017                                     |
 | college-university | fsa       | financial-responsibility           | NA                    | year                   | 2006–2016                                     |
 | college-university | fsa       | grants                             | NA                    | year                   | 1999–2018                                     |
@@ -106,12 +107,16 @@ where:
 | college-university | ipeds     | outcome-measures                   | NA                    | year                   | 2015–2017                                     |
 | college-university | ipeds     | program-year-room-board-other      | NA                    | year                   | 1999–2019                                     |
 | college-university | ipeds     | program-year-tuition-cip           | NA                    | year                   | 1987–2019                                     |
+| college-university | ipeds     | salaries-instructional-staff       | NA                    | year                   | 1980, 1984, 1985, 1987, 1989–1999, 2001–2018  |
+| college-university | ipeds     | salaries-noninstructional-staff    | NA                    | year                   | 2012–2018                                     |
 | college-university | ipeds     | sfa-all-undergraduates             | NA                    | year                   | 2007–2017                                     |
 | college-university | ipeds     | sfa-by-living-arrangement          | NA                    | year                   | 2008–2017                                     |
 | college-university | ipeds     | sfa-by-tuition-type                | NA                    | year                   | 1999–2017                                     |
 | college-university | ipeds     | sfa-ftft                           | NA                    | year                   | 1999–2017                                     |
 | college-university | ipeds     | sfa-grants-and-net-price           | NA                    | year                   | 2008–2017                                     |
 | college-university | ipeds     | student-faculty-ratio              | NA                    | year                   | 2009–2018                                     |
+| college-university | nacubo    | endowments                         | NA                    | year                   | 2012–2018                                     |
+| college-university | nccs      | 990-forms                          | NA                    | year                   | 1993–2016                                     |
 | college-university | nhgis     | census-1990                        | NA                    | year                   | 1980, 1984–2017                               |
 | college-university | nhgis     | census-2000                        | NA                    | year                   | 1980, 1984–2017                               |
 | college-university | nhgis     | census-2010                        | NA                    | year                   | 1980, 1984–2017                               |
@@ -131,6 +136,7 @@ where:
 | school-districts   | edfacts   | assessments                        | race                  | year, grade\_edfacts   | 2009–2017                                     |
 | school-districts   | edfacts   | assessments                        | sex                   | year, grade\_edfacts   | 2009–2017                                     |
 | school-districts   | edfacts   | assessments                        | special-populations   | year, grade\_edfacts   | 2009–2017                                     |
+| school-districts   | edfacts   | grad-rates                         | NA                    | year                   | 2010–2017                                     |
 | school-districts   | saipe     | NA                                 | NA                    | year                   | 1995, 1997, 1999–2018                         |
 | schools            | ccd       | directory                          | NA                    | year                   | 1986–2018                                     |
 | schools            | ccd       | enrollment                         | NA                    | year, grade            | 1986–2018                                     |
@@ -168,6 +174,7 @@ where:
 | schools            | edfacts   | assessments                        | race                  | year, grade\_edfacts   | 2009–2017                                     |
 | schools            | edfacts   | assessments                        | sex                   | year, grade\_edfacts   | 2009–2017                                     |
 | schools            | edfacts   | assessments                        | special-populations   | year, grade\_edfacts   | 2009–2017                                     |
+| schools            | edfacts   | grad-rates                         | NA                    | year                   | 2010–2017                                     |
 | schools            | nhgis     | census-1990                        | NA                    | year                   | 1986–2016                                     |
 | schools            | nhgis     | census-2000                        | NA                    | year                   | 1986–2016                                     |
 | schools            | nhgis     | census-2010                        | NA                    | year                   | 1986–2016                                     |
@@ -221,7 +228,7 @@ accept the following values:
 
 Let’s build up some examples, from the following set of endpoints.
 
-| Level   | Source | Topic      | By              | Main Filters | Years Available  |
+| Level   | Source | Topic      | Subtopic        | Main Filters | Years Available  |
 |:--------|:-------|:-----------|:----------------|:-------------|:-----------------|
 | schools | ccd    | enrollment | NA              | year, grade  | 1986–2018        |
 | schools | ccd    | enrollment | race            | year, grade  | 1986–2018        |
@@ -240,19 +247,20 @@ df <- get_education_data(level = 'schools',
                          topic = 'enrollment')
 ```
 
-Note that this endpoint is also callable `by` certain variables:
+Note that this endpoint is also callable by certain `subtopic`
+variables:
 
 -   race
 -   sex
 -   race, sex
 
-These variables can be added to the `by` argument:
+These variables can be added to the `subtopic` argument:
 
 ``` r
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'))
+                         subtopic = list('race', 'sex'))
 ```
 
 You may also filter the results of an API call. In this case `year` and
@@ -263,7 +271,7 @@ vectorized:
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12))
 ```
@@ -274,7 +282,7 @@ Additional variables can also be passed to `filters` to subset further:
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '3406060001227'))
@@ -287,7 +295,7 @@ in the API.
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '340606000122'),
@@ -305,10 +313,77 @@ downloaded and then subset to the 96 observations.
 df <- get_education_data(level = 'schools', 
                          source = 'ccd', 
                          topic = 'enrollment', 
-                         by = list('race', 'sex'),
+                         subtopic = list('race', 'sex'),
                          filters = list(year = 2008,
                                         grade = 9:12,
                                         ncessch = '340606000122'),
                          add_labels = TRUE,
                          csv = TRUE)
 ```
+
+## Summary Endpoints
+
+You can now access the new summary endpoint functionality using the
+`get_education_data_summary()` function.
+
+``` r
+df <- get_education_data_summary(
+    level = "schools",
+    source = "ccd",
+    topic = "enrollment",
+    stat = "sum",
+    var = "enrollment",
+    by = "fips",
+    filters = list(fips = 6:8, year = 2004:2005)
+)
+```
+
+In this example, we take the `schools/ccd/enrollment` endpoint and
+retrieve the `sum` of `enrollment` by `fips` code, filtered to `fips`
+codes 6, 7, 8 for the `year`s 2004 and 2005.
+
+The syntax largely follows the original syntax of
+`get_education_data()`: with three new arguments:
+
+-   `stat` is the summary statistic to be retrieved. Valid statistics
+    include: `avg`, `sum`, `count`, `median`, `min`, `max`, `stddev`,
+    and `variance`.
+-   `var` is the variable to run the summary statistic on.
+-   `by` is the grouping variable(s) to use. This can be a single
+    string, or a vector of multiple variables, i.e.,
+    `by = c("fips", "race")`.
+
+Some endpoints are further broken out by subtopic. These can be
+specified using the `subtopic` option.
+
+``` r
+df <- get_education_data_summary(
+    level = "schools",
+    source = "crdc",
+    topic = "harassment-or-bullying",
+    subtopic = "allegations",
+    stat = "sum",
+    var = "allegations_harass_sex",
+    by = "fips"
+)
+```
+
+Note that only some endpoints have an applicable `subtopic`, and this
+list is slightly different from the syntax of the full data API.
+Endpoints for `subtopics` for the summary endpoint functionality
+include:
+
+-   schools/crdc/harassment-or-bullying/allegations
+-   schools/crdc/harassment-or-bullying/students
+-   schools/crdc/restraint-and-seclusion/instances
+-   schools/crdc/restraint-and-seclusion/students
+-   college-university/ipeds/enrollment-full-time-equivalent/summaries
+-   college-university/ipeds/fall-enrollment/age/summaries
+-   college-university/ipeds/fall-enrollment/race/summaries
+-   college-university/ipeds/fall-enrollment/residence/summaries
+-   college-university/scorecard/student-characteristics/aid-applicants/summaries
+-   college-university/scorecard/student-characteristics/home-neighborhood/summaries
+
+For more information on the summary endpoint functionality, see the
+[full API
+documentation](https://educationdata.urban.org/documentation/index.html#summary_endpoints).

@@ -1,3 +1,11 @@
+# educationdata 0.0.7 (2021-02-23)
+
+* Added `get_education_data_summary()` to interface with the summary endpoint
+functionality.
+
+* Soft-deprecated the `by` argument in `get_education_data()` in favor of 
+the `subtopic` argument, to be more consistent with API metadata structure.
+
 # educationdata 0.0.6 (2020-12-03)
 
 * Fixed issue with applying filters when downloading from csv, kudos @danliIDEA 

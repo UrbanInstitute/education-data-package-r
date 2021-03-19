@@ -82,18 +82,17 @@ test_that("edfacts filters properly parsed when pulling from csv", {
   df1 <- get_education_data(
     level = 'schools',
     source = 'edfacts',
-    topic = 'assessments',
-    filters = list(year = 2009, grade_edfacts = 'grade-3', fips = 1),
+    topic = 'grad-rates',
+    filters = list(year = 2017, fips = 56),
     add_labels = TRUE,
-    csv = FALSE,
-    staging = TRUE
+    csv = FALSE
   )
 
   df2 <- get_education_data(
     level = 'schools',
     source = 'edfacts',
-    topic = 'assessments',
-    filters = list(year = 2009, grade_edfacts = "grade-3", fips = 1),
+    topic = 'grad-rates',
+    filters = list(year = 2017, fips = 56),
     add_labels = TRUE,
     csv = TRUE
   )

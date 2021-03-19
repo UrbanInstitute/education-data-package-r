@@ -3,6 +3,8 @@
 * Fixed issue with applying filters when downloading CCD & EdFacts data from 
 csv, kudos @jknowles for debugging assistance.
 
+* Fixed issue with parsing labels from metadata.
+
 ## educationdata 0.0.7 (2021-02-23)
 
 * Added `get_education_data_summary()` to interface with the summary endpoint

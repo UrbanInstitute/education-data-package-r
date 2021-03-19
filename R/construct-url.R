@@ -138,7 +138,7 @@ parse_year <- function(endpoints, required_vars) {
 # validate grade argument
 #
 # returns a list of required variables with validated grade
-parse_grade <- function(required_vars) {
+parse_grade <- function(required_vars, csv = FALSE) {
 
   if (!('grade' %in% names(required_vars))) {
     return(required_vars)
@@ -148,28 +148,59 @@ parse_grade <- function(required_vars) {
 
   if (length(grade) == 0) grade <- 'all'
 
-  valid_grades <- list('grade-pk' = c('grade-pk', 'pk', 'pre-k'),
-                    'grade-k' = c('grade-k', 'k'),
-                    'grade-1' = c('grade-1', '1'),
-                    'grade-2' = c('grade-2', '2'),
-                    'grade-3' = c('grade-3', '3'),
-                    'grade-4' = c('grade-4', '4'),
-                    'grade-5' = c('grade-5', '5'),
-                    'grade-6' = c('grade-6', '6'),
-                    'grade-7' = c('grade-7', '7'),
-                    'grade-8' = c('grade-8', '8'),
-                    'grade-9' = c('grade-9', '9'),
-                    'grade-10' = c('grade-10', '10'),
-                    'grade-11' = c('grade-11', '11'),
-                    'grade-12' = c('grade-12', '12'),
-                    'grade-13' = c('grade-13', '13'),
-                    'grade-14' = c('grade-14', '14', 'adult-education'),
-                    'grade-15' = c('grade-15', '15', 'ungraded'),
-                    'grade-16' = c('grade-16', '16', 'k-12'),
-                    'grade-20' = c('grade-20', '20', '7-8'),
-                    'grade-21' = c('grade-21', '21', '9-10'),
-                    'grade-22' = c('grade-22', '22', '11-12'),
-                    'grade-99' = c('grade-99', '99', 'total'))
+  if (csv) {
+
+    valid_grades <- list(
+      '-1' = c('grade-pk', 'pk', 'pre-k'),
+      '0' = c('grade-k', 'k'),
+      '1' = c('grade-1', '1'),
+      '2' = c('grade-2', '2'),
+      '3' = c('grade-3', '3'),
+      '4' = c('grade-4', '4'),
+      '5' = c('grade-5', '5'),
+      '6' = c('grade-6', '6'),
+      '7' = c('grade-7', '7'),
+      '8' = c('grade-8', '8'),
+      '9' = c('grade-9', '9'),
+      '10' = c('grade-10', '10'),
+      '11' = c('grade-11', '11'),
+      '12' = c('grade-12', '12'),
+      '13' = c('grade-13', '13'),
+      '14' = c('grade-14', '14', 'adult-education'),
+      '15' = c('grade-15', '15', 'ungraded'),
+      '16' = c('grade-16', '16', 'k-12'),
+      '20' = c('grade-20', '20', '7-8'),
+      '21' = c('grade-21', '21', '9-10'),
+      '22' = c('grade-22', '22', '11-12'),
+      '99' = c('grade-99', '99', 'total')
+    )
+
+  } else {
+    valid_grades <- list(
+      'grade-pk' = c('grade-pk', 'pk', 'pre-k'),
+      'grade-k' = c('grade-k', 'k'),
+      'grade-1' = c('grade-1', '1'),
+      'grade-2' = c('grade-2', '2'),
+      'grade-3' = c('grade-3', '3'),
+      'grade-4' = c('grade-4', '4'),
+      'grade-5' = c('grade-5', '5'),
+      'grade-6' = c('grade-6', '6'),
+      'grade-7' = c('grade-7', '7'),
+      'grade-8' = c('grade-8', '8'),
+      'grade-9' = c('grade-9', '9'),
+      'grade-10' = c('grade-10', '10'),
+      'grade-11' = c('grade-11', '11'),
+      'grade-12' = c('grade-12', '12'),
+      'grade-13' = c('grade-13', '13'),
+      'grade-14' = c('grade-14', '14', 'adult-education'),
+      'grade-15' = c('grade-15', '15', 'ungraded'),
+      'grade-16' = c('grade-16', '16', 'k-12'),
+      'grade-20' = c('grade-20', '20', '7-8'),
+      'grade-21' = c('grade-21', '21', '9-10'),
+      'grade-22' = c('grade-22', '22', '11-12'),
+      'grade-99' = c('grade-99', '99', 'total')
+    )
+  }
 
   if (length(grade) == 1 && grade == 'all') grade <- names(valid_grades)
 
@@ -192,7 +223,7 @@ parse_grade <- function(required_vars) {
 # validate grade_edfacts argument
 #
 # returns a list of required variables with validated grade_edfacts
-parse_grade_edfacts <- function(required_vars) {
+parse_grade_edfacts <- function(required_vars, csv = FALSE) {
 
   if (!('grade_edfacts' %in% names(required_vars))) {
     return(required_vars)
@@ -202,14 +233,35 @@ parse_grade_edfacts <- function(required_vars) {
 
   if (length(grade) == 0) grade <- 'all'
 
-  valid_grades <- list('grade-3' = c('grade-3', '3'),
-                       'grade-4' = c('grade-4', '4'),
-                       'grade-5' = c('grade-5', '5'),
-                       'grade-6' = c('grade-6', '6'),
-                       'grade-7' = c('grade-7', '7'),
-                       'grade-8' = c('grade-8', '8'),
-                       'grade-9' = c('grade-9', '9', '9-12'),
-                       'grade-99' = c('grade-99', '99', 'total'))
+  if (csv) {
+
+    valid_grades <- list(
+      '3' = c('grade-3', '3'),
+      '4' = c('grade-4', '4'),
+      '5' = c('grade-5', '5'),
+      '6' = c('grade-6', '6'),
+      '7' = c('grade-7', '7'),
+      '8' = c('grade-8', '8'),
+      '9' = c('grade-9', '9', '9-12'),
+      '99' = c('grade-99', '99', 'total')
+    )
+
+  } else {
+
+    valid_grades <- list(
+      'grade-3' = c('grade-3', '3'),
+      'grade-4' = c('grade-4', '4'),
+      'grade-5' = c('grade-5', '5'),
+      'grade-6' = c('grade-6', '6'),
+      'grade-7' = c('grade-7', '7'),
+      'grade-8' = c('grade-8', '8'),
+      'grade-9' = c('grade-9', '9', '9-12'),
+      'grade-99' = c('grade-99', '99', 'total')
+    )
+
+  }
+
+
 
   if (length(grade) == 1 && grade == 'all') grade <- names(valid_grades)
 

@@ -40,7 +40,7 @@ get_label_text <- function(varlist, var) {
   text <- gsub('"', '', text)
   text <- gsub(' : ', '\t', text)
   text <- gsub(', ', ' ', text)
-  text <- gsub(",(\\d{3})", ';\\1', text)
+  text <- gsub(",(\\d{3})", ',\\1', text)
 
   text <- unlist(strsplit(text, ','))
   text <- unlist(lapply(text, function(x) gsub(';',',', x)))

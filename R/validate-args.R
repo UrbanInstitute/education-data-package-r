@@ -150,7 +150,7 @@ get_required_varlist <- function(endpoints) {
 # return a subset of endpoints
 validate_optional_variables <- function(endpoints, by) {
   opts <- endpoints$optional_vars
-  subs <- lapply(opts, function(x) ((all(x %in% by) & all(by %in% x)) | (is.null(by) && is.na(x))))
+  subs <- lapply(opts, function(x) ((all(x %in% by) & all(by %in% x)) | (is.null(by) && all(is.na(x)))))
   subs <- unlist(subs)
 
   if (sum(subs) != 1) {

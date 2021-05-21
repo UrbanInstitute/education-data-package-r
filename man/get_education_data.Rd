@@ -12,8 +12,7 @@ get_education_data(
   by = NULL,
   filters = NULL,
   add_labels = FALSE,
-  csv = FALSE,
-  staging = FALSE
+  csv = FALSE
 )
 }
 \arguments{
@@ -32,8 +31,6 @@ get_education_data(
 \item{add_labels}{Add variable labels (when applicable)? Defaults to FALSE.}
 
 \item{csv}{Download the full csv file? Defaults to FALSE.}
-
-\item{staging}{FOR TESTING ONLY. Defaults to FALSE.}
 }
 \value{
 A `data.frame` of education data

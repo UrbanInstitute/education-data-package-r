@@ -143,33 +143,54 @@ where:
 | schools            | ccd       | enrollment                         | race                  | year, grade            | 1986–2018                                     |
 | schools            | ccd       | enrollment                         | race, sex             | year, grade            | 1986–2018                                     |
 | schools            | ccd       | enrollment                         | sex                   | year, grade            | 1986–2018                                     |
-| schools            | crdc      | ap-exams                           | disability, sex       | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | ap-exams                           | lep, sex              | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | ap-exams                           | race, sex             | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | ap-ib-enrollment                   | disability, sex       | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | ap-ib-enrollment                   | lep, sex              | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | ap-ib-enrollment                   | race, sex             | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | algebra1                           | disability, sex       | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | algebra1                           | lep, sex              | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | algebra1                           | race, sex             | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | ap-exams                           | disability, sex       | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | ap-exams                           | lep, sex              | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | ap-exams                           | race, sex             | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | ap-ib-enrollment                   | disability, sex       | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | ap-ib-enrollment                   | lep, sex              | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | ap-ib-enrollment                   | race, sex             | year                   | 2011, 2013, 2015, 2017                        |
 | schools            | crdc      | chronic-absenteeism                | disability, sex       | year                   | 2013, 2015                                    |
 | schools            | crdc      | chronic-absenteeism                | lep, sex              | year                   | 2013, 2015                                    |
 | schools            | crdc      | chronic-absenteeism                | race, sex             | year                   | 2013, 2015                                    |
-| schools            | crdc      | directory                          | NA                    | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | discipline                         | disability, lep, sex  | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | discipline                         | disability, race, sex | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | discipline                         | disability, sex       | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | enrollment                         | disability, sex       | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | enrollment                         | lep, sex              | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | enrollment                         | race, sex             | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | harassment-or-bullying             | allegations           | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | harassment-or-bullying             | disability, sex       | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | harassment-or-bullying             | lep, sex              | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | harassment-or-bullying             | race, sex             | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | restraint-and-seclusion            | disability, lep, sex  | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | restraint-and-seclusion            | disability, race, sex | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | restraint-and-seclusion            | disability, sex       | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | restraint-and-seclusion            | instances             | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | sat-act-participation              | disability, sex       | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | sat-act-participation              | lep, sex              | year                   | 2011, 2013, 2015                              |
-| schools            | crdc      | sat-act-participation              | race, sex             | year                   | 2011, 2013, 2015                              |
+| schools            | crdc      | credit-recovery                    | NA                    | year                   | 2015, 2017                                    |
+| schools            | crdc      | directory                          | NA                    | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | discipline-instances               | NA                    | year                   | 2015, 2017                                    |
+| schools            | crdc      | discipline                         | disability, lep, sex  | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | discipline                         | disability, race, sex | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | discipline                         | disability, sex       | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | dual-enrollment                    | disability, sex       | year                   | 2013, 2015, 2017                              |
+| schools            | crdc      | dual-enrollment                    | lep, sex              | year                   | 2013, 2015, 2017                              |
+| schools            | crdc      | dual-enrollment                    | race, sex             | year                   | 2013, 2015, 2017                              |
+| schools            | crdc      | enrollment                         | disability, sex       | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | enrollment                         | lep, sex              | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | enrollment                         | race, sex             | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | harassment-or-bullying             | allegations           | year                   | 2013, 2015, 2017                              |
+| schools            | crdc      | harassment-or-bullying             | disability, sex       | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | harassment-or-bullying             | lep, sex              | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | harassment-or-bullying             | race, sex             | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | math-and-science                   | disability, sex       | year                   | 2011, 2013, 2015, 2018                        |
+| schools            | crdc      | math-and-science                   | lep, sex              | year                   | 2011, 2013, 2015, 2019                        |
+| schools            | crdc      | math-and-science                   | race, sex             | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | offenses                           | NA                    | year                   | 2015, 2017                                    |
+| schools            | crdc      | offerings                          | NA                    | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | restraint-and-seclusion            | disability, lep, sex  | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | restraint-and-seclusion            | disability, race, sex | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | restraint-and-seclusion            | disability, sex       | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | restraint-and-seclusion            | instances             | year                   | 2013, 2015, 2017                              |
+| schools            | crdc      | retention                          | disability, sex       | year, grade            | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | retention                          | lep, sex              | year, grade            | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | retention                          | race, sex             | year, grade            | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | sat-act-participation              | disability, sex       | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | sat-act-participation              | lep, sex              | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | sat-act-participation              | race, sex             | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | school-finance                     | NA                    | year                   | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | suspensions-days                   | disability, sex       | year                   | 2015, 2017                                    |
+| schools            | crdc      | suspensions-days                   | lep, sex              | year                   | 2015, 2017                                    |
+| schools            | crdc      | suspensions-days                   | race, sex             | year                   | 2015, 2017                                    |
+| schools            | crdc      | teachers-staff                     | NA                    | year                   | 2011, 2013, 2015, 2017                        |
 | schools            | edfacts   | assessments                        | NA                    | year, grade\_edfacts   | 2009–2017                                     |
 | schools            | edfacts   | assessments                        | race                  | year, grade\_edfacts   | 2009–2017                                     |
 | schools            | edfacts   | assessments                        | sex                   | year, grade\_edfacts   | 2009–2017                                     |
@@ -228,15 +249,15 @@ accept the following values:
 
 Let’s build up some examples, from the following set of endpoints.
 
-| Level   | Source | Topic      | Subtopic        | Main Filters | Years Available  |
-|:--------|:-------|:-----------|:----------------|:-------------|:-----------------|
-| schools | ccd    | enrollment | NA              | year, grade  | 1986–2018        |
-| schools | ccd    | enrollment | race            | year, grade  | 1986–2018        |
-| schools | ccd    | enrollment | race, sex       | year, grade  | 1986–2018        |
-| schools | ccd    | enrollment | sex             | year, grade  | 1986–2018        |
-| schools | crdc   | enrollment | disability, sex | year         | 2011, 2013, 2015 |
-| schools | crdc   | enrollment | lep, sex        | year         | 2011, 2013, 2015 |
-| schools | crdc   | enrollment | race, sex       | year         | 2011, 2013, 2015 |
+| Level   | Source | Topic      | Subtopic        | Main Filters | Years Available        |
+|:--------|:-------|:-----------|:----------------|:-------------|:-----------------------|
+| schools | ccd    | enrollment | NA              | year, grade  | 1986–2018              |
+| schools | ccd    | enrollment | race            | year, grade  | 1986–2018              |
+| schools | ccd    | enrollment | race, sex       | year, grade  | 1986–2018              |
+| schools | ccd    | enrollment | sex             | year, grade  | 1986–2018              |
+| schools | crdc   | enrollment | disability, sex | year         | 2011, 2013, 2015, 2017 |
+| schools | crdc   | enrollment | lep, sex        | year         | 2011, 2013, 2015, 2017 |
+| schools | crdc   | enrollment | race, sex       | year         | 2011, 2013, 2015, 2017 |
 
 The following will return a `data.frame` across all years and grades:
 
@@ -370,7 +391,7 @@ df <- get_education_data_summary(
 
 Note that only some endpoints have an applicable `subtopic`, and this
 list is slightly different from the syntax of the full data API.
-Endpoints for `subtopics` for the summary endpoint functionality
+Endpoints with `subtopics` for the summary endpoint functionality
 include:
 
 -   schools/crdc/harassment-or-bullying/allegations

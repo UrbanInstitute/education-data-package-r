@@ -10,7 +10,6 @@
 #' @param var Variable to be summarized.
 #' @param by Variable(s) to group results by.
 #' @param filters Optional 'list' of query values to filter an API call
-#' @param staging FOR TESTING ONLY. Defaults to FALSE.
 #'
 #' @return A `data.frame` of aggregated education data
 #'
@@ -22,15 +21,10 @@ get_education_data_summary <- function(level,
                                        stat = NULL,
                                        var = NULL,
                                        by = NULL,
-                                       filters = NULL,
-                                       staging = FALSE) {
+                                       filters = NULL) {
 
   # set api path
-  if (!staging) {
-    url_path <- "https://educationdata.urban.org/api/v1/"
-  } else {
-    url_path <- "https://educationdata-stg.urban.org/api/v1/"
-  }
+  url_path <- "https://educationdata.urban.org/api/v1/"
 
   # set table
   endpoint <- paste(level, source, sep = "/")
@@ -71,6 +65,9 @@ get_education_data_summary <- function(level,
 
   }
 
+  # add mode
+  url <- paste0(url, "&mode=R")
+
   # call api
   response <- httr::GET(url)
 
@@ -102,14 +99,5 @@ get_education_data_summary <- function(level,
   }
 
   return(df)
-
-
-
-
-
-
-
-
-
 
 }

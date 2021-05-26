@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Load data from the Urban Institute's Education Data API into a data frame   • educationdata</title>
+<title>Retrieve Records from the Urban Institute's Education Data Portal API   • educationdata</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Load data from the Urban Institute's Education Data API into a data frame  ">
+<script src="pkgdown.js"></script><meta property="og:title" content="Retrieve Records from the Urban Institute's Education Data Portal API  ">
 <meta property="og:description" content="Allows R users to retrieve and parse data from the Urban 
     Institutes Education Data API &lt;https://ed-data-portal.urban.org/&gt; into a 
     data.frame' for analysis.">
@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">educationdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -104,7 +104,7 @@
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UrbanInstitute/education-data-package-r">educationdata</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://urbaninstitute.github.io/education-data-package-r/">educationdata</a></span><span class="op">)</span>
 
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_education_data.html">get_education_data</a></span><span class="op">(</span>level <span class="op">=</span> <span class="st">'schools'</span>, 
                          source <span class="op">=</span> <span class="st">'ccd'</span>, 
@@ -684,52 +684,76 @@
 <tr class="even">
 <td align="left">schools</td>
 <td align="left">crdc</td>
+<td align="left">algebra1</td>
+<td align="left">disability, sex</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="odd">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">algebra1</td>
+<td align="left">lep, sex</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">algebra1</td>
+<td align="left">race, sex</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="odd">
+<td align="left">schools</td>
+<td align="left">crdc</td>
 <td align="left">ap-exams</td>
 <td align="left">disability, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">ap-exams</td>
 <td align="left">lep, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">ap-exams</td>
 <td align="left">race, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">ap-ib-enrollment</td>
 <td align="left">disability, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
-</tr>
-<tr class="even">
-<td align="left">schools</td>
-<td align="left">crdc</td>
-<td align="left">ap-ib-enrollment</td>
-<td align="left">lep, sex</td>
-<td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">ap-ib-enrollment</td>
-<td align="left">race, sex</td>
+<td align="left">lep, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">ap-ib-enrollment</td>
+<td align="left">race, sex</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="odd">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">chronic-absenteeism</td>
@@ -737,7 +761,7 @@
 <td align="left">year</td>
 <td align="left">2013, 2015</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">chronic-absenteeism</td>
@@ -745,13 +769,21 @@
 <td align="left">year</td>
 <td align="left">2013, 2015</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">chronic-absenteeism</td>
 <td align="left">race, sex</td>
 <td align="left">year</td>
 <td align="left">2013, 2015</td>
+</tr>
+<tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">credit-recovery</td>
+<td align="left">NA</td>
+<td align="left">year</td>
+<td align="left">2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -759,31 +791,63 @@
 <td align="left">directory</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
 <td align="left">crdc</td>
-<td align="left">discipline</td>
-<td align="left">disability, lep, sex</td>
+<td align="left">discipline-instances</td>
+<td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">discipline</td>
-<td align="left">disability, race, sex</td>
+<td align="left">disability, lep, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">discipline</td>
+<td align="left">disability, race, sex</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="odd">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">discipline</td>
 <td align="left">disability, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">dual-enrollment</td>
+<td align="left">disability, sex</td>
+<td align="left">year</td>
+<td align="left">2013, 2015, 2017</td>
+</tr>
+<tr class="odd">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">dual-enrollment</td>
+<td align="left">lep, sex</td>
+<td align="left">year</td>
+<td align="left">2013, 2015, 2017</td>
+</tr>
+<tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">dual-enrollment</td>
+<td align="left">race, sex</td>
+<td align="left">year</td>
+<td align="left">2013, 2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -791,7 +855,7 @@
 <td align="left">enrollment</td>
 <td align="left">disability, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -799,7 +863,7 @@
 <td align="left">enrollment</td>
 <td align="left">lep, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -807,7 +871,7 @@
 <td align="left">enrollment</td>
 <td align="left">race, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -815,7 +879,7 @@
 <td align="left">harassment-or-bullying</td>
 <td align="left">allegations</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2013, 2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -823,7 +887,7 @@
 <td align="left">harassment-or-bullying</td>
 <td align="left">disability, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -831,7 +895,7 @@
 <td align="left">harassment-or-bullying</td>
 <td align="left">lep, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -839,39 +903,103 @@
 <td align="left">harassment-or-bullying</td>
 <td align="left">race, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">math-and-science</td>
+<td align="left">disability, sex</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2018</td>
+</tr>
+<tr class="odd">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">math-and-science</td>
+<td align="left">lep, sex</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2019</td>
+</tr>
+<tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">math-and-science</td>
+<td align="left">race, sex</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="odd">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">offenses</td>
+<td align="left">NA</td>
+<td align="left">year</td>
+<td align="left">2015, 2017</td>
+</tr>
+<tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">offerings</td>
+<td align="left">NA</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="odd">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">restraint-and-seclusion</td>
 <td align="left">disability, lep, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
-</tr>
-<tr class="odd">
-<td align="left">schools</td>
-<td align="left">crdc</td>
-<td align="left">restraint-and-seclusion</td>
-<td align="left">disability, race, sex</td>
-<td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">restraint-and-seclusion</td>
-<td align="left">disability, sex</td>
+<td align="left">disability, race, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
 <td align="left">crdc</td>
 <td align="left">restraint-and-seclusion</td>
+<td align="left">disability, sex</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">restraint-and-seclusion</td>
 <td align="left">instances</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2013, 2015, 2017</td>
+</tr>
+<tr class="odd">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">retention</td>
+<td align="left">disability, sex</td>
+<td align="left">year, grade</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">retention</td>
+<td align="left">lep, sex</td>
+<td align="left">year, grade</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="odd">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">retention</td>
+<td align="left">race, sex</td>
+<td align="left">year, grade</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -879,7 +1007,7 @@
 <td align="left">sat-act-participation</td>
 <td align="left">disability, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -887,7 +1015,7 @@
 <td align="left">sat-act-participation</td>
 <td align="left">lep, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -895,9 +1023,49 @@
 <td align="left">sat-act-participation</td>
 <td align="left">race, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="odd">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">school-finance</td>
+<td align="left">NA</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">suspensions-days</td>
+<td align="left">disability, sex</td>
+<td align="left">year</td>
+<td align="left">2015, 2017</td>
+</tr>
+<tr class="odd">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">suspensions-days</td>
+<td align="left">lep, sex</td>
+<td align="left">year</td>
+<td align="left">2015, 2017</td>
+</tr>
+<tr class="even">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">suspensions-days</td>
+<td align="left">race, sex</td>
+<td align="left">year</td>
+<td align="left">2015, 2017</td>
+</tr>
+<tr class="odd">
+<td align="left">schools</td>
+<td align="left">crdc</td>
+<td align="left">teachers-staff</td>
+<td align="left">NA</td>
+<td align="left">year</td>
+<td align="left">2011, 2013, 2015, 2017</td>
+</tr>
+<tr class="even">
 <td align="left">schools</td>
 <td align="left">edfacts</td>
 <td align="left">assessments</td>
@@ -905,7 +1073,7 @@
 <td align="left">year, grade_edfacts</td>
 <td align="left">2009–2017</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">schools</td>
 <td align="left">edfacts</td>
 <td align="left">assessments</td>
@@ -913,7 +1081,7 @@
 <td align="left">year, grade_edfacts</td>
 <td align="left">2009–2017</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">schools</td>
 <td align="left">edfacts</td>
 <td align="left">assessments</td>
@@ -921,7 +1089,7 @@
 <td align="left">year, grade_edfacts</td>
 <td align="left">2009–2017</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">schools</td>
 <td align="left">edfacts</td>
 <td align="left">assessments</td>
@@ -929,7 +1097,7 @@
 <td align="left">year, grade_edfacts</td>
 <td align="left">2009–2017</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">schools</td>
 <td align="left">edfacts</td>
 <td align="left">grad-rates</td>
@@ -937,7 +1105,7 @@
 <td align="left">year</td>
 <td align="left">2010–2017</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">schools</td>
 <td align="left">nhgis</td>
 <td align="left">census-1990</td>
@@ -945,7 +1113,7 @@
 <td align="left">year</td>
 <td align="left">1986–2016</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">schools</td>
 <td align="left">nhgis</td>
 <td align="left">census-2000</td>
@@ -953,7 +1121,7 @@
 <td align="left">year</td>
 <td align="left">1986–2016</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">schools</td>
 <td align="left">nhgis</td>
 <td align="left">census-2010</td>
@@ -1154,7 +1322,7 @@
 <td align="left">enrollment</td>
 <td align="left">disability, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -1162,7 +1330,7 @@
 <td align="left">enrollment</td>
 <td align="left">lep, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1170,13 +1338,13 @@
 <td align="left">enrollment</td>
 <td align="left">race, sex</td>
 <td align="left">year</td>
-<td align="left">2011, 2013, 2015</td>
+<td align="left">2011, 2013, 2015, 2017</td>
 </tr>
 </tbody>
 </table>
 <p>The following will return a <code>data.frame</code> across all years and grades:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UrbanInstitute/education-data-package-r">educationdata</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://urbaninstitute.github.io/education-data-package-r/">educationdata</a></span><span class="op">)</span>
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_education_data.html">get_education_data</a></span><span class="op">(</span>level <span class="op">=</span> <span class="st">'schools'</span>, 
                          source <span class="op">=</span> <span class="st">'ccd'</span>, 
                          topic <span class="op">=</span> <span class="st">'enrollment'</span><span class="op">)</span></code></pre></div>
@@ -1266,7 +1434,7 @@
     var <span class="op">=</span> <span class="st">"allegations_harass_sex"</span>,
     by <span class="op">=</span> <span class="st">"fips"</span>
 <span class="op">)</span></code></pre></div>
-<p>Note that only some endpoints have an applicable <code>subtopic</code>, and this list is slightly different from the syntax of the full data API. Endpoints for <code>subtopics</code> for the summary endpoint functionality include:</p>
+<p>Note that only some endpoints have an applicable <code>subtopic</code>, and this list is slightly different from the syntax of the full data API. Endpoints with <code>subtopics</code> for the summary endpoint functionality include:</p>
 <ul>
 <li>schools/crdc/harassment-or-bullying/allegations</li>
 <li>schools/crdc/harassment-or-bullying/students</li>

@@ -1,3 +1,8 @@
+## educatiodata 0.1.0
+
+* Bumped version number for initial CRAN submission.
+* Removed `staging` option.
+
 ## educationdata 0.0.8 (2021-03-19)
 
 * Fixed issue with applying filters when downloading CCD & EdFacts data from 

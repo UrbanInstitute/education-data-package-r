@@ -1,11 +1,11 @@
 Package: educationdata
 Type: Package
-Title: Load data from the Urban Institute's Education Data API into a data frame  
-Version: 0.0.8
+Title: Retrieve Records from the Urban Institute's Education Data Portal API  
+Version: 0.1.0
 Authors@R: c(
     person("Kyle", "Ueyama", email = "kueyama@urban.org", role = c("aut", "cre"))
     )
-Date: 2021-02-25
+Date: 2021-05-26
 URL: https://urbaninstitute.github.io/education-data-package-r/
 BugReports: https://github.com/UrbanInstitute/education-data-package-r/issues
 Description: Allows R users to retrieve and parse data from the Urban 
@@ -21,7 +21,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-Suggests: knitr,
+Suggests: 
+    knitr,
     rmarkdown,
     testthat
 VignetteBuilder: knitr

@@ -292,7 +292,7 @@ df <- get_education_data_summary(
 ```
 
 Note that only some endpoints have an applicable `subtopic`, and this list is 
-slightly different from the syntax of the full data API. Endpoints for 
+slightly different from the syntax of the full data API. Endpoints with 
 `subtopics` for the summary endpoint functionality include:
 
 * schools/crdc/harassment-or-bullying/allegations

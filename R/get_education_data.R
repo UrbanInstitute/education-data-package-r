@@ -8,7 +8,6 @@
 #' @param filters Optional 'list' of query values to filter an API call
 #' @param add_labels Add variable labels (when applicable)? Defaults to FALSE.
 #' @param csv Download the full csv file? Defaults to FALSE.
-#' @param staging FOR TESTING ONLY. Defaults to FALSE.
 #'
 #' @return A `data.frame` of education data
 #'
@@ -20,8 +19,7 @@ get_education_data <- function(level = NULL,
                                by = NULL,
                                filters = NULL,
                                add_labels = FALSE,
-                               csv = FALSE,
-                               staging = FALSE) {
+                               csv = FALSE) {
 
   if (!is.null(by)) {
     warning("The `by` argument has been deprecated in favor of `subtopic`.\n",
@@ -32,9 +30,9 @@ get_education_data <- function(level = NULL,
 
 
   if (csv) {
-    df <- get_education_data_csv(level, source, topic, subtopic, filters, add_labels, staging)
+    df <- get_education_data_csv(level, source, topic, subtopic, filters, add_labels)
   } else {
-    df <- get_education_data_json(level, source, topic, subtopic, filters, add_labels, staging)
+    df <- get_education_data_json(level, source, topic, subtopic, filters, add_labels)
   }
 
   return(df)
@@ -50,14 +48,9 @@ get_education_data_json <- function(level = NULL,
                                     topic = NULL,
                                     by = NULL,
                                     filters = NULL,
-                                    add_labels = FALSE,
-                                    staging = FALSE) {
+                                    add_labels = FALSE) {
 
-  if (!staging) {
-    url_path <- "https://educationdata.urban.org"
-  } else {
-    url_path <- "https://educationdata-stg.urban.org"
-  }
+  url_path <- "https://educationdata.urban.org"
 
   endpoints <- validate_function_args(level = level,
                                       source = source,
@@ -89,14 +82,9 @@ get_education_data_csv <- function(level = NULL,
                                    topic = NULL,
                                    by = NULL,
                                    filters = NULL,
-                                   add_labels = FALSE,
-                                   staging = FALSE) {
+                                   add_labels = FALSE) {
 
-  if (!staging) {
-    url_path <- "https://educationdata.urban.org"
-  } else {
-    url_path <- "https://educationdata-stg.urban.org"
-  }
+  url_path <- "https://educationdata.urban.org"
 
   endpoints <- validate_function_args(level = level,
                                       source = source,

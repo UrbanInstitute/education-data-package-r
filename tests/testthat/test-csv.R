@@ -58,7 +58,7 @@ test_that("ccd filters properly parsed when pulling from csv", {
     level = 'schools',
     source = 'ccd',
     topic = 'enrollment',
-    by = list('race', 'sex'),
+    subtopic = list('race', 'sex'),
     filters = list(year = 1986, grade = 'grade-99', fips = 1),
     add_labels = TRUE,
     csv = FALSE
@@ -68,7 +68,7 @@ test_that("ccd filters properly parsed when pulling from csv", {
     level = 'schools',
     source = 'ccd',
     topic = 'enrollment',
-    by = list('race', 'sex'),
+    subtopic = list('race', 'sex'),
     filters = list(year = 1986, grade = "grade-99", fips = 1),
     add_labels = TRUE,
     csv = TRUE

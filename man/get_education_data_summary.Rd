@@ -13,8 +13,7 @@ get_education_data_summary(
   stat = NULL,
   var = NULL,
   by = NULL,
-  filters = NULL,
-  staging = FALSE
+  filters = NULL
 )
 }
 \arguments{
@@ -34,8 +33,6 @@ applicable to certain endpoints.}
 \item{by}{Variable(s) to group results by.}
 
 \item{filters}{Optional 'list' of query values to filter an API call}
-
-\item{staging}{FOR TESTING ONLY. Defaults to FALSE.}
 }
 \value{
 A `data.frame` of aggregated education data

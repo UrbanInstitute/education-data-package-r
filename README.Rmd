@@ -129,10 +129,6 @@ accept the following values:
 | `grade = 'grade-13'` | Grade 13  |
 | `grade = 'grade-14'` | Adult Education |
 | `grade = 'grade-15'` | Ungraded  |
-| `grade = 'grade-16'` | K-12  |
-| `grade = 'grade-20'` | Grades 7 and 8  |
-| `grade = 'grade-21'` | Grade 9 and 10  |
-| `grade = 'grade-22'` | Grades 11 and 12  |
 | `grade = 'grade-99'` | Total  |
 
 ### Level of Study

@@ -1,4 +1,4 @@
-## educationdata 0.1.0
+## educationdata 0.1.1
 
 * Bumped version number for initial CRAN submission.
 * Removed `staging` option.

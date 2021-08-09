@@ -126,23 +126,23 @@ where:
 | college-university | scorecard | repayment                          | NA                    | year                   | 2007–2016                                     |
 | college-university | scorecard | student-characteristics            | aid-applicants        | year                   | 1997–2016                                     |
 | college-university | scorecard | student-characteristics            | home-neighborhood     | year                   | 1997–2016                                     |
-| school-districts   | ccd       | directory                          | NA                    | year                   | 1986–2018                                     |
-| school-districts   | ccd       | enrollment                         | NA                    | year, grade            | 1986–2018                                     |
-| school-districts   | ccd       | enrollment                         | race                  | year, grade            | 1986–2018                                     |
-| school-districts   | ccd       | enrollment                         | race, sex             | year, grade            | 1986–2018                                     |
-| school-districts   | ccd       | enrollment                         | sex                   | year, grade            | 1986–2018                                     |
-| school-districts   | ccd       | finance                            | NA                    | year                   | 1991, 1994–2016                               |
+| school-districts   | ccd       | directory                          | NA                    | year                   | 1986–2019                                     |
+| school-districts   | ccd       | enrollment                         | NA                    | year, grade            | 1986–2019                                     |
+| school-districts   | ccd       | enrollment                         | race                  | year, grade            | 1986–2019                                     |
+| school-districts   | ccd       | enrollment                         | race, sex             | year, grade            | 1986–2019                                     |
+| school-districts   | ccd       | enrollment                         | sex                   | year, grade            | 1986–2019                                     |
+| school-districts   | ccd       | finance                            | NA                    | year                   | 1991, 1994–2017                               |
 | school-districts   | edfacts   | assessments                        | NA                    | year, grade\_edfacts   | 2009–2017                                     |
 | school-districts   | edfacts   | assessments                        | race                  | year, grade\_edfacts   | 2009–2017                                     |
 | school-districts   | edfacts   | assessments                        | sex                   | year, grade\_edfacts   | 2009–2017                                     |
 | school-districts   | edfacts   | assessments                        | special-populations   | year, grade\_edfacts   | 2009–2017                                     |
 | school-districts   | edfacts   | grad-rates                         | NA                    | year                   | 2010–2017                                     |
 | school-districts   | saipe     | NA                                 | NA                    | year                   | 1995, 1997, 1999–2018                         |
-| schools            | ccd       | directory                          | NA                    | year                   | 1986–2018                                     |
-| schools            | ccd       | enrollment                         | NA                    | year, grade            | 1986–2018                                     |
-| schools            | ccd       | enrollment                         | race                  | year, grade            | 1986–2018                                     |
-| schools            | ccd       | enrollment                         | race, sex             | year, grade            | 1986–2018                                     |
-| schools            | ccd       | enrollment                         | sex                   | year, grade            | 1986–2018                                     |
+| schools            | ccd       | directory                          | NA                    | year                   | 1986–2019                                     |
+| schools            | ccd       | enrollment                         | NA                    | year, grade            | 1986–2019                                     |
+| schools            | ccd       | enrollment                         | race                  | year, grade            | 1986–2019                                     |
+| schools            | ccd       | enrollment                         | race, sex             | year, grade            | 1986–2019                                     |
+| schools            | ccd       | enrollment                         | sex                   | year, grade            | 1986–2019                                     |
 | schools            | crdc      | algebra1                           | disability, sex       | year                   | 2011, 2013, 2015, 2017                        |
 | schools            | crdc      | algebra1                           | lep, sex              | year                   | 2011, 2013, 2015, 2017                        |
 | schools            | crdc      | algebra1                           | race, sex             | year                   | 2011, 2013, 2015, 2017                        |
@@ -210,30 +210,26 @@ accept the following values:
 
 ### Grade
 
-| Filter Argument      | Grade            |
-|----------------------|------------------|
-| `grade = 'grade-pk'` | Pre-K            |
-| `grade = 'grade-k'`  | Kindergarten     |
-| `grade = 'grade-1'`  | Grade 1          |
-| `grade = 'grade-2'`  | Grade 2          |
-| `grade = 'grade-3'`  | Grade 3          |
-| `grade = 'grade-4'`  | Grade 4          |
-| `grade = 'grade-5'`  | Grade 5          |
-| `grade = 'grade-6'`  | Grade 6          |
-| `grade = 'grade-7'`  | Grade 7          |
-| `grade = 'grade-8'`  | Grade 8          |
-| `grade = 'grade-9'`  | Grade 9          |
-| `grade = 'grade-10'` | Grade 10         |
-| `grade = 'grade-11'` | Grade 11         |
-| `grade = 'grade-12'` | Grade 12         |
-| `grade = 'grade-13'` | Grade 13         |
-| `grade = 'grade-14'` | Adult Education  |
-| `grade = 'grade-15'` | Ungraded         |
-| `grade = 'grade-16'` | K-12             |
-| `grade = 'grade-20'` | Grades 7 and 8   |
-| `grade = 'grade-21'` | Grade 9 and 10   |
-| `grade = 'grade-22'` | Grades 11 and 12 |
-| `grade = 'grade-99'` | Total            |
+| Filter Argument      | Grade           |
+|----------------------|-----------------|
+| `grade = 'grade-pk'` | Pre-K           |
+| `grade = 'grade-k'`  | Kindergarten    |
+| `grade = 'grade-1'`  | Grade 1         |
+| `grade = 'grade-2'`  | Grade 2         |
+| `grade = 'grade-3'`  | Grade 3         |
+| `grade = 'grade-4'`  | Grade 4         |
+| `grade = 'grade-5'`  | Grade 5         |
+| `grade = 'grade-6'`  | Grade 6         |
+| `grade = 'grade-7'`  | Grade 7         |
+| `grade = 'grade-8'`  | Grade 8         |
+| `grade = 'grade-9'`  | Grade 9         |
+| `grade = 'grade-10'` | Grade 10        |
+| `grade = 'grade-11'` | Grade 11        |
+| `grade = 'grade-12'` | Grade 12        |
+| `grade = 'grade-13'` | Grade 13        |
+| `grade = 'grade-14'` | Adult Education |
+| `grade = 'grade-15'` | Ungraded        |
+| `grade = 'grade-99'` | Total           |
 
 ### Level of Study
 
@@ -251,10 +247,10 @@ Let’s build up some examples, from the following set of endpoints.
 
 | Level   | Source | Topic      | Subtopic        | Main Filters | Years Available        |
 |:--------|:-------|:-----------|:----------------|:-------------|:-----------------------|
-| schools | ccd    | enrollment | NA              | year, grade  | 1986–2018              |
-| schools | ccd    | enrollment | race            | year, grade  | 1986–2018              |
-| schools | ccd    | enrollment | race, sex       | year, grade  | 1986–2018              |
-| schools | ccd    | enrollment | sex             | year, grade  | 1986–2018              |
+| schools | ccd    | enrollment | NA              | year, grade  | 1986–2019              |
+| schools | ccd    | enrollment | race            | year, grade  | 1986–2019              |
+| schools | ccd    | enrollment | race, sex       | year, grade  | 1986–2019              |
+| schools | ccd    | enrollment | sex             | year, grade  | 1986–2019              |
 | schools | crdc   | enrollment | disability, sex | year         | 2011, 2013, 2015, 2017 |
 | schools | crdc   | enrollment | lep, sex        | year         | 2011, 2013, 2015, 2017 |
 | schools | crdc   | enrollment | race, sex       | year         | 2011, 2013, 2015, 2017 |

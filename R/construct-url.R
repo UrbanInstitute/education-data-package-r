@@ -168,10 +168,6 @@ parse_grade <- function(required_vars, csv = FALSE) {
       '13' = c('grade-13', '13'),
       '14' = c('grade-14', '14', 'adult-education'),
       '15' = c('grade-15', '15', 'ungraded'),
-      '16' = c('grade-16', '16', 'k-12'),
-      '20' = c('grade-20', '20', '7-8'),
-      '21' = c('grade-21', '21', '9-10'),
-      '22' = c('grade-22', '22', '11-12'),
       '99' = c('grade-99', '99', 'total')
     )
 
@@ -194,10 +190,6 @@ parse_grade <- function(required_vars, csv = FALSE) {
       'grade-13' = c('grade-13', '13'),
       'grade-14' = c('grade-14', '14', 'adult-education'),
       'grade-15' = c('grade-15', '15', 'ungraded'),
-      'grade-16' = c('grade-16', '16', 'k-12'),
-      'grade-20' = c('grade-20', '20', '7-8'),
-      'grade-21' = c('grade-21', '21', '9-10'),
-      'grade-22' = c('grade-22', '22', '11-12'),
       'grade-99' = c('grade-99', '99', 'total')
     )
   }

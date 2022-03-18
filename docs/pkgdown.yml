@@ -1,7 +1,7 @@
-pandoc: 2.11.4
-pkgdown: 1.6.1
+pandoc: 2.14.0.3
+pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   introducing-educationdata: introducing-educationdata.html
-last_built: 2021-05-26T17:36Z
+last_built: 2022-03-18T16:05Z
 

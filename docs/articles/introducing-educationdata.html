@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">educationdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -64,7 +60,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/UrbanInstitute/education-data-package-r/">
+  <a href="https://github.com/UrbanInstitute/education-data-package-r/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -79,29 +75,29 @@
 
       
 
-      </header><script src="introducing-educationdata_files/header-attrs-2.8/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introducing educationdata</h1>
-                        <h4 class="author">Kyle Ueyama</h4>
+                        <h4 data-toc-skip class="author">Kyle Ueyama</h4>
             
-            <h4 class="date">2021-05-26</h4>
+            <h4 data-toc-skip class="date">2021-05-26</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/UrbanInstitute/education-data-package-r/blob/master/vignettes/introducing-educationdata.Rmd"><code>vignettes/introducing-educationdata.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/UrbanInstitute/education-data-package-r/blob/HEAD/vignettes/introducing-educationdata.Rmd" class="external-link"><code>vignettes/introducing-educationdata.Rmd</code></a></small>
       <div class="hidden name"><code>introducing-educationdata.Rmd</code></div>
 
     </div>
 
     
     
-<p>The <code>educationdata</code> package allows the user to retrieve data from the Urban Institute’s <a href="https://ed-data-portal.urban.org/">Education Data API</a> as a <code>data.frame</code> for analysis. The package contains one major function, <code>get_education_data</code>, which will get data from a specified API endpoint and return a <code>data.frame</code> to the user.</p>
-<p><strong>NOTE</strong>: By downloading and using this programming package, you agree to abide by the Data Policy and Terms of Use of the Education Data Portal. For more information, see <a href="https://educationdata.urban.org/documentation/#terms">https://educationdata.urban.org/documentation/#terms</a></p>
-<div id="usage" class="section level2">
-<h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
+<p>The <code>educationdata</code> package allows the user to retrieve data from the Urban Institute’s <a href="https://ed-data-portal.urban.org/" class="external-link">Education Data API</a> as a <code>data.frame</code> for analysis. The package contains one major function, <code>get_education_data</code>, which will get data from a specified API endpoint and return a <code>data.frame</code> to the user.</p>
+<p><strong>NOTE</strong>: By downloading and using this programming package, you agree to abide by the Data Policy and Terms of Use of the Education Data Portal. For more information, see <a href="https://educationdata.urban.org/documentation/#terms" class="external-link">https://educationdata.urban.org/documentation/#terms</a></p>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
 <p>The <code>get_education_data</code> function will return a <code>data.frame</code> from a call to the Education Data API.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://urbaninstitute.github.io/education-data-package-r/">educationdata</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://urbaninstitute.github.io/education-data-package-r/" class="external-link">educationdata</a></span><span class="op">)</span>
 <span class="fu"><a href="../reference/get_education_data.html">get_education_data</a></span><span class="op">(</span><span class="va">level</span>, <span class="va">source</span>, <span class="va">topic</span>, <span class="va">by</span>, <span class="va">filters</span>, <span class="va">add_labels</span>, <span class="va">csv</span><span class="op">)</span></code></pre></div>
 <p>where:</p>
 <ul>
@@ -115,7 +111,7 @@
 </ul>
 <p>This simple example will obtain ‘college-university’ <code>level</code> data from the ‘ipeds’ <code>source</code> for the ‘student-faculty-ratio’ <code>topic</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://urbaninstitute.github.io/education-data-package-r/">educationdata</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://urbaninstitute.github.io/education-data-package-r/" class="external-link">educationdata</a></span><span class="op">)</span>
  
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_education_data.html">get_education_data</a></span><span class="op">(</span>
    level <span class="op">=</span> <span class="st">'college-university'</span>,
@@ -123,7 +119,7 @@
    topic <span class="op">=</span> <span class="st">'student-faculty-ratio'</span>
  <span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt;   unitid year fips student_faculty_ratio</span>
 <span class="co">#&gt; 1 100654 2009    1                    14</span>
 <span class="co">#&gt; 2 100663 2009    1                    17</span>
@@ -133,20 +129,20 @@
 <span class="co">#&gt; 6 100751 2009    1                    20</span></code></pre></div>
 <p>A somewhat more complex example will obtain ‘school’ <code>level</code> data from the ‘ccd’ <code>source</code> for the ‘enrollment’ <code>topic</code>, broken out <code>by</code> ‘race’ and ‘sex’. The API query is subset with <code>filters</code> for the ‘year’ 2008, ‘grade’ 9 through 12, and a ‘ncessch’ code of 340606000122. Finally, the <code>add_labels</code> flag will map integer codes to their factor labels (‘race’ and ‘sex’ in this instance).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://urbaninstitute.github.io/education-data-package-r/">educationdata</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://urbaninstitute.github.io/education-data-package-r/" class="external-link">educationdata</a></span><span class="op">)</span>
 
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_education_data.html">get_education_data</a></span><span class="op">(</span>level <span class="op">=</span> <span class="st">'schools'</span>, 
                          source <span class="op">=</span> <span class="st">'ccd'</span>, 
                          topic <span class="op">=</span> <span class="st">'enrollment'</span>, 
-                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span>,
-                         filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2008</span>,
+                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span>,
+                         filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2008</span>,
                                         grade <span class="op">=</span> <span class="fl">9</span><span class="op">:</span><span class="fl">12</span>,
                                         ncessch <span class="op">=</span> <span class="st">'340606000122'</span><span class="op">)</span>,
                          add_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; Warning in get_education_data(level = "schools", source = "ccd", topic = "enrollment", : The `by` argument has been deprecated in favor of `subtopic`.</span>
 <span class="co">#&gt; Please update your script to use `subtopic` instead.</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span>
 <span class="co">#&gt;   year      ncessch ncessch_num grade                             race    sex</span>
 <span class="co">#&gt; 1 2008 340606000122 3.40606e+11     9                            Black   Male</span>
 <span class="co">#&gt; 2 2008 340606000122 3.40606e+11     9                         Hispanic   Male</span>
@@ -162,9 +158,9 @@
 <span class="co">#&gt; 5         46 New Jersey 3406060</span>
 <span class="co">#&gt; 6         32 New Jersey 3406060</span></code></pre></div>
 </div>
-<div id="available-endpoints" class="section level2">
-<h2 class="hasAnchor">
-<a href="#available-endpoints" class="anchor"></a>Available Endpoints</h2>
+<div class="section level2">
+<h2 id="available-endpoints">Available Endpoints<a class="anchor" aria-label="anchor" href="#available-endpoints"></a>
+</h2>
 <table class="table">
 <colgroup>
 <col width="11%">
@@ -229,7 +225,7 @@
 <td align="left">academic-libraries</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2013–2017</td>
+<td align="left">2013–2019</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -237,7 +233,7 @@
 <td align="left">academic-year-room-board-other</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1999–2019</td>
+<td align="left">1999–2020</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -245,7 +241,7 @@
 <td align="left">academic-year-tuition-prof-program</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1986–2008, 2010–2019</td>
+<td align="left">1986–2008, 2010–2020</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -253,7 +249,7 @@
 <td align="left">academic-year-tuition</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1986–2019</td>
+<td align="left">1986–2020</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -261,7 +257,7 @@
 <td align="left">admissions-enrollment</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2001–2018</td>
+<td align="left">2001–2019</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -269,7 +265,7 @@
 <td align="left">admissions-requirements</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1990–2018</td>
+<td align="left">1990–2019</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -277,7 +273,7 @@
 <td align="left">completers</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2011–2018</td>
+<td align="left">2011–2019</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -285,7 +281,7 @@
 <td align="left">completions-cip-2</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1991–2018</td>
+<td align="left">1991–2019</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -293,7 +289,7 @@
 <td align="left">completions-cip-6</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1983–2018</td>
+<td align="left">1983–2019</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -301,7 +297,7 @@
 <td align="left">directory</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1980, 1984–2019</td>
+<td align="left">1980, 1984–2020</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -325,7 +321,7 @@
 <td align="left">fall-enrollment</td>
 <td align="left">age, sex</td>
 <td align="left">year, level_of_study</td>
-<td align="left">1991, 1993, 1995, 1997, 1999–2018</td>
+<td align="left">1991, 1993, 1995, 1997, 1999–2020</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -333,7 +329,7 @@
 <td align="left">fall-enrollment</td>
 <td align="left">race, sex</td>
 <td align="left">year, level_of_study</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2020</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -341,7 +337,7 @@
 <td align="left">fall-enrollment</td>
 <td align="left">residence</td>
 <td align="left">year</td>
-<td align="left">1986, 1988, 1992, 1994, 1996, 1998, 2000–2018</td>
+<td align="left">1986, 1988, 1992, 1994, 1996, 1998, 2000–2020</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -349,7 +345,7 @@
 <td align="left">fall-retention</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2003–2018</td>
+<td align="left">2003–2020</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -389,7 +385,7 @@
 <td align="left">institutional-characteristics</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1980, 1984–2019</td>
+<td align="left">1980, 1984–2020</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -397,7 +393,7 @@
 <td align="left">outcome-measures</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2015–2017</td>
+<td align="left">2015–2018</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -405,7 +401,7 @@
 <td align="left">program-year-room-board-other</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1999–2019</td>
+<td align="left">1999–2020</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -413,7 +409,7 @@
 <td align="left">program-year-tuition-cip</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1987–2019</td>
+<td align="left">1987–2020</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -477,7 +473,7 @@
 <td align="left">student-faculty-ratio</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2009–2018</td>
+<td align="left">2009–2020</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -573,7 +569,7 @@
 <td align="left">directory</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -581,7 +577,7 @@
 <td align="left">enrollment</td>
 <td align="left">NA</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="odd">
 <td align="left">school-districts</td>
@@ -589,7 +585,7 @@
 <td align="left">enrollment</td>
 <td align="left">race</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -597,7 +593,7 @@
 <td align="left">enrollment</td>
 <td align="left">race, sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="odd">
 <td align="left">school-districts</td>
@@ -605,7 +601,7 @@
 <td align="left">enrollment</td>
 <td align="left">sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -613,7 +609,7 @@
 <td align="left">finance</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1991, 1994–2016</td>
+<td align="left">1991, 1994–2017</td>
 </tr>
 <tr class="odd">
 <td align="left">school-districts</td>
@@ -621,7 +617,7 @@
 <td align="left">assessments</td>
 <td align="left">NA</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2017</td>
+<td align="left">2009–2018</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -629,7 +625,7 @@
 <td align="left">assessments</td>
 <td align="left">race</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2017</td>
+<td align="left">2009–2018</td>
 </tr>
 <tr class="odd">
 <td align="left">school-districts</td>
@@ -637,7 +633,7 @@
 <td align="left">assessments</td>
 <td align="left">sex</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2017</td>
+<td align="left">2009–2018</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -645,7 +641,7 @@
 <td align="left">assessments</td>
 <td align="left">special-populations</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2017</td>
+<td align="left">2009–2018</td>
 </tr>
 <tr class="odd">
 <td align="left">school-districts</td>
@@ -653,7 +649,7 @@
 <td align="left">grad-rates</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2010–2017</td>
+<td align="left">2010–2018</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -669,7 +665,7 @@
 <td align="left">directory</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -677,7 +673,7 @@
 <td align="left">enrollment</td>
 <td align="left">NA</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -685,7 +681,7 @@
 <td align="left">enrollment</td>
 <td align="left">race</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -693,7 +689,7 @@
 <td align="left">enrollment</td>
 <td align="left">race, sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -701,7 +697,7 @@
 <td align="left">enrollment</td>
 <td align="left">sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -1093,7 +1089,7 @@
 <td align="left">assessments</td>
 <td align="left">NA</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2017</td>
+<td align="left">2009–2018</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1101,7 +1097,7 @@
 <td align="left">assessments</td>
 <td align="left">race</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2017</td>
+<td align="left">2009–2018</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -1109,7 +1105,7 @@
 <td align="left">assessments</td>
 <td align="left">sex</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2017</td>
+<td align="left">2009–2018</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1117,7 +1113,7 @@
 <td align="left">assessments</td>
 <td align="left">special-populations</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2017</td>
+<td align="left">2009–2018</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -1125,7 +1121,7 @@
 <td align="left">grad-rates</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2010–2017</td>
+<td align="left">2010–2018</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1154,14 +1150,14 @@
 </tbody>
 </table>
 </div>
-<div id="main-filters" class="section level2">
-<h2 class="hasAnchor">
-<a href="#main-filters" class="anchor"></a>Main Filters</h2>
+<div class="section level2">
+<h2 id="main-filters">Main Filters<a class="anchor" aria-label="anchor" href="#main-filters"></a>
+</h2>
 <p>Due to the way the API is set-up, the variables listed within ‘main filters’ are often the fastest way to subset an API call.</p>
 <p>In addition to <code>year</code>, the other main filters for certain endpoints accept the following values:</p>
-<div id="grade" class="section level3">
-<h3 class="hasAnchor">
-<a href="#grade" class="anchor"></a>Grade</h3>
+<div class="section level3">
+<h3 id="grade">Grade<a class="anchor" aria-label="anchor" href="#grade"></a>
+</h3>
 <table class="table">
 <thead><tr class="header">
 <th>Filter Argument</th>
@@ -1259,9 +1255,9 @@
 </tbody>
 </table>
 </div>
-<div id="level-of-study" class="section level3">
-<h3 class="hasAnchor">
-<a href="#level-of-study" class="anchor"></a>Level of Study</h3>
+<div class="section level3">
+<h3 id="level-of-study">Level of Study<a class="anchor" aria-label="anchor" href="#level-of-study"></a>
+</h3>
 <table class="table">
 <thead><tr class="header">
 <th>Filter Argument</th>
@@ -1292,9 +1288,9 @@
 </table>
 </div>
 </div>
-<div id="examples" class="section level2">
-<h2 class="hasAnchor">
-<a href="#examples" class="anchor"></a>Examples</h2>
+<div class="section level2">
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
+</h2>
 <p>Let’s build up some examples, from the following set of endpoints.</p>
 <table class="table">
 <thead><tr class="header">
@@ -1312,7 +1308,7 @@
 <td align="left">enrollment</td>
 <td align="left">NA</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -1320,7 +1316,7 @@
 <td align="left">enrollment</td>
 <td align="left">race</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1328,7 +1324,7 @@
 <td align="left">enrollment</td>
 <td align="left">race, sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -1336,7 +1332,7 @@
 <td align="left">enrollment</td>
 <td align="left">sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2018</td>
+<td align="left">1986–2019</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1366,7 +1362,7 @@
 </table>
 <p>The following will return a <code>data.frame</code> across all years and grades:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://urbaninstitute.github.io/education-data-package-r/">educationdata</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://urbaninstitute.github.io/education-data-package-r/" class="external-link">educationdata</a></span><span class="op">)</span>
 <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_education_data.html">get_education_data</a></span><span class="op">(</span>level <span class="op">=</span> <span class="st">'schools'</span>, 
                          source <span class="op">=</span> <span class="st">'ccd'</span>, 
                          topic <span class="op">=</span> <span class="st">'enrollment'</span><span class="op">)</span></code></pre></div>
@@ -1381,22 +1377,22 @@
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_education_data.html">get_education_data</a></span><span class="op">(</span>level <span class="op">=</span> <span class="st">'schools'</span>, 
                          source <span class="op">=</span> <span class="st">'ccd'</span>, 
                          topic <span class="op">=</span> <span class="st">'enrollment'</span>, 
-                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>You may also filter the results of an API call. In this case <code>year</code> and <code>grade</code> will provide the most time-efficient subsets, and can be vectorized:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_education_data.html">get_education_data</a></span><span class="op">(</span>level <span class="op">=</span> <span class="st">'schools'</span>, 
                          source <span class="op">=</span> <span class="st">'ccd'</span>, 
                          topic <span class="op">=</span> <span class="st">'enrollment'</span>, 
-                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span>,
-                         filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">1988</span><span class="op">:</span><span class="fl">1990</span>,
+                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span>,
+                         filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">1988</span><span class="op">:</span><span class="fl">1990</span>,
                                         grade <span class="op">=</span> <span class="fl">6</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Additional variables can also be passed to <code>filters</code> to subset further:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_education_data.html">get_education_data</a></span><span class="op">(</span>level <span class="op">=</span> <span class="st">'schools'</span>, 
                          source <span class="op">=</span> <span class="st">'ccd'</span>, 
                          topic <span class="op">=</span> <span class="st">'enrollment'</span>, 
-                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span>,
-                         filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">1988</span><span class="op">:</span><span class="fl">1990</span>,
+                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span>,
+                         filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">1988</span><span class="op">:</span><span class="fl">1990</span>,
                                         grade <span class="op">=</span> <span class="fl">6</span><span class="op">:</span><span class="fl">8</span>,
                                         ncessch <span class="op">=</span> <span class="st">'010000200277'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Finally, the <code>add_labels</code> flag will map variables to a <code>factor</code> from their labels in the API.</p>
@@ -1404,8 +1400,8 @@
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_education_data.html">get_education_data</a></span><span class="op">(</span>level <span class="op">=</span> <span class="st">'schools'</span>, 
                          source <span class="op">=</span> <span class="st">'ccd'</span>, 
                          topic <span class="op">=</span> <span class="st">'enrollment'</span>, 
-                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span>,
-                         filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">1988</span><span class="op">:</span><span class="fl">1990</span>,
+                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span>,
+                         filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">1988</span><span class="op">:</span><span class="fl">1990</span>,
                                         grade <span class="op">=</span> <span class="fl">6</span><span class="op">:</span><span class="fl">8</span>,
                                         ncessch <span class="op">=</span> <span class="st">'010000200277'</span><span class="op">)</span>,
                          add_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
@@ -1414,8 +1410,8 @@
 <code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_education_data.html">get_education_data</a></span><span class="op">(</span>level <span class="op">=</span> <span class="st">'schools'</span>, 
                          source <span class="op">=</span> <span class="st">'ccd'</span>, 
                          topic <span class="op">=</span> <span class="st">'enrollment'</span>, 
-                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span>,
-                         filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">1988</span><span class="op">:</span><span class="fl">1990</span>,
+                         by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">'race'</span>, <span class="st">'sex'</span><span class="op">)</span>,
+                         filters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">1988</span><span class="op">:</span><span class="fl">1990</span>,
                                         grade <span class="op">=</span> <span class="fl">6</span><span class="op">:</span><span class="fl">8</span>,
                                         ncessch <span class="op">=</span> <span class="st">'010000200277'</span><span class="op">)</span>,
                          add_labels <span class="op">=</span> <span class="cn">TRUE</span>,
@@ -1434,11 +1430,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Kyle Ueyama.</p>
+  <p></p>
+<p>Developed by Kyle Ueyama.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -1446,6 +1444,8 @@
 
   
 
+
+  
 
   </body>
 </html>

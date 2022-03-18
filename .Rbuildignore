@@ -3,7 +3,6 @@
 ^README\.Rmd$
 ^README-.*\.png$
 ^benchmarks/*
-^\.travis\.yml$
 ^LICENSE\.md$
 ^doc$
 ^Meta$
@@ -12,3 +11,4 @@
 ^pkgdown$
 cran-comments.md
 ^CRAN-RELEASE$
+^\.github$

@@ -1,7 +1,7 @@
 ---
 title: "Introducing educationdata"
 author: "Kyle Ueyama"
-date: "`r Sys.Date()`"
+date: "2021-05-26"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introducing educationdata}

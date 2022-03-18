@@ -14,19 +14,25 @@ knitr::opts_chunk$set(
 
 # educationdata
 
-[![Travis-CI Build Status](https://travis-ci.org/UrbanInstitute/education-data-package-r.svg?branch=master)](https://travis-ci.org/UrbanInstitute/education-data-package-r)
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/educationdata)](https://cran.r-project.org/package=educationdata)
+[![R-CMD-check](https://github.com/UrbanInstitute/education-data-package-r/workflows/R-CMD-check/badge.svg)](https://github.com/UrbanInstitute/education-data-package-r/actions)
+<!-- badges: end -->
 
 Retrieve data from the Urban Institute's [Education Data API](https://ed-data-portal.urban.org/) as a `data.frame` for easy analysis.
 
 **NOTE**: By downloading and using this programming package, you agree to abide
-by the Data Policy and Terms of Use of the Education Data Portal. For more 
-information, see [https://educationdata.urban.org/documentation/#terms](https://educationdata.urban.org/documentation/#terms).
+by the [Data Policy and Terms of Use of the Education Data Portal](https://educationdata.urban.org/documentation/#terms).
 
 ## Installation
 
-To install `educationdata`:
+You can install the released version of `educationdata` from [CRAN](https://cran.r-project.org/web/packages/educationdata/index.html) with: 
 
-* Install the `devtools` package if you don't already have it, and run:
+```{r cran-installation, eval=FALSE}
+install.packages("educationdata")
+```
+
+And the development version from GitHub with: 
 
 ```{r gh-installation, eval=FALSE}
 # install.packages('devtools') # if necessary
@@ -242,7 +248,7 @@ df <- get_education_data(level = 'schools',
 
 ## Summary Endpoints
 
-You can now access the new summary endpoint functionality using the 
+You can access the summary endpoint functionality using the 
 `get_education_data_summary()` function.
 
 ```{r example-07, eval=FALSE}

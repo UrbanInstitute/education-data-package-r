@@ -134,11 +134,11 @@ where:
 | college-university | scorecard | repayment                          | NA                    | year                 | 2007–2016                                     |
 | college-university | scorecard | student-characteristics            | aid-applicants        | year                 | 1997–2016                                     |
 | college-university | scorecard | student-characteristics            | home-neighborhood     | year                 | 1997–2016                                     |
-| school-districts   | ccd       | directory                          | NA                    | year                 | 1986–2019                                     |
-| school-districts   | ccd       | enrollment                         | NA                    | year, grade          | 1986–2019                                     |
-| school-districts   | ccd       | enrollment                         | race                  | year, grade          | 1986–2019                                     |
-| school-districts   | ccd       | enrollment                         | race, sex             | year, grade          | 1986–2019                                     |
-| school-districts   | ccd       | enrollment                         | sex                   | year, grade          | 1986–2019                                     |
+| school-districts   | ccd       | directory                          | NA                    | year                 | 1986–2020                                     |
+| school-districts   | ccd       | enrollment                         | NA                    | year, grade          | 1986–2020                                     |
+| school-districts   | ccd       | enrollment                         | race                  | year, grade          | 1986–2020                                     |
+| school-districts   | ccd       | enrollment                         | race, sex             | year, grade          | 1986–2020                                     |
+| school-districts   | ccd       | enrollment                         | sex                   | year, grade          | 1986–2020                                     |
 | school-districts   | ccd       | finance                            | NA                    | year                 | 1991, 1994–2017                               |
 | school-districts   | edfacts   | assessments                        | NA                    | year, grade_edfacts  | 2009–2018                                     |
 | school-districts   | edfacts   | assessments                        | race                  | year, grade_edfacts  | 2009–2018                                     |
@@ -146,11 +146,11 @@ where:
 | school-districts   | edfacts   | assessments                        | special-populations   | year, grade_edfacts  | 2009–2018                                     |
 | school-districts   | edfacts   | grad-rates                         | NA                    | year                 | 2010–2018                                     |
 | school-districts   | saipe     | NA                                 | NA                    | year                 | 1995, 1997, 1999–2018                         |
-| schools            | ccd       | directory                          | NA                    | year                 | 1986–2019                                     |
-| schools            | ccd       | enrollment                         | NA                    | year, grade          | 1986–2019                                     |
-| schools            | ccd       | enrollment                         | race                  | year, grade          | 1986–2019                                     |
-| schools            | ccd       | enrollment                         | race, sex             | year, grade          | 1986–2019                                     |
-| schools            | ccd       | enrollment                         | sex                   | year, grade          | 1986–2019                                     |
+| schools            | ccd       | directory                          | NA                    | year                 | 1986–2020                                     |
+| schools            | ccd       | enrollment                         | NA                    | year, grade          | 1986–2020                                     |
+| schools            | ccd       | enrollment                         | race                  | year, grade          | 1986–2020                                     |
+| schools            | ccd       | enrollment                         | race, sex             | year, grade          | 1986–2020                                     |
+| schools            | ccd       | enrollment                         | sex                   | year, grade          | 1986–2020                                     |
 | schools            | crdc      | algebra1                           | disability, sex       | year                 | 2011, 2013, 2015, 2017                        |
 | schools            | crdc      | algebra1                           | lep, sex              | year                 | 2011, 2013, 2015, 2017                        |
 | schools            | crdc      | algebra1                           | race, sex             | year                 | 2011, 2013, 2015, 2017                        |
@@ -179,8 +179,8 @@ where:
 | schools            | crdc      | harassment-or-bullying             | disability, sex       | year                 | 2011, 2013, 2015, 2017                        |
 | schools            | crdc      | harassment-or-bullying             | lep, sex              | year                 | 2011, 2013, 2015, 2017                        |
 | schools            | crdc      | harassment-or-bullying             | race, sex             | year                 | 2011, 2013, 2015, 2017                        |
-| schools            | crdc      | math-and-science                   | disability, sex       | year                 | 2011, 2013, 2015, 2018                        |
-| schools            | crdc      | math-and-science                   | lep, sex              | year                 | 2011, 2013, 2015, 2019                        |
+| schools            | crdc      | math-and-science                   | disability, sex       | year                 | 2011, 2013, 2015, 2017                        |
+| schools            | crdc      | math-and-science                   | lep, sex              | year                 | 2011, 2013, 2015, 2017                        |
 | schools            | crdc      | math-and-science                   | race, sex             | year                 | 2011, 2013, 2015, 2017                        |
 | schools            | crdc      | offenses                           | NA                    | year                 | 2015, 2017                                    |
 | schools            | crdc      | offerings                          | NA                    | year                 | 2011, 2013, 2015, 2017                        |
@@ -255,10 +255,10 @@ Let’s build up some examples, from the following set of endpoints.
 
 | Level   | Source | Topic      | Subtopic        | Main Filters | Years Available        |
 |:--------|:-------|:-----------|:----------------|:-------------|:-----------------------|
-| schools | ccd    | enrollment | NA              | year, grade  | 1986–2019              |
-| schools | ccd    | enrollment | race            | year, grade  | 1986–2019              |
-| schools | ccd    | enrollment | race, sex       | year, grade  | 1986–2019              |
-| schools | ccd    | enrollment | sex             | year, grade  | 1986–2019              |
+| schools | ccd    | enrollment | NA              | year, grade  | 1986–2020              |
+| schools | ccd    | enrollment | race            | year, grade  | 1986–2020              |
+| schools | ccd    | enrollment | race, sex       | year, grade  | 1986–2020              |
+| schools | ccd    | enrollment | sex             | year, grade  | 1986–2020              |
 | schools | crdc   | enrollment | disability, sex | year         | 2011, 2013, 2015, 2017 |
 | schools | crdc   | enrollment | lep, sex        | year         | 2011, 2013, 2015, 2017 |
 | schools | crdc   | enrollment | race, sex       | year         | 2011, 2013, 2015, 2017 |

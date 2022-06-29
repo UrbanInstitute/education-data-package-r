@@ -94,6 +94,15 @@ validate_topic <- function(endpoints, source, topic) {
       return(endpoints)
     }
   }
+  
+  if (source == 'meps') {
+    if (!is.null(topic)) {
+      stop('Data source "meps" does not accept a "topic" argument.',
+           call. = FALSE)
+    } else {
+      return(endpoints)
+    }
+  }
 
   if(is.null(topic)) {
     stop('"topic" argument must be specified.\nValid topics are:\n\t',

@@ -139,7 +139,7 @@ where:
 | school-districts   | ccd       | enrollment                         | race                  | year, grade          | 1986–2020                                     |
 | school-districts   | ccd       | enrollment                         | race, sex             | year, grade          | 1986–2020                                     |
 | school-districts   | ccd       | enrollment                         | sex                   | year, grade          | 1986–2020                                     |
-| school-districts   | ccd       | finance                            | NA                    | year                 | 1991, 1994–2017                               |
+| school-districts   | ccd       | finance                            | NA                    | year                 | 1991, 1994–2018                               |
 | school-districts   | edfacts   | assessments                        | NA                    | year, grade_edfacts  | 2009–2018                                     |
 | school-districts   | edfacts   | assessments                        | race                  | year, grade_edfacts  | 2009–2018                                     |
 | school-districts   | edfacts   | assessments                        | sex                   | year, grade_edfacts  | 2009–2018                                     |
@@ -204,9 +204,10 @@ where:
 | schools            | edfacts   | assessments                        | sex                   | year, grade_edfacts  | 2009–2018                                     |
 | schools            | edfacts   | assessments                        | special-populations   | year, grade_edfacts  | 2009–2018                                     |
 | schools            | edfacts   | grad-rates                         | NA                    | year                 | 2010–2018                                     |
-| schools            | nhgis     | census-1990                        | NA                    | year                 | 1986–2016                                     |
-| schools            | nhgis     | census-2000                        | NA                    | year                 | 1986–2016                                     |
-| schools            | nhgis     | census-2010                        | NA                    | year                 | 1986–2016                                     |
+| schools            | meps      | NA                                 | NA                    | year                 | 2013–2018                                     |
+| schools            | nhgis     | census-1990                        | NA                    | year                 | 1986–2020                                     |
+| schools            | nhgis     | census-2000                        | NA                    | year                 | 1986–2020                                     |
+| schools            | nhgis     | census-2010                        | NA                    | year                 | 1986–2020                                     |
 
 ## Main Filters
 

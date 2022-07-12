@@ -1,7 +1,7 @@
 Package: educationdata
 Type: Package
 Title: Retrieve Records from the Urban Institute's Education Data Portal API  
-Version: 0.1.1.9000
+Version: 0.1.2
 Authors@R: c(
     person("Erika", "Tyagi", email = "etyagi@urban.org", role = "cre"), 
     person("Kyle", "Ueyama", email = "khueyama@gmail.com", role = "aut"),

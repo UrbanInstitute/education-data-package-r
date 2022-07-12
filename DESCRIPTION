@@ -3,7 +3,8 @@ Type: Package
 Title: Retrieve Records from the Urban Institute's Education Data Portal API  
 Version: 0.1.1.9000
 Authors@R: c(
-    person("Kyle", "Ueyama", email = "kueyama@urban.org", role = c("aut", "cre")),
+    person("Erika", "Tyagi", email = "etyagi@urban.org", role = "cre"), 
+    person("Kyle", "Ueyama", email = "khueyama@gmail.com", role = "aut"),
     person(given = "The Urban Institute", role = c("cph"))
     )
 Date: 2021-08-09

@@ -1,6 +1,8 @@
-## educationdata 0.1.1.9000 (under development)
+## educationdata 0.1.2 (2022-06-28)
 
 * Removed old grade levels from CCD endpoints.
+* Fixed issue with `topic` validation to accommodate MEPS endpoint. 
+* Updated authors. 
 
 ## educationdata 0.1.1 (2021-05-31)
 

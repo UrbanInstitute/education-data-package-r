@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```
 
 The `educationdata` package allows the user to retrieve data from the Urban 
-Institute's [Education Data API](https://ed-data-portal.urban.org/) as a 
+Institute's [Education Data API](https://educationdata.urban.org/) as a 
 `data.frame` for analysis. The package contains one major function, 
 `get_education_data`, which will get data from a specified API endpoint and 
 return a `data.frame` to the user.

@@ -263,7 +263,6 @@ Let’s build up some examples, from the following set of endpoints.
 | schools | crdc   | enrollment | disability, sex | year         | 2011, 2013, 2015, 2017 |
 | schools | crdc   | enrollment | lep, sex        | year         | 2011, 2013, 2015, 2017 |
 | schools | crdc   | enrollment | race, sex       | year         | 2011, 2013, 2015, 2017 |
-| NA      | NA     | NA         | NULL            | NULL         | NA                     |
 
 The following will return a `data.frame` across all years and grades:
 

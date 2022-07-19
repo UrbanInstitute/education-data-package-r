@@ -21,8 +21,7 @@ Portal](https://educationdata.urban.org/documentation/#terms).
 ## Installation
 
 You can install the released version of `educationdata` from
-[CRAN](https://cran.r-project.org/web/packages/educationdata/index.html)
-with:
+[CRAN](https://CRAN.R-project.org/package=educationdata) with:
 
 ``` r
 install.packages("educationdata")

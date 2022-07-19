@@ -26,7 +26,7 @@ by the [Data Policy and Terms of Use of the Education Data Portal](https://educa
 
 ## Installation
 
-You can install the released version of `educationdata` from [CRAN](https://cran.r-project.org/web/packages/educationdata/index.html) with: 
+You can install the released version of `educationdata` from [CRAN](https://CRAN.R-project.org/package=educationdata) with: 
 
 ```{r cran-installation, eval=FALSE}
 install.packages("educationdata")

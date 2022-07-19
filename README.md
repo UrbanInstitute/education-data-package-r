@@ -11,7 +11,7 @@ status](https://www.r-pkg.org/badges/version/educationdata)](https://cran.r-proj
 <!-- badges: end -->
 
 Retrieve data from the Urban Institute’s [Education Data
-API](https://ed-data-portal.urban.org/) as a `data.frame` for easy
+API](https://educationdata.urban.org/) as a `data.frame` for easy
 analysis.
 
 **NOTE**: By downloading and using this programming package, you agree
@@ -58,7 +58,7 @@ str(df)
 #>  $ race       : Factor w/ 14 levels "White","Black",..: 2 3 5 5 2 4 6 11 1 7 ...
 #>  $ sex        : Factor w/ 7 levels "Male","Female",..: 1 1 2 1 2 2 2 1 2 1 ...
 #>  $ enrollment : int  41 39 0 0 46 32 3 270 166 0 ...
-#>  $ fips       : Factor w/ 80 levels "Alabama","Alaska",..: 34 34 34 34 34 34 34 34 34 34 ...
+#>  $ fips       : Factor w/ 79 levels "Alabama","Alaska",..: 34 34 34 34 34 34 34 34 34 34 ...
 #>  $ leaid      : chr  "3406060" "3406060" "3406060" "3406060" ...
 ```
 
@@ -263,6 +263,7 @@ Let’s build up some examples, from the following set of endpoints.
 | schools | crdc   | enrollment | disability, sex | year         | 2011, 2013, 2015, 2017 |
 | schools | crdc   | enrollment | lep, sex        | year         | 2011, 2013, 2015, 2017 |
 | schools | crdc   | enrollment | race, sex       | year         | 2011, 2013, 2015, 2017 |
+| NA      | NA     | NA         | NULL            | NULL         | NA                     |
 
 The following will return a `data.frame` across all years and grades:
 

@@ -29,7 +29,7 @@ by the [Data Policy and Terms of Use of the Education Data Portal](https://educa
 You can install the released version of `educationdata` from [CRAN](https://CRAN.R-project.org/package=educationdata) with: 
 
 ```{r cran-installation, eval=FALSE}
-install.packages("educationdata")
+install.packages('educationdata')
 ```
 
 And the development version from GitHub with: 

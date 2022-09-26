@@ -24,7 +24,7 @@ You can install the released version of `educationdata` from
 [CRAN](https://CRAN.R-project.org/package=educationdata) with:
 
 ``` r
-install.packages("educationdata")
+install.packages('educationdata')
 ```
 
 And the development version from GitHub with:

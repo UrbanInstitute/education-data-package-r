@@ -1,6 +1,7 @@
 context('csv')
 
 test_that('csv returns same results as api', {
+  skip_on_cran()
   df1 <- get_education_data(level = 'college-university',
                             source = 'ipeds',
                             topic = 'student-faculty-ratio',
@@ -27,6 +28,7 @@ test_that('csv returns same results as api', {
 })
 
 test_that("ipeds filters properly parsed when pulling from csv", {
+  skip_on_cran()
   df1 <- get_education_data(level = "college-university",
                             source = "ipeds",
                             topic = "fall-enrollment",
@@ -54,6 +56,7 @@ test_that("ipeds filters properly parsed when pulling from csv", {
 })
 
 test_that("ccd filters properly parsed when pulling from csv", {
+  skip_on_cran()
   df1 <- get_education_data(
     level = 'schools',
     source = 'ccd',
@@ -79,6 +82,7 @@ test_that("ccd filters properly parsed when pulling from csv", {
 })
 
 test_that("edfacts filters properly parsed when pulling from csv", {
+  skip_on_cran()
   df1 <- get_education_data(
     level = 'schools',
     source = 'edfacts',

@@ -1,19 +1,17 @@
 ## Resubmission
-This is a resubmission. In this version I have:
-* Updated the creator in the DESCRIPTION 
-* Removed grade level arguments that are no longer included in the [Education Data API](https://educationdata.urban.org/documentation/) 
-* Updated topic validation to accommodate a new endpoint added to the [Education Data API](https://educationdata.urban.org/documentation/)
-* Updated the README to reflect the current endpoints and years available in the [Education Data API](https://educationdata.urban.org/documentation/) 
-* Updated all URLs to use https://educationdata.urban.org/ 
-* Updated CRAN URLs to use https://CRAN.R-project.org/package=educationdata
+This is a resubmission. In this version I have updated the test suite to comply with the following policy (per an email from CRAN on 2022-09-26): 
+> Packages which use Internet resources should fail gracefully with an informative message if the resource is not available or has changed (and not give a check warning nor error).
 
 ## Test environments
-* local ubuntu 20.04 install, R 4.1.0
-* ubuntu 18.04 (on travis-ci), R 4.0.4
-* win-builder (devel and release)
+* macOS-latest (release) (via GitHub actions R-CMD-check)
+* windows-latest (release) (via GitHub actions R-CMD-check)
+* ubuntu-latest (devel, release, oldrel-1) (via GitHub actions R-CMD-check)
+* Windows Server 2022, R-devel, 64 bit (via R-hub)
+* Fedora Linux, R-devel, clang, gfortran (via R-hub)
+* Ubuntu Linux 20.04.1 LTS, R-release, GCC (via R-hub)
 
 ## R CMD check results
-There were no ERRORs, WARNINGs, or NOTEs.
+0 errors | 0 warnings | 0 notes
 
 ## Downstream dependencies
 There are currently no downstream dependencies for this package.

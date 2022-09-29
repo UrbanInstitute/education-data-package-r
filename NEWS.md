@@ -1,6 +1,7 @@
 ## educationdata 0.1.3 (2022-09-29)
 * Updated test suite to to comply with the following CRAN policy: 
     > Packages which use Internet resources should fail gracefully with an informative message if the resource is not available or has changed (and not give a check warning nor error).
+    
 ## educationdata 0.1.2 (2022-07-13)
 
 * Removed old grade levels from CCD endpoints.

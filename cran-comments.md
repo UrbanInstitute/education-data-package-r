@@ -6,6 +6,7 @@ This is a resubmission. In this version I have updated the test suite to comply 
 * macOS-latest (release) (via GitHub actions R-CMD-check)
 * windows-latest (release) (via GitHub actions R-CMD-check)
 * ubuntu-latest (devel, release, oldrel-1) (via GitHub actions R-CMD-check)
+* win-builder (devel and release) 
 * Windows Server 2022, R-devel, 64 bit (via R-hub)
 * Fedora Linux, R-devel, clang, gfortran (via R-hub)
 * Ubuntu Linux 20.04.1 LTS, R-release, GCC (via R-hub)

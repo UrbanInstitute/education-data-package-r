@@ -1,6 +1,7 @@
 context('validation')
 
 test_that('invalid api arguments return an error message', {
+  skip_on_cran()
   expect_error(get_education_data(level = 'fake',
                                   source = 'ccd',
                                   topic = 'enrollment'))

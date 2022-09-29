@@ -1,6 +1,7 @@
 context("summary endpoints")
 
 test_that("basic summary endpoints function call returns results", {
+  skip_on_cran()
 
   df <- get_education_data_summary(
     level = "schools",
@@ -18,6 +19,7 @@ test_that("basic summary endpoints function call returns results", {
 })
 
 test_that("summary endpoints function call handles subtopics", {
+  skip_on_cran()
 
   df <- get_education_data_summary(
     level = "schools",
@@ -36,6 +38,7 @@ test_that("summary endpoints function call handles subtopics", {
 })
 
 test_that("summary endpoints function handles multiple group_by vars", {
+  skip_on_cran()
 
   by <- c("fips", "race")
 
@@ -56,6 +59,7 @@ test_that("summary endpoints function handles multiple group_by vars", {
 })
 
 test_that("summary endpoints function handles filters correctly", {
+  skip_on_cran()
 
   filters = list(
     fips = 6,
@@ -81,6 +85,7 @@ test_that("summary endpoints function handles filters correctly", {
 })
 
 test_that("summary endpoints function returns expected errors", {
+  skip_on_cran()
 
 
   expect_error(

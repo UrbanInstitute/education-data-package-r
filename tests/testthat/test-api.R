@@ -1,6 +1,7 @@
 context("api")
 
 test_that("api returns consistent results", {
+  skip_on_cran()
 
   ids <- c(234669 , 236610 , 236692)
 

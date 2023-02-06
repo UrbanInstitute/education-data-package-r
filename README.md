@@ -70,16 +70,16 @@ get_education_data(level, source, topic, subtopic, filters, add_labels)
 
 where:
 
--   level (required) - API data level to query.
--   source (required) - API data source to query.
--   topic (required) - API data topic to query.
--   subtopic (optional) - Optional `list` of grouping parameters for an
-    API call.
--   filters (optional) - Optional `list` query to filter the results
-    from an API call.
--   add_labels - Add variable labels (when applicable)? Defaults to
-    `FALSE`.
--   csv - Download the full csv file? Defaults to `FALSE`.
+- level (required) - API data level to query.
+- source (required) - API data source to query.
+- topic (required) - API data topic to query.
+- subtopic (optional) - Optional `list` of grouping parameters for an
+  API call.
+- filters (optional) - Optional `list` query to filter the results from
+  an API call.
+- add_labels - Add variable labels (when applicable)? Defaults to
+  `FALSE`.
+- csv - Download the full csv file? Defaults to `FALSE`.
 
 ## Available Endpoints
 
@@ -96,12 +96,12 @@ where:
 | college-university | ipeds     | academic-year-tuition              | NA                    | year                 | 1986–2020                                     |
 | college-university | ipeds     | admissions-enrollment              | NA                    | year                 | 2001–2019                                     |
 | college-university | ipeds     | admissions-requirements            | NA                    | year                 | 1990–2019                                     |
-| college-university | ipeds     | completers                         | NA                    | year                 | 2011–2019                                     |
-| college-university | ipeds     | completions-cip-2                  | NA                    | year                 | 1991–2019                                     |
-| college-university | ipeds     | completions-cip-6                  | NA                    | year                 | 1983–2019                                     |
-| college-university | ipeds     | directory                          | NA                    | year                 | 1980, 1984–2020                               |
+| college-university | ipeds     | completers                         | NA                    | year                 | 2011–2021                                     |
+| college-university | ipeds     | completions-cip-2                  | NA                    | year                 | 1991–2021                                     |
+| college-university | ipeds     | completions-cip-6                  | NA                    | year                 | 1983–2021                                     |
+| college-university | ipeds     | directory                          | NA                    | year                 | 1980, 1984–2021                               |
 | college-university | ipeds     | enrollment-full-time-equivalent    | NA                    | year, level_of_study | 1997–2018                                     |
-| college-university | ipeds     | enrollment-headcount               | NA                    | year, level_of_study | 1996–2018                                     |
+| college-university | ipeds     | enrollment-headcount               | NA                    | year, level_of_study | 1996–2021                                     |
 | college-university | ipeds     | fall-enrollment                    | age, sex              | year, level_of_study | 1991, 1993, 1995, 1997, 1999–2020             |
 | college-university | ipeds     | fall-enrollment                    | race, sex             | year, level_of_study | 1986–2020                                     |
 | college-university | ipeds     | fall-enrollment                    | residence             | year                 | 1986, 1988, 1992, 1994, 1996, 1998, 2000–2020 |
@@ -110,7 +110,7 @@ where:
 | college-university | ipeds     | grad-rates-200pct                  | NA                    | year                 | 2007–2017                                     |
 | college-university | ipeds     | grad-rates-pell                    | NA                    | year                 | 2015–2017                                     |
 | college-university | ipeds     | grad-rates                         | NA                    | year                 | 1996–2017                                     |
-| college-university | ipeds     | institutional-characteristics      | NA                    | year                 | 1980, 1984–2020                               |
+| college-university | ipeds     | institutional-characteristics      | NA                    | year                 | 1980, 1984–2021                               |
 | college-university | ipeds     | outcome-measures                   | NA                    | year                 | 2015–2018                                     |
 | college-university | ipeds     | program-year-room-board-other      | NA                    | year                 | 1999–2020                                     |
 | college-university | ipeds     | program-year-tuition-cip           | NA                    | year                 | 1987–2020                                     |
@@ -275,9 +275,9 @@ df <- get_education_data(level = 'schools',
 Note that this endpoint is also callable by certain `subtopic`
 variables:
 
--   race
--   sex
--   race, sex
+- race
+- sex
+- race, sex
 
 These variables can be added to the `subtopic` argument:
 
@@ -352,6 +352,7 @@ You can access the summary endpoint functionality using the
 `get_education_data_summary()` function.
 
 ``` r
+
 df <- get_education_data_summary(
     level = "schools",
     source = "ccd",
@@ -370,13 +371,12 @@ codes 6, 7, 8 for the `year`s 2004 and 2005.
 The syntax largely follows the original syntax of
 `get_education_data()`: with three new arguments:
 
--   `stat` is the summary statistic to be retrieved. Valid statistics
-    include: `avg`, `sum`, `count`, `median`, `min`, `max`, `stddev`,
-    and `variance`.
--   `var` is the variable to run the summary statistic on.
--   `by` is the grouping variable(s) to use. This can be a single
-    string, or a vector of multiple variables, i.e.,
-    `by = c("fips", "race")`.
+- `stat` is the summary statistic to be retrieved. Valid statistics
+  include: `avg`, `sum`, `count`, `median`, `min`, `max`, `stddev`, and
+  `variance`.
+- `var` is the variable to run the summary statistic on.
+- `by` is the grouping variable(s) to use. This can be a single string,
+  or a vector of multiple variables, i.e., `by = c("fips", "race")`.
 
 Some endpoints are further broken out by subtopic. These can be
 specified using the `subtopic` option.
@@ -398,16 +398,16 @@ list is slightly different from the syntax of the full data API.
 Endpoints with `subtopics` for the summary endpoint functionality
 include:
 
--   schools/crdc/harassment-or-bullying/allegations
--   schools/crdc/harassment-or-bullying/students
--   schools/crdc/restraint-and-seclusion/instances
--   schools/crdc/restraint-and-seclusion/students
--   college-university/ipeds/enrollment-full-time-equivalent/summaries
--   college-university/ipeds/fall-enrollment/age/summaries
--   college-university/ipeds/fall-enrollment/race/summaries
--   college-university/ipeds/fall-enrollment/residence/summaries
--   college-university/scorecard/student-characteristics/aid-applicants/summaries
--   college-university/scorecard/student-characteristics/home-neighborhood/summaries
+- schools/crdc/harassment-or-bullying/allegations
+- schools/crdc/harassment-or-bullying/students
+- schools/crdc/restraint-and-seclusion/instances
+- schools/crdc/restraint-and-seclusion/students
+- college-university/ipeds/enrollment-full-time-equivalent/summaries
+- college-university/ipeds/fall-enrollment/age/summaries
+- college-university/ipeds/fall-enrollment/race/summaries
+- college-university/ipeds/fall-enrollment/residence/summaries
+- college-university/scorecard/student-characteristics/aid-applicants/summaries
+- college-university/scorecard/student-characteristics/home-neighborhood/summaries
 
 For more information on the summary endpoint functionality, see the
 [full API

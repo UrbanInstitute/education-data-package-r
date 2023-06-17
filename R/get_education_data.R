@@ -8,6 +8,7 @@
 #' @param filters Optional 'list' of query values to filter an API call
 #' @param add_labels Add variable labels (when applicable)? Defaults to FALSE.
 #' @param csv Download the full csv file? Defaults to FALSE.
+#' @param verbose Print messages and warnings?  Defaults to TRUE
 #'
 #' @return A `data.frame` of education data
 #'
@@ -19,7 +20,8 @@ get_education_data <- function(level = NULL,
                                by = NULL,
                                filters = NULL,
                                add_labels = FALSE,
-                               csv = FALSE) {
+                               csv = FALSE,
+                               verbose = TRUE) {
 
   if (!is.null(by)) {
     warning("The `by` argument has been deprecated in favor of `subtopic`.\n",
@@ -30,9 +32,13 @@ get_education_data <- function(level = NULL,
 
 
   if (csv) {
-    df <- get_education_data_csv(level, source, topic, subtopic, filters, add_labels)
+    df <- get_education_data_csv(
+      level, source, topic, subtopic, filters, add_labels, verbose
+    )
   } else {
-    df <- get_education_data_json(level, source, topic, subtopic, filters, add_labels)
+    df <- get_education_data_json(
+      level, source, topic, subtopic, filters, add_labels, verbose
+    )
   }
 
   return(df)
@@ -48,7 +54,8 @@ get_education_data_json <- function(level = NULL,
                                     topic = NULL,
                                     by = NULL,
                                     filters = NULL,
-                                    add_labels = FALSE) {
+                                    add_labels = FALSE,
+                                    verbose = TRUE) {
 
   url_path <- "https://educationdata.urban.org"
 
@@ -65,7 +72,7 @@ get_education_data_json <- function(level = NULL,
                         filters  = filters,
                         url_path)
 
-  df <- get_all_data(urls)
+  df <- get_all_data(urls, verbose)
 
   if(add_labels & nrow(df) != 0) {
     df <- add_variable_labels(endpoints, df, url_path)
@@ -82,7 +89,8 @@ get_education_data_csv <- function(level = NULL,
                                    topic = NULL,
                                    by = NULL,
                                    filters = NULL,
-                                   add_labels = FALSE) {
+                                   add_labels = FALSE,
+                                   verbose = TRUE) {
 
   url_path <- "https://educationdata.urban.org"
 
@@ -105,7 +113,7 @@ get_education_data_csv <- function(level = NULL,
 
   cols <- get_csv_cols(endpoints, urls, url_path)
 
-  df <- get_csv_data(urls, cols, filters)
+  df <- get_csv_data(urls, cols, filters, verbose)
 
   if(add_labels & nrow(df) != 0) {
     df <- add_variable_labels(endpoints, df, url_path)

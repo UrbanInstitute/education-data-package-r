@@ -1,7 +1,7 @@
 # retrieve results from all pages of an api query for a single year
 #
 # returns data.frame, or an error if query fails
-get_year_data <- function(url) {
+get_year_data <- function(url, verbose = TRUE) {
 
   if (!grepl("stg", url)) {
     fetch <- gsub("https://educationdata.urban.org/api/v1/", "", url)
@@ -11,7 +11,9 @@ get_year_data <- function(url) {
   }
   fetch <- gsub('\\mode=R&', '', fetch)
   fetch <- gsub('\\mode=R', '', fetch)
-  message('\nFetching data for ', fetch, ' ...')
+  if (verbose) {
+    message('\nFetching data for ', fetch, ' ...')
+  }
   request <- httr::GET(url)
 
   if (request$status_code == 504) {
@@ -33,7 +35,9 @@ get_year_data <- function(url) {
   expected_rows <- resp$count
 
   if (expected_rows == 0) {
-    warning('Query ', url, ' returned no results.', call. = FALSE)
+    if (verbose) {
+      warning('Query ', url, ' returned no results.', call. = FALSE)
+    }
     df <- data.frame()
     return(df)
   }
@@ -47,7 +51,9 @@ get_year_data <- function(url) {
 
   while (!(is.null(url))) {
     count = count + 1
-    message(paste("Processing page", count, 'out of', pages))
+    if (verbose) {
+      message(paste("Processing page", count, 'out of', pages))
+    }
     request <- httr::GET(url)
 
     if (request$status_code == 504) {
@@ -72,7 +78,7 @@ get_year_data <- function(url) {
 
   df <- do.call(rbind, dfs)
 
-  if (nrow(df) != expected_rows) {
+  if (nrow(df) != expected_rows & verbose) {
     warning('API call expected ', expected_rows, ' results but received ',
             nrow(df), '. Consider filing an issue with the development team.',
             call. = FALSE)
@@ -84,8 +90,8 @@ get_year_data <- function(url) {
 # retrieve results from all pages of an api query across all given years
 #
 # returns data.frame
-get_all_data <- function(urls) {
-  dfs <- lapply(urls, get_year_data)
+get_all_data <- function(urls, verbose = TRUE) {
+  dfs <- lapply(urls, function(x) get_year_data(x, verbose))
   df <- do.call(rbind, dfs)
   return(df)
 }

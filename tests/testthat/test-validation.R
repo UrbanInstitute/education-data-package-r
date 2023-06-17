@@ -41,3 +41,18 @@ test_that('invalid api arguments return an error message', {
                                                    fips = 1),
                                     by = list("race", "sex")))
 })
+
+
+test_that('can quiet api messages with verbose = FALSE', {
+  skip_on_cran()
+
+  expect_warning(
+    get_education_data(level = 'schools',
+                       source = 'ccd',
+                       topic = 'directory',
+                       filters = list(year = 2014,
+                                      fips = 100),
+                       verbose = FALSE),
+    regexp = NA
+  )
+})

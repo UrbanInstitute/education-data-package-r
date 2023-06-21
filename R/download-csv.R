@@ -86,8 +86,10 @@ get_csv_cols <- function(endpoints, urls, url_path) {
 # retrieve and read in a single csv file from a download url
 #
 # returns a data.frame for a single csv file
-download_csv <- function(url, cols, filters) {
-  message('\nFetching data for ', basename(url), ' ...')
+download_csv <- function(url, cols, filters, verbose = TRUE) {
+  if (verbose) {
+    message('\nFetching data for ', basename(url), ' ...')
+  }
   df <- readr::read_csv(url, col_types = cols, na = c('', '.'))
   df <- apply_csv_filters(df, filters)
   return(df)
@@ -96,8 +98,8 @@ download_csv <- function(url, cols, filters) {
 # retrieve and combine all csv files for an api endpoint
 #
 # returns a full data.frame for an api endpoint
-get_csv_data <- function(urls, cols, filters) {
-  dfs <- lapply(urls, function(x) download_csv(x, cols, filters))
+get_csv_data <- function(urls, cols, filters, verbose) {
+  dfs <- lapply(urls, function(x) download_csv(x, cols, filters, verbose))
   df <- do.call(rbind, dfs)
   return(df)
 }

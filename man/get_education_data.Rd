@@ -33,7 +33,7 @@ get_education_data(
 
 \item{csv}{Download the full csv file? Defaults to FALSE.}
 
-\item{verbose}{Print messages and warnings?  Defaults to TRUE}
+\item{verbose}{Print messages and warnings? Defaults to TRUE.}
 }
 \value{
 A `data.frame` of education data

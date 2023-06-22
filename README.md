@@ -80,6 +80,7 @@ where:
 - add_labels - Add variable labels (when applicable)? Defaults to
   `FALSE`.
 - csv - Download the full csv file? Defaults to `FALSE`.
+- verbose - Print messages and warnings? Defaults to `TRUE`.
 
 ## Available Endpoints
 

@@ -8,7 +8,7 @@
 #' @param filters Optional 'list' of query values to filter an API call
 #' @param add_labels Add variable labels (when applicable)? Defaults to FALSE.
 #' @param csv Download the full csv file? Defaults to FALSE.
-#' @param verbose Print messages and warnings?  Defaults to TRUE
+#' @param verbose Print messages and warnings? Defaults to TRUE.
 #'
 #' @return A `data.frame` of education data
 #'

@@ -35,7 +35,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">educationdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
       </span>
     </div>
 
@@ -145,6 +145,8 @@ results from an API call.</li>
 <code>FALSE</code>.</li>
 <li>csv - Download the full csv file? Defaults to
 <code>FALSE</code>.</li>
+<li>verbose - Print messages and warnings? Defaults to
+<code>TRUE</code>.</li>
 </ul>
 </div>
 <div class="section level2">
@@ -262,7 +264,7 @@ results from an API call.</li>
 <td align="left">completers</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2011–2019</td>
+<td align="left">2011–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -270,7 +272,7 @@ results from an API call.</li>
 <td align="left">completions-cip-2</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1991–2019</td>
+<td align="left">1991–2021</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -278,7 +280,7 @@ results from an API call.</li>
 <td align="left">completions-cip-6</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1983–2019</td>
+<td align="left">1983–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -286,7 +288,7 @@ results from an API call.</li>
 <td align="left">directory</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1980, 1984–2020</td>
+<td align="left">1980, 1984–2021</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -302,7 +304,7 @@ results from an API call.</li>
 <td align="left">enrollment-headcount</td>
 <td align="left">NA</td>
 <td align="left">year, level_of_study</td>
-<td align="left">1996–2018</td>
+<td align="left">1996–2021</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -374,7 +376,7 @@ results from an API call.</li>
 <td align="left">institutional-characteristics</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1980, 1984–2020</td>
+<td align="left">1980, 1984–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -470,7 +472,7 @@ results from an API call.</li>
 <td align="left">endowments</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2012–2018</td>
+<td align="left">2012–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -486,7 +488,7 @@ results from an API call.</li>
 <td align="left">census-1990</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1980, 1984–2017</td>
+<td align="left">1980, 1984–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -494,7 +496,7 @@ results from an API call.</li>
 <td align="left">census-2000</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1980, 1984–2017</td>
+<td align="left">1980, 1984–2021</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -502,7 +504,7 @@ results from an API call.</li>
 <td align="left">census-2010</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1980, 1984–2017</td>
+<td align="left">1980, 1984–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -510,7 +512,7 @@ results from an API call.</li>
 <td align="left">default</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1996–2017</td>
+<td align="left">1996–2020</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -518,7 +520,7 @@ results from an API call.</li>
 <td align="left">earnings</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2003–2014</td>
+<td align="left">2003–2014, 2018</td>
 </tr>
 <tr class="odd">
 <td align="left">college-university</td>
@@ -526,7 +528,7 @@ results from an API call.</li>
 <td align="left">institutional-characteristics</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1996–2017</td>
+<td align="left">1996–2020</td>
 </tr>
 <tr class="even">
 <td align="left">college-university</td>
@@ -558,7 +560,7 @@ results from an API call.</li>
 <td align="left">directory</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -566,7 +568,7 @@ results from an API call.</li>
 <td align="left">enrollment</td>
 <td align="left">NA</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">school-districts</td>
@@ -574,7 +576,7 @@ results from an API call.</li>
 <td align="left">enrollment</td>
 <td align="left">race</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -582,7 +584,7 @@ results from an API call.</li>
 <td align="left">enrollment</td>
 <td align="left">race, sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">school-districts</td>
@@ -590,7 +592,7 @@ results from an API call.</li>
 <td align="left">enrollment</td>
 <td align="left">sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -606,7 +608,7 @@ results from an API call.</li>
 <td align="left">assessments</td>
 <td align="left">NA</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2018</td>
+<td align="left">2009–2018, 2020</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -614,7 +616,7 @@ results from an API call.</li>
 <td align="left">assessments</td>
 <td align="left">race</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2018</td>
+<td align="left">2009–2018, 2020</td>
 </tr>
 <tr class="odd">
 <td align="left">school-districts</td>
@@ -622,7 +624,7 @@ results from an API call.</li>
 <td align="left">assessments</td>
 <td align="left">sex</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2018</td>
+<td align="left">2009–2018, 2020</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -630,7 +632,7 @@ results from an API call.</li>
 <td align="left">assessments</td>
 <td align="left">special-populations</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2018</td>
+<td align="left">2009–2018, 2020</td>
 </tr>
 <tr class="odd">
 <td align="left">school-districts</td>
@@ -638,7 +640,7 @@ results from an API call.</li>
 <td align="left">grad-rates</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2010–2018</td>
+<td align="left">2010–2019</td>
 </tr>
 <tr class="even">
 <td align="left">school-districts</td>
@@ -646,7 +648,7 @@ results from an API call.</li>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1995, 1997, 1999–2018</td>
+<td align="left">1995, 1997, 1999–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -654,7 +656,7 @@ results from an API call.</li>
 <td align="left">directory</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -662,7 +664,7 @@ results from an API call.</li>
 <td align="left">enrollment</td>
 <td align="left">NA</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -670,7 +672,7 @@ results from an API call.</li>
 <td align="left">enrollment</td>
 <td align="left">race</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -678,7 +680,7 @@ results from an API call.</li>
 <td align="left">enrollment</td>
 <td align="left">race, sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -686,7 +688,7 @@ results from an API call.</li>
 <td align="left">enrollment</td>
 <td align="left">sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -838,7 +840,7 @@ results from an API call.</li>
 <td align="left">dual-enrollment</td>
 <td align="left">disability, sex</td>
 <td align="left">year</td>
-<td align="left">2013, 2015, 2017</td>
+<td align="left">2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -846,7 +848,7 @@ results from an API call.</li>
 <td align="left">dual-enrollment</td>
 <td align="left">lep, sex</td>
 <td align="left">year</td>
-<td align="left">2013, 2015, 2017</td>
+<td align="left">2015, 2017</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -854,7 +856,7 @@ results from an API call.</li>
 <td align="left">dual-enrollment</td>
 <td align="left">race, sex</td>
 <td align="left">year</td>
-<td align="left">2013, 2015, 2017</td>
+<td align="left">2015, 2017</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1078,7 +1080,7 @@ results from an API call.</li>
 <td align="left">assessments</td>
 <td align="left">NA</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2018</td>
+<td align="left">2009–2018, 2020</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1086,7 +1088,7 @@ results from an API call.</li>
 <td align="left">assessments</td>
 <td align="left">race</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2018</td>
+<td align="left">2009–2018, 2020</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -1094,7 +1096,7 @@ results from an API call.</li>
 <td align="left">assessments</td>
 <td align="left">sex</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2018</td>
+<td align="left">2009–2018, 2020</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1102,7 +1104,7 @@ results from an API call.</li>
 <td align="left">assessments</td>
 <td align="left">special-populations</td>
 <td align="left">year, grade_edfacts</td>
-<td align="left">2009–2018</td>
+<td align="left">2009–2018, 2020</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -1110,7 +1112,7 @@ results from an API call.</li>
 <td align="left">grad-rates</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">2010–2018</td>
+<td align="left">2010–2019</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1126,7 +1128,7 @@ results from an API call.</li>
 <td align="left">census-1990</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1134,7 +1136,7 @@ results from an API call.</li>
 <td align="left">census-2000</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -1142,7 +1144,7 @@ results from an API call.</li>
 <td align="left">census-2010</td>
 <td align="left">NA</td>
 <td align="left">year</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 </tbody>
 </table>
@@ -1300,7 +1302,7 @@ endpoints.</p>
 <td align="left">enrollment</td>
 <td align="left">NA</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -1308,7 +1310,7 @@ endpoints.</p>
 <td align="left">enrollment</td>
 <td align="left">race</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1316,7 +1318,7 @@ endpoints.</p>
 <td align="left">enrollment</td>
 <td align="left">race, sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="even">
 <td align="left">schools</td>
@@ -1324,7 +1326,7 @@ endpoints.</p>
 <td align="left">enrollment</td>
 <td align="left">sex</td>
 <td align="left">year, grade</td>
-<td align="left">1986–2020</td>
+<td align="left">1986–2021</td>
 </tr>
 <tr class="odd">
 <td align="left">schools</td>
@@ -1428,7 +1430,8 @@ then subset to the 96 observations.</p>
 <p>You can access the summary endpoint functionality using the
 <code><a href="reference/get_education_data_summary.html">get_education_data_summary()</a></code> function.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_education_data_summary.html">get_education_data_summary</a></span><span class="op">(</span>
+<code class="sourceCode R">
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_education_data_summary.html">get_education_data_summary</a></span><span class="op">(</span>
     level <span class="op">=</span> <span class="st">"schools"</span>,
     source <span class="op">=</span> <span class="st">"ccd"</span>,
     topic <span class="op">=</span> <span class="st">"enrollment"</span>,

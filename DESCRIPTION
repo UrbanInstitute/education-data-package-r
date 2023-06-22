@@ -5,7 +5,7 @@ Version: 0.1.4
 Authors@R: c(
     person("Erika", "Tyagi", email = "etyagi@urban.org", role = "cre"), 
     person("Kyle", "Ueyama", email = "khueyama@gmail.com", role = "aut"),
-    person("Andrew", "Martin", email = "almartin@gmail.com", role="ctb"),
+    person("Andrew", "Martin", email = "almartin@gmail.com", role="ctb", comment = c(ORCID = "0009-0005-5117-323X")),
     person(given = "The Urban Institute", role = c("cph"))
     )
 Date: 2023-06-21

@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# educationdata
+# educationdata <img src="man/figures/logo.png" align="right" height="230" alt="" />
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/UrbanInstitute/education-data-package-r/workflows/R-CMD-check/badge.svg)](https://github.com/UrbanInstitute/education-data-package-r/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/educationdata)](https://cran.r-project.org/package=educationdata)
-[![R-CMD-check](https://github.com/UrbanInstitute/education-data-package-r/workflows/R-CMD-check/badge.svg)](https://github.com/UrbanInstitute/education-data-package-r/actions)
 <!-- badges: end -->
 
 Retrieve data from the Urban Institute’s [Education Data
@@ -91,12 +91,12 @@ where:
 | college-university | fsa       | financial-responsibility           | NA                    | year                 | 2006–2016                                     |
 | college-university | fsa       | grants                             | NA                    | year                 | 1999–2018                                     |
 | college-university | fsa       | loans                              | NA                    | year                 | 1999–2018                                     |
-| college-university | ipeds     | academic-libraries                 | NA                    | year                 | 2013–2019                                     |
-| college-university | ipeds     | academic-year-room-board-other     | NA                    | year                 | 1999–2020                                     |
-| college-university | ipeds     | academic-year-tuition-prof-program | NA                    | year                 | 1986–2008, 2010–2020                          |
-| college-university | ipeds     | academic-year-tuition              | NA                    | year                 | 1986–2020                                     |
-| college-university | ipeds     | admissions-enrollment              | NA                    | year                 | 2001–2019                                     |
-| college-university | ipeds     | admissions-requirements            | NA                    | year                 | 1990–2019                                     |
+| college-university | ipeds     | academic-libraries                 | NA                    | year                 | 2013–2020                                     |
+| college-university | ipeds     | academic-year-room-board-other     | NA                    | year                 | 1999–2021                                     |
+| college-university | ipeds     | academic-year-tuition-prof-program | NA                    | year                 | 1986–2008, 2010–2021                          |
+| college-university | ipeds     | academic-year-tuition              | NA                    | year                 | 1986–2021                                     |
+| college-university | ipeds     | admissions-enrollment              | NA                    | year                 | 2001–2021                                     |
+| college-university | ipeds     | admissions-requirements            | NA                    | year                 | 1990–2021                                     |
 | college-university | ipeds     | completers                         | NA                    | year                 | 2011–2021                                     |
 | college-university | ipeds     | completions-cip-2                  | NA                    | year                 | 1991–2021                                     |
 | college-university | ipeds     | completions-cip-6                  | NA                    | year                 | 1983–2021                                     |
@@ -112,11 +112,11 @@ where:
 | college-university | ipeds     | grad-rates-pell                    | NA                    | year                 | 2015–2017                                     |
 | college-university | ipeds     | grad-rates                         | NA                    | year                 | 1996–2017                                     |
 | college-university | ipeds     | institutional-characteristics      | NA                    | year                 | 1980, 1984–2021                               |
-| college-university | ipeds     | outcome-measures                   | NA                    | year                 | 2015–2018                                     |
-| college-university | ipeds     | program-year-room-board-other      | NA                    | year                 | 1999–2020                                     |
-| college-university | ipeds     | program-year-tuition-cip           | NA                    | year                 | 1987–2020                                     |
-| college-university | ipeds     | salaries-instructional-staff       | NA                    | year                 | 1980, 1984, 1985, 1987, 1989–1999, 2001–2018  |
-| college-university | ipeds     | salaries-noninstructional-staff    | NA                    | year                 | 2012–2018                                     |
+| college-university | ipeds     | outcome-measures                   | NA                    | year                 | 2015–2020                                     |
+| college-university | ipeds     | program-year-room-board-other      | NA                    | year                 | 1999–2021                                     |
+| college-university | ipeds     | program-year-tuition-cip           | NA                    | year                 | 1987–2021                                     |
+| college-university | ipeds     | salaries-instructional-staff       | NA                    | year                 | 1980, 1984, 1985, 1987, 1989–1999, 2001–2021  |
+| college-university | ipeds     | salaries-noninstructional-staff    | NA                    | year                 | 2012–2021                                     |
 | college-university | ipeds     | sfa-all-undergraduates             | NA                    | year                 | 2007–2017                                     |
 | college-university | ipeds     | sfa-by-living-arrangement          | NA                    | year                 | 2008–2017                                     |
 | college-university | ipeds     | sfa-by-tuition-type                | NA                    | year                 | 1999–2017                                     |

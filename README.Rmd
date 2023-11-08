@@ -12,11 +12,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-# educationdata
+# educationdata <img src="man/figures/logo.png" align="right" height="230" alt="" />
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/educationdata)](https://cran.r-project.org/package=educationdata)
 [![R-CMD-check](https://github.com/UrbanInstitute/education-data-package-r/workflows/R-CMD-check/badge.svg)](https://github.com/UrbanInstitute/education-data-package-r/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/educationdata)](https://cran.r-project.org/package=educationdata)
 <!-- badges: end -->
 
 Retrieve data from the Urban Institute's [Education Data API](https://educationdata.urban.org/) as a `data.frame` for easy analysis.

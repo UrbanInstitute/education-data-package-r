@@ -55,7 +55,7 @@ str(df)
 #>  $ ncessch_num: num  3.41e+11 3.41e+11 3.41e+11 3.41e+11 3.41e+11 ...
 #>  $ grade      : Factor w/ 19 levels "Pre-K","Kindergarten",..: 11 11 11 11 11 11 11 11 11 11 ...
 #>  $ race       : Factor w/ 14 levels "White","Black",..: 2 3 5 5 2 4 6 11 1 7 ...
-#>  $ sex        : Factor w/ 7 levels "Male","Female",..: 1 1 2 1 2 2 2 1 2 1 ...
+#>  $ sex        : Factor w/ 8 levels "Male","Female",..: 1 1 2 1 2 2 2 1 2 1 ...
 #>  $ enrollment : int  41 39 0 0 46 32 3 270 166 0 ...
 #>  $ fips       : Factor w/ 79 levels "Alabama","Alaska",..: 34 34 34 34 34 34 34 34 34 34 ...
 #>  $ leaid      : chr  "3406060" "3406060" "3406060" "3406060" ...
@@ -97,10 +97,10 @@ where:
 | college-university | ipeds     | academic-year-tuition              | NA                    | year                 | 1986–2021                                     |
 | college-university | ipeds     | admissions-enrollment              | NA                    | year                 | 2001–2021                                     |
 | college-university | ipeds     | admissions-requirements            | NA                    | year                 | 1990–2021                                     |
-| college-university | ipeds     | completers                         | NA                    | year                 | 2011–2021                                     |
-| college-university | ipeds     | completions-cip-2                  | NA                    | year                 | 1991–2021                                     |
-| college-university | ipeds     | completions-cip-6                  | NA                    | year                 | 1983–2021                                     |
-| college-university | ipeds     | directory                          | NA                    | year                 | 1980, 1984–2021                               |
+| college-university | ipeds     | completers                         | NA                    | year                 | 2011–2022                                     |
+| college-university | ipeds     | completions-cip-2                  | NA                    | year                 | 1991–2022                                     |
+| college-university | ipeds     | completions-cip-6                  | NA                    | year                 | 1983–2022                                     |
+| college-university | ipeds     | directory                          | NA                    | year                 | 1980, 1984–2022                               |
 | college-university | ipeds     | enrollment-full-time-equivalent    | NA                    | year, level_of_study | 1997–2018                                     |
 | college-university | ipeds     | enrollment-headcount               | NA                    | year, level_of_study | 1996–2021                                     |
 | college-university | ipeds     | fall-enrollment                    | age, sex              | year, level_of_study | 1991, 1993, 1995, 1997, 1999–2020             |
@@ -111,7 +111,7 @@ where:
 | college-university | ipeds     | grad-rates-200pct                  | NA                    | year                 | 2007–2017                                     |
 | college-university | ipeds     | grad-rates-pell                    | NA                    | year                 | 2015–2017                                     |
 | college-university | ipeds     | grad-rates                         | NA                    | year                 | 1996–2017                                     |
-| college-university | ipeds     | institutional-characteristics      | NA                    | year                 | 1980, 1984–2021                               |
+| college-university | ipeds     | institutional-characteristics      | NA                    | year                 | 1980, 1984–2022                               |
 | college-university | ipeds     | outcome-measures                   | NA                    | year                 | 2015–2020                                     |
 | college-university | ipeds     | program-year-room-board-other      | NA                    | year                 | 1999–2021                                     |
 | college-university | ipeds     | program-year-tuition-cip           | NA                    | year                 | 1987–2021                                     |

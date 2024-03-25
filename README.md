@@ -86,6 +86,7 @@ where:
 
 | Level              | Source    | Topic                              | Subtopic              | Main Filters         | Years Available                               |
 |:-------------------|:----------|:-----------------------------------|:----------------------|:---------------------|:----------------------------------------------|
+| college-university | eada      | institutional-characteristics      | NA                    | year                 | 2002–2021                                     |
 | college-university | fsa       | 90-10-revenue-percentages          | NA                    | year                 | 2014–2017                                     |
 | college-university | fsa       | campus-based-volume                | NA                    | year                 | 2001–2017                                     |
 | college-university | fsa       | financial-responsibility           | NA                    | year                 | 2006–2016                                     |
@@ -95,13 +96,13 @@ where:
 | college-university | ipeds     | academic-year-room-board-other     | NA                    | year                 | 1999–2021                                     |
 | college-university | ipeds     | academic-year-tuition-prof-program | NA                    | year                 | 1986–2008, 2010–2021                          |
 | college-university | ipeds     | academic-year-tuition              | NA                    | year                 | 1986–2021                                     |
-| college-university | ipeds     | admissions-enrollment              | NA                    | year                 | 2001–2021                                     |
-| college-university | ipeds     | admissions-requirements            | NA                    | year                 | 1990–2021                                     |
+| college-university | ipeds     | admissions-enrollment              | NA                    | year                 | 2001–2022                                     |
+| college-university | ipeds     | admissions-requirements            | NA                    | year                 | 1990–2022                                     |
 | college-university | ipeds     | completers                         | NA                    | year                 | 2011–2022                                     |
 | college-university | ipeds     | completions-cip-2                  | NA                    | year                 | 1991–2022                                     |
 | college-university | ipeds     | completions-cip-6                  | NA                    | year                 | 1983–2022                                     |
 | college-university | ipeds     | directory                          | NA                    | year                 | 1980, 1984–2022                               |
-| college-university | ipeds     | enrollment-full-time-equivalent    | NA                    | year, level_of_study | 1997–2018                                     |
+| college-university | ipeds     | enrollment-full-time-equivalent    | NA                    | year, level_of_study | 1997–2021                                     |
 | college-university | ipeds     | enrollment-headcount               | NA                    | year, level_of_study | 1996–2021                                     |
 | college-university | ipeds     | fall-enrollment                    | age, sex              | year, level_of_study | 1991, 1993, 1995, 1997, 1999–2020             |
 | college-university | ipeds     | fall-enrollment                    | race, sex             | year, level_of_study | 1986–2020                                     |
@@ -112,11 +113,11 @@ where:
 | college-university | ipeds     | grad-rates-pell                    | NA                    | year                 | 2015–2017                                     |
 | college-university | ipeds     | grad-rates                         | NA                    | year                 | 1996–2017                                     |
 | college-university | ipeds     | institutional-characteristics      | NA                    | year                 | 1980, 1984–2022                               |
-| college-university | ipeds     | outcome-measures                   | NA                    | year                 | 2015–2020                                     |
+| college-university | ipeds     | outcome-measures                   | NA                    | year                 | 2015–2021                                     |
 | college-university | ipeds     | program-year-room-board-other      | NA                    | year                 | 1999–2021                                     |
 | college-university | ipeds     | program-year-tuition-cip           | NA                    | year                 | 1987–2021                                     |
-| college-university | ipeds     | salaries-instructional-staff       | NA                    | year                 | 1980, 1984, 1985, 1987, 1989–1999, 2001–2021  |
-| college-university | ipeds     | salaries-noninstructional-staff    | NA                    | year                 | 2012–2021                                     |
+| college-university | ipeds     | salaries-instructional-staff       | NA                    | year                 | 1980, 1984, 1985, 1987, 1989–1999, 2001–2022  |
+| college-university | ipeds     | salaries-noninstructional-staff    | NA                    | year                 | 2012–2022                                     |
 | college-university | ipeds     | sfa-all-undergraduates             | NA                    | year                 | 2007–2017                                     |
 | college-university | ipeds     | sfa-by-living-arrangement          | NA                    | year                 | 2008–2017                                     |
 | college-university | ipeds     | sfa-by-tuition-type                | NA                    | year                 | 1999–2017                                     |
@@ -134,11 +135,11 @@ where:
 | college-university | scorecard | repayment                          | NA                    | year                 | 2007–2016                                     |
 | college-university | scorecard | student-characteristics            | aid-applicants        | year                 | 1997–2016                                     |
 | college-university | scorecard | student-characteristics            | home-neighborhood     | year                 | 1997–2016                                     |
-| school-districts   | ccd       | directory                          | NA                    | year                 | 1986–2021                                     |
-| school-districts   | ccd       | enrollment                         | NA                    | year, grade          | 1986–2021                                     |
-| school-districts   | ccd       | enrollment                         | race                  | year, grade          | 1986–2021                                     |
-| school-districts   | ccd       | enrollment                         | race, sex             | year, grade          | 1986–2021                                     |
-| school-districts   | ccd       | enrollment                         | sex                   | year, grade          | 1986–2021                                     |
+| school-districts   | ccd       | directory                          | NA                    | year                 | 1986–2022                                     |
+| school-districts   | ccd       | enrollment                         | NA                    | year, grade          | 1986–2022                                     |
+| school-districts   | ccd       | enrollment                         | race                  | year, grade          | 1986–2022                                     |
+| school-districts   | ccd       | enrollment                         | race, sex             | year, grade          | 1986–2022                                     |
+| school-districts   | ccd       | enrollment                         | sex                   | year, grade          | 1986–2022                                     |
 | school-districts   | ccd       | finance                            | NA                    | year                 | 1991, 1994–2018                               |
 | school-districts   | edfacts   | assessments                        | NA                    | year, grade_edfacts  | 2009–2018, 2020                               |
 | school-districts   | edfacts   | assessments                        | race                  | year, grade_edfacts  | 2009–2018, 2020                               |
@@ -146,11 +147,11 @@ where:
 | school-districts   | edfacts   | assessments                        | special-populations   | year, grade_edfacts  | 2009–2018, 2020                               |
 | school-districts   | edfacts   | grad-rates                         | NA                    | year                 | 2010–2019                                     |
 | school-districts   | saipe     | NA                                 | NA                    | year                 | 1995, 1997, 1999–2021                         |
-| schools            | ccd       | directory                          | NA                    | year                 | 1986–2021                                     |
-| schools            | ccd       | enrollment                         | NA                    | year, grade          | 1986–2021                                     |
-| schools            | ccd       | enrollment                         | race                  | year, grade          | 1986–2021                                     |
-| schools            | ccd       | enrollment                         | race, sex             | year, grade          | 1986–2021                                     |
-| schools            | ccd       | enrollment                         | sex                   | year, grade          | 1986–2021                                     |
+| schools            | ccd       | directory                          | NA                    | year                 | 1986–2022                                     |
+| schools            | ccd       | enrollment                         | NA                    | year, grade          | 1986–2022                                     |
+| schools            | ccd       | enrollment                         | race                  | year, grade          | 1986–2022                                     |
+| schools            | ccd       | enrollment                         | race, sex             | year, grade          | 1986–2022                                     |
+| schools            | ccd       | enrollment                         | sex                   | year, grade          | 1986–2022                                     |
 | schools            | crdc      | algebra1                           | disability, sex       | year                 | 2011, 2013, 2015, 2017                        |
 | schools            | crdc      | algebra1                           | lep, sex              | year                 | 2011, 2013, 2015, 2017                        |
 | schools            | crdc      | algebra1                           | race, sex             | year                 | 2011, 2013, 2015, 2017                        |
@@ -204,7 +205,7 @@ where:
 | schools            | edfacts   | assessments                        | sex                   | year, grade_edfacts  | 2009–2018, 2020                               |
 | schools            | edfacts   | assessments                        | special-populations   | year, grade_edfacts  | 2009–2018, 2020                               |
 | schools            | edfacts   | grad-rates                         | NA                    | year                 | 2010–2019                                     |
-| schools            | meps      | NA                                 | NA                    | year                 | 2013–2018                                     |
+| schools            | meps      | NA                                 | NA                    | year                 | 2013–2020                                     |
 | schools            | nhgis     | census-1990                        | NA                    | year                 | 1986–2021                                     |
 | schools            | nhgis     | census-2000                        | NA                    | year                 | 1986–2021                                     |
 | schools            | nhgis     | census-2010                        | NA                    | year                 | 1986–2021                                     |
@@ -256,10 +257,10 @@ Let’s build up some examples, from the following set of endpoints.
 
 | Level   | Source | Topic      | Subtopic        | Main Filters | Years Available        |
 |:--------|:-------|:-----------|:----------------|:-------------|:-----------------------|
-| schools | ccd    | enrollment | NA              | year, grade  | 1986–2021              |
-| schools | ccd    | enrollment | race            | year, grade  | 1986–2021              |
-| schools | ccd    | enrollment | race, sex       | year, grade  | 1986–2021              |
-| schools | ccd    | enrollment | sex             | year, grade  | 1986–2021              |
+| schools | ccd    | enrollment | NA              | year, grade  | 1986–2022              |
+| schools | ccd    | enrollment | race            | year, grade  | 1986–2022              |
+| schools | ccd    | enrollment | race, sex       | year, grade  | 1986–2022              |
+| schools | ccd    | enrollment | sex             | year, grade  | 1986–2022              |
 | schools | crdc   | enrollment | disability, sex | year         | 2011, 2013, 2015, 2017 |
 | schools | crdc   | enrollment | lep, sex        | year         | 2011, 2013, 2015, 2017 |
 | schools | crdc   | enrollment | race, sex       | year         | 2011, 2013, 2015, 2017 |

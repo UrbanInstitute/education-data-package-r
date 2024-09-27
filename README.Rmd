@@ -153,7 +153,7 @@ accept the following values:
 Let's build up some examples, from the following set of endpoints.
 
 ```{r example-endpoints, echo = FALSE}
-df <- df[df$section == 'schools' & df$topic == 'enrollment', ]
+df <- df[df$section %in% 'schools' & df$topic %in% 'enrollment', ]
 
 knitr::kable(df[vars], 
              col.names = c('Level', 

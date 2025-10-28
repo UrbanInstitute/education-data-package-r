@@ -1,5 +1,5 @@
 ## Resubmission
-This is a resubmission. In this version I have updated the test suite to comply with the following policy (per an email from CRAN on 2022-09-26): 
+This is a resubmission. In this version I have updated the vignettes to comply with the following policy (per an email from CRAN on 2025-10-15): 
 > Packages which use Internet resources should fail gracefully with an informative message if the resource is not available or has changed (and not give a check warning nor error).
 
 ## Test environments

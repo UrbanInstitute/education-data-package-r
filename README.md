@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# educationdata <img src="man/figures/logo.png" align="right" height="230" alt="" />
+# educationdata <img src="man/figures/logo.png" width = "250px" align = "right">
 
 <!-- badges: start -->
 

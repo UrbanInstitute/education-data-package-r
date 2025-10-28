@@ -1,14 +1,14 @@
 Package: educationdata
 Type: Package
 Title: Retrieve Records from the Urban Institute's Education Data Portal API  
-Version: 0.1.4
+Version: 0.1.5
 Authors@R: c(
     person("Erika", "Tyagi", email = "etyagi@urban.org", role = "cre"), 
     person("Kyle", "Ueyama", email = "khueyama@gmail.com", role = "aut"),
     person("Andrew", "Martin", email = "almartin@gmail.com", role="ctb", comment = c(ORCID = "0009-0005-5117-323X")),
     person(given = "The Urban Institute", role = c("cph"))
     )
-Date: 2023-06-21
+Date: 2025-10-28
 URL: https://urbaninstitute.github.io/education-data-package-r/
 BugReports: https://github.com/UrbanInstitute/education-data-package-r/issues
 Description: Allows R users to retrieve and parse data from the Urban 
@@ -28,4 +28,4 @@ Suggests:
     knitr,
     rmarkdown,
     testthat
-VignetteBuilder: knitr
+Config/Needs/website: rmarkdown

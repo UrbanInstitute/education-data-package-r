@@ -5,6 +5,8 @@ date: "2021-05-26"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introducing educationdata}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include = FALSE}

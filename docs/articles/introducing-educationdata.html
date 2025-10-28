@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">educationdata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.5</span>
       </span>
     </div>
 
@@ -143,30 +143,6 @@ Defaults to <code>FALSE</code>.</li>
 <span>   source <span class="op">=</span> <span class="st">'ipeds'</span>,</span>
 <span>   topic <span class="op">=</span> <span class="st">'student-faculty-ratio'</span></span>
 <span> <span class="op">)</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2009/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2010/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2011/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2012/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2013/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2014/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2015/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2016/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2017/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2018/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2019/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2020/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2009/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2010/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2011/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2012/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2013/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2014/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2015/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2016/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2017/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2018/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2019/?mode=R</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/college-university/ipeds/student-faculty-ratio/2020/?mode=R</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   unitid year fips student_faculty_ratio</span></span>
@@ -196,14 +172,6 @@ their factor labels (‘race’ and ‘sex’ in this instance).</p>
 <span>                         add_labels <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in get_education_data(level = "schools", source = "ccd", topic = "enrollment", : The `by` argument has been deprecated in favor of `subtopic`.</span></span>
 <span><span class="co">#&gt; Please update your script to use `subtopic` instead.</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/schools/ccd/enrollment/2008/grade-9/race/sex/?mode=R&amp;ncessch=340606000122</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/schools/ccd/enrollment/2008/grade-10/race/sex/?mode=R&amp;ncessch=340606000122</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/schools/ccd/enrollment/2008/grade-11/race/sex/?mode=R&amp;ncessch=340606000122</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/schools/ccd/enrollment/2008/grade-12/race/sex/?mode=R&amp;ncessch=340606000122</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/schools/ccd/enrollment/2008/grade-9/race/sex/?mode=R&amp;ncessch=340606000122</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/schools/ccd/enrollment/2008/grade-10/race/sex/?mode=R&amp;ncessch=340606000122</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/schools/ccd/enrollment/2008/grade-11/race/sex/?mode=R&amp;ncessch=340606000122</span></span>
-<span><span class="co">#&gt; https://educationdata.urban.org/api/v1/schools/ccd/enrollment/2008/grade-12/race/sex/?mode=R&amp;ncessch=340606000122</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   year      ncessch ncessch_num grade                             race    sex</span></span>

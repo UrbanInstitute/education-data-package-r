@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   introducing-educationdata: introducing-educationdata.html
-last_built: 2025-10-28T15:22Z
+last_built: 2025-10-28T15:42Z
 urls:
   reference: https://urbaninstitute.github.io/education-data-package-r/reference
   article: https://urbaninstitute.github.io/education-data-package-r/articles

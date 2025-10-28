@@ -1,0 +1,32 @@
+template:
+  params:
+    bootstrap: 5
+    bootswatch: spacelab
+
+url: https://urbaninstitute.github.io/education-data-package-r/
+
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    articles:
+      text: Articles
+      menu:
+      - text: Basic usage of educationdata
+        href: articles/introducing-educationdata.html
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/UrbanInstitute/education-data-package-r/

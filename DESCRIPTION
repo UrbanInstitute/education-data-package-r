@@ -28,4 +28,4 @@ Suggests:
     knitr,
     rmarkdown,
     testthat
-VignetteBuilder: knitr
+Config/Needs/website: rmarkdown

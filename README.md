@@ -94,31 +94,31 @@ where:
 | college-university | fsa | grants | NA | year | 1999–2021 |
 | college-university | fsa | loans | NA | year | 1999–2021 |
 | college-university | ipeds | academic-libraries | NA | year | 2013–2020 |
-| college-university | ipeds | academic-year-room-board-other | NA | year | 1999–2021 |
-| college-university | ipeds | academic-year-tuition-prof-program | NA | year | 1986–2008, 2010–2021 |
-| college-university | ipeds | academic-year-tuition | NA | year | 1986–2021 |
-| college-university | ipeds | admissions-enrollment | NA | year | 2001–2022 |
+| college-university | ipeds | academic-year-room-board-other | NA | year | 1999–2023 |
+| college-university | ipeds | academic-year-tuition-prof-program | NA | year | 1986–2008, 2010–2023 |
+| college-university | ipeds | academic-year-tuition | NA | year | 1986–2023 |
+| college-university | ipeds | admissions-enrollment | NA | year | 2001–2024 |
 | college-university | ipeds | admissions-requirements | NA | year | 1990–2022 |
-| college-university | ipeds | completers | NA | year | 2011–2022 |
+| college-university | ipeds | completers | NA | year | 2011–2021 |
 | college-university | ipeds | completions-cip-2 | NA | year | 1991–2022 |
 | college-university | ipeds | completions-cip-6 | NA | year | 1983–2022 |
 | college-university | ipeds | directory | NA | year | 1980, 1984–2024 |
 | college-university | ipeds | enrollment-full-time-equivalent | NA | year, level_of_study | 1997–2021 |
 | college-university | ipeds | enrollment-headcount | NA | year, level_of_study | 1996–2021 |
-| college-university | ipeds | fall-enrollment | age, sex | year, level_of_study | 1991, 1993, 1995, 1997, 1999–2020 |
-| college-university | ipeds | fall-enrollment | race, sex | year, level_of_study | 1986–2022 |
-| college-university | ipeds | fall-enrollment | residence | year | 1986, 1988, 1992, 1994, 1996, 1998, 2000–2020 |
+| college-university | ipeds | fall-enrollment | age, sex | year, level_of_study | 1991, 1993, 1995, 1997, 1999–2024 |
+| college-university | ipeds | fall-enrollment | race, sex | year, level_of_study | 1986–2024 |
+| college-university | ipeds | fall-enrollment | residence | year | 1986, 1988, 1992, 1994, 1996, 1998, 2000–2024 |
 | college-university | ipeds | fall-retention | NA | year | 2003–2020 |
 | college-university | ipeds | finance | NA | year | 1979, 1983–2017 |
 | college-university | ipeds | grad-rates-200pct | NA | year | 2007–2022 |
 | college-university | ipeds | grad-rates-pell | NA | year | 2015–2017 |
-| college-university | ipeds | grad-rates | NA | year | 1996–2022 |
+| college-university | ipeds | grad-rates | NA | year | 1996–2023 |
 | college-university | ipeds | institutional-characteristics | NA | year | 1980, 1984–2024 |
 | college-university | ipeds | outcome-measures | NA | year | 2015–2021 |
-| college-university | ipeds | program-year-room-board-other | NA | year | 1999–2021 |
-| college-university | ipeds | program-year-tuition-cip | NA | year | 1987–2021 |
-| college-university | ipeds | salaries-instructional-staff | NA | year | 1980, 1984, 1985, 1987, 1989–1999, 2001–2022 |
-| college-university | ipeds | salaries-noninstructional-staff | NA | year | 2012–2022 |
+| college-university | ipeds | program-year-room-board-other | NA | year | 1999–2023 |
+| college-university | ipeds | program-year-tuition-cip | NA | year | 1987–2023 |
+| college-university | ipeds | salaries-instructional-staff | NA | year | 1980, 1984, 1985, 1987, 1989–1999, 2001–2024 |
+| college-university | ipeds | salaries-noninstructional-staff | NA | year | 2012–2024 |
 | college-university | ipeds | sfa-all-undergraduates | NA | year | 2007–2021 |
 | college-university | ipeds | sfa-by-living-arrangement | NA | year | 2008–2021 |
 | college-university | ipeds | sfa-by-tuition-type | NA | year | 1999–2021 |

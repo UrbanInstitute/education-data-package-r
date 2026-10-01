@@ -190,7 +190,7 @@ where:
 | schools | crdc | math-and-science | lep, sex | year | 2011, 2013, 2015, 2017, 2020, 2021 |
 | schools | crdc | math-and-science | race, sex | year | 2011, 2013, 2015, 2017, 2020, 2021 |
 | schools | crdc | offenses | NA | year | 2015, 2017, 2020, 2021 |
-| schools | crdc | offerings | NA | year | 2011, 2013, 2015, 2017, 2020, 2021 |
+| schools | crdc | offerings | NA | year | 2011, 2013, 2015, 2017, 2020, 2021, 2023 |
 | schools | crdc | restraint-and-seclusion | disability, lep, sex | year | 2011, 2013, 2015, 2017, 2020, 2021 |
 | schools | crdc | restraint-and-seclusion | disability, race, sex | year | 2011, 2013, 2015, 2017, 2020, 2021 |
 | schools | crdc | restraint-and-seclusion | disability, sex | year | 2011, 2013, 2015, 2017, 2020, 2021 |
